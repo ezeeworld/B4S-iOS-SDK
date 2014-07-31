@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>72D422F8-926E-4C39-9DF7-7E0E48E8BB66</string>
+	<key>IDESourceControlProjectName</key>
+	<string>B4S Sample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>91FBFEE5-EAEE-4E0D-8FD4-18022F704D4B</key>
+		<string>ssh://github.com/stspenle/B4S-iOS-SDK.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Sample app/B4S Sample.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>91FBFEE5-EAEE-4E0D-8FD4-18022F704D4B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/stspenle/B4S-iOS-SDK.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>91FBFEE5-EAEE-4E0D-8FD4-18022F704D4B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>91FBFEE5-EAEE-4E0D-8FD4-18022F704D4B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>B4S-iOS-SDK</string>
+		</dict>
+	</array>
+</dict>
+</plist>
