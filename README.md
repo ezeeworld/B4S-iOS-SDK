@@ -49,6 +49,22 @@ B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP
 [b4sSingleton setNotificationSoundname:@"notif.caf"];
 ```
 
+### Set background and foreground interactions
+
+The SDK responds to applicationDidEnterBackground and applicationWillEnterForeground Interactions. Setup these methods in your appDelegate
+
+```objective-c
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    [[B4SSingleton sharedInstance] setForegroundMode];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    [[B4SSingleton sharedInstance] setBackgroundMode];
+}
+```
+
 ### Decode notifications
 
 The SDK uses local notifications to establish communication between beacons and the app.
