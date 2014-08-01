@@ -56,12 +56,12 @@ The SDK responds to applicationDidEnterBackground and applicationWillEnterForegr
 ```objective-c
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [[B4SSingleton sharedInstance] setForegroundMode];
+	[[B4SSingleton sharedInstance] setBackgroundMode];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [[B4SSingleton sharedInstance] setBackgroundMode];
+	[[B4SSingleton sharedInstance] setForegroundMode]; 
 }
 ```
 
