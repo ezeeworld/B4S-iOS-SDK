@@ -65,6 +65,14 @@ The SDK responds to applicationDidEnterBackground and applicationWillEnterForegr
 }
 ```
 
+### Enable background mode
+
+For the SDK to be able to track the beacons even in background mode, you have to enable background modes in your application.
+In the project settings -> Capabilities, turn on background Modes and select following modes :
+- External accessory communication
+- Uses bluetooth LE accessory
+
+
 ### Decode notifications
 
 The SDK uses local notifications to establish communication between beacons and the app.
