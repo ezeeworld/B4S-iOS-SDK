@@ -20,6 +20,11 @@ Add following files to your project :
 The following frameworks are required :
 - AdSupport.framework
 - CoreBluetooth.framework
+- CoreLocation.framework
+- AVFoundation.framework
+- Security.framework
+- CodeData.framework
+- MobileCoreService.framework
 - SystemConfiguration.framework
 - CoreMotion.framework
 - libc++.dylib
@@ -69,8 +74,7 @@ The SDK responds to applicationDidEnterBackground and applicationWillEnterForegr
 
 For the SDK to be able to track the beacons even in background mode, you have to enable background modes in your application.
 In the project settings -> Capabilities, turn on background Modes and select following modes :
-- External accessory communication
-- Uses bluetooth LE accessory
+- Background fetch
 
 
 ### Decode notifications
@@ -93,5 +97,20 @@ Implement the  application:didReceiveLocalNotification: method in your appDelega
 	NSString *cancelButtonTitle = NSLocalizedString(@"OK", @"Title for cancel button in local notification");
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:notification.alertBody message:nil delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
 	[alert show];
+}
+```
+### Customize notifications
+
+You can customize the notification messages and data sent to your application by implementing the customizeNotificationText:andData:andUserInfo:completion: method in your appDelegate
+
+```objective-c
+- (void)customizeNotificationText:(NSString *)aText
+                          andData:(NSString *)aData
+                      andUserInfo:(NSMutableDictionary *)userInfos
+                       completion:(void (^)(NSString *pushText, NSString *pushData, NSMutableDictionary *userInfos))completion {
+    if(completion) {
+        NSLog(@"[customizeNotificationText] set notification text with braces");
+        completion([NSString stringWithFormat:@"[%@]",aText], aData, userInfos);
+    }
 }
 ```

@@ -1,55 +1,67 @@
 //
-//  EZBShop.h
+//  B4SShop.h
 //
 //  Created by Christophe JANOT on 19/03/2014.
 //  Copyright (c) 2014 Fanny Renauld. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "B4SGroup.h"
 
 @interface B4SShop : NSObject
 
 @property (nonatomic, retain) NSString *shopId;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *shopDescription;
 @property (nonatomic, retain) NSString *address;
 @property (nonatomic, retain) NSString *zipCode;
 @property (nonatomic, retain) NSString *city;
 @property (nonatomic, retain) NSString *country;
 
+/**
+ Notification text associated to the group
+ */
 @property (nonatomic, retain) NSString *pushText;
+/**
+ Notification data associated to the group
+ */
 @property (nonatomic, retain) NSString *pushData;
+/**
+ Customer reference associated to the group
+ */
 @property (nonatomic, retain) NSString *clientRef;
-
+/**
+ Group the shop belongs to.
+ */
 @property (nonatomic, retain) B4SGroup *group;
-@property (nonatomic) int               shopPresenceRange;
 
-@property (nonatomic) float defaultTxPower;
-@property (nonatomic) float defaultPathLoss;
-@property (nonatomic) float txPowerBatteryCompensation;
-@property (nonatomic) float txPowerTemperatureCompensation;
-@property (nonatomic) float pathLoss;
-@property (nonatomic) float nMapHeading;
-
-+ (B4SShop *)addShop:(B4SShop *)aShop;
+/**
+ Return shop name associated to the given shopId
+ */
 + (NSString *)getShopName:(NSString *)aShopId;
+/**
+ Return B4SShop object associated to the given shopId
+ */
 + (B4SShop *)getShop:(NSString *)aShopId;
+/**
+ Returns the list of shop previously downloaded from the backend
+ */
 + (NSArray *)shops;
+/**
+ Returns the list of shop associated to the given groupId previously downloaded from the backend
+ */
 + (NSArray *)shopsForGroup:(NSString *)groupId;
 
-- (B4SShop *)initWithName:(NSString *)aName group:(B4SGroup *)group clientRef:(NSString *)aClientRef;
-- (Boolean)isValid;
-- (void)saveShop:(B4SShop *)aShop
-      completion:(void (^)(Boolean success))completion;
-- (void)removeShop:(B4SShop *)aShop
-        completion:(void (^)(Boolean success))completion;
-+ (void)removeShopById:(NSString *)aShopId
-            completion:(void (^)(Boolean success))completion;
-
-+ (void)clear;
+/**
+ Return the number of shops.
+ */
 + (int)count;
+/**
+ Return the number of shops belonging to groupId.
+ */
 + (int)countForGroup:(NSString *)groupId;
-+ (void)setNearestShop:(B4SShop *)shop;
+/**
+ Return the nearest shop.
+ */
 + (B4SShop *)nearest;
 
 @end

@@ -10,29 +10,29 @@
 	<string>B4S Sample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>91FBFEE5-EAEE-4E0D-8FD4-18022F704D4B</key>
+		<key>57350BE80BE51CC1C953347B7C434FCAD5B4FEF6</key>
 		<string>ssh://github.com/stspenle/B4S-iOS-SDK.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Sample app/B4S Sample.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>91FBFEE5-EAEE-4E0D-8FD4-18022F704D4B</key>
+		<key>57350BE80BE51CC1C953347B7C434FCAD5B4FEF6</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/stspenle/B4S-iOS-SDK.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>91FBFEE5-EAEE-4E0D-8FD4-18022F704D4B</string>
+	<string>57350BE80BE51CC1C953347B7C434FCAD5B4FEF6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>91FBFEE5-EAEE-4E0D-8FD4-18022F704D4B</string>
+			<string>57350BE80BE51CC1C953347B7C434FCAD5B4FEF6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>B4S-iOS-SDK</string>
 		</dict>

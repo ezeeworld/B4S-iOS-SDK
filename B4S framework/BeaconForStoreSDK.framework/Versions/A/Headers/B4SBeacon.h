@@ -7,86 +7,111 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 #import "B4SInteraction.h"
-#import "B4SApplication.h"
-#import "B4SCategory.h"
-#import "B4SGroup.h"
-#import "B4SShop.h"
-#import "B4SZone.h"
 
 @interface B4SBeacon : NSObject
-
-@property (nonatomic, retain) NSString *beaconId;
+/**
+ Name of the iBeacon : B4S:xxxx:xxxx
+ */
 @property (nonatomic, retain) NSString *innerName;
-
-@property (nonatomic) int stuffGuardId;
-
+/**
+ iBeacon major value
+ */
 @property (nonatomic) long major;
+/**
+ iBeacon minor value
+ */
 @property (nonatomic) long minor;
+/**
+ Distance from the iBeacon.
+ */
 @property (nonatomic) int distance;
+/**
+ Last rssi value of the iBeacon.
+ */
 @property (nonatomic) float lastRSSI;
+/**
+ Last battery level reported for the iBeacon.
+ */
 @property (nonatomic) int battLevel;
+/**
+ Last temperature reported for the iBeacon.
+ */
 @property (nonatomic) int temperature;
 @property (nonatomic, retain) NSString *hwVersion;
 @property (nonatomic, retain) NSString *fwVersion;
 @property (nonatomic, retain) NSString *model;
+/**
+ Last longitude the iBeacon was seen.
+ */
 @property (nonatomic, retain) NSNumber *lastSeenLongitude;
+/**
+ Last latitude the iBeacon was seen.
+ */
 @property (nonatomic, retain) NSNumber *lastSeenLatitude;
-
-@property (nonatomic, retain) NSDate   *lastProximityAlertDate;
-
+/**
+ Last time the iBeacon was seen by a customer application
+ */
 @property (nonatomic, retain) NSDate * lastScanDate;
-@property (nonatomic) int notificationsCount;
-@property (nonatomic) int notificationConsecutiveTicks;
-
-@property (nonatomic) BOOL registered;
-@property (nonatomic) BOOL userManaged; // Use to identify beacons managed by an admin user of the application
-@property (nonatomic) BOOL batteryUpdateNeeded;
-@property (nonatomic) BOOL batteryLevelUpdated;
+/**
+ Map X position of the iBeacon
+ */
 @property (nonatomic) int xPos;
+/**
+ Map Y position of the iBeacon
+ */
 @property (nonatomic) int yPos;
+/**
+ Map Z position of the iBeacon
+ */
 @property (nonatomic) int zPos;
 
 @property (nonatomic) int beaconRangeIn;
 @property (nonatomic) int beaconRangeOut;
 
-@property (nonatomic, retain) NSNumber * stuffRangeOut;
-
+/**
+ iBeacon notification text
+ */
 @property (nonatomic, retain) NSString * beaconPushText;
+/**
+ iBeacon notification data
+ */
 @property (nonatomic, retain) NSString * beaconPushData;
+/**
+ iBeacon customer reference
+ */
 @property (nonatomic, retain) NSString * beaconClientRef;
-@property (nonatomic, retain) NSString * beaconPushSoundname;
+/**
+ iBeacon given name
+ */
 @property (nonatomic, retain) NSString * beaconName;
 
+/**
+ Interactions matching with the iBeacon.
+ */
 @property (nonatomic, retain) NSMutableSet *interactions;
+/**
+ Group the iBeacon belongs to.
+ */
 @property (nonatomic, weak) B4SGroup * beaconGroup;
+/**
+ Shop the iBeacon belongs to.
+ */
 @property (nonatomic, weak) B4SShop * beaconShop;
+/**
+ Category the iBeacon is attached to.
+ */
 @property (nonatomic, weak) B4SCategory * beaconCategory;
 
-@property (nonatomic, weak) B4SZone * beaconZone;
-
-- (id)initWithMajor:(long)aMajor andMinor:(long)aMinor;
-- (id)initWithInnerName:(NSString *)innerName;
-+ (NSString *)beaconKeyWithMajor:(long)aMajor andMinor:(long)aMinor;
-+ (NSString *)beaconKey:(B4SBeacon *)aBeacon;
-+ (NSString *)beaconRegionKey:(CLBeaconRegion *)aBeaconRegion;
-- (NSString *)key;
-- (NSString *)getSGNotif;
-- (BOOL)isEqualToMajor:(NSNumber *)aMajor andMinor:(NSNumber *)aMinor;
-- (BOOL)isEqualTo:(NSString *)aBeaconInnerName;
-- (void)addInteraction:(B4SInteraction *)anInteraction;
-
 - (int)beaconRangeInDistance;
-- (int)beaconRangeOutDistance;
 
-+ (B4SBeacon *)addBeacon:(B4SBeacon *)aBeacon;
-+ (B4SBeacon *)getBeacon:(NSString *)aBeaconInnerName;
+/**
+ List of iBeacons downloaded from the backend
+ */
 + (NSArray *)beacons;
-+ (void)clear;
-+ (void)clearUnmanagedBeacons;
+/**
+ Number of iBeacons downloaded from the backend
+ */
 + (int)count;
-+ (int)managedBeaconsCount;
-+ (void)setBeaconsAsUnmanaged;
 
 @end

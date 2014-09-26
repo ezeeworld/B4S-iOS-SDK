@@ -1,5 +1,5 @@
 //
-//  EZBGroup.h
+//  B4SGroup.h
 //
 //  Created by Christophe JANOT on 19/03/2014.
 //  Copyright (c) 2014 Fanny Renauld. All rights reserved.
@@ -9,27 +9,47 @@
 
 @interface B4SGroup : NSObject
 
+/**
+ Group unique internal identifier
+ */
 @property (nonatomic, retain) NSString *groupId;
+/**
+ Group given name
+ */
 @property (nonatomic, retain) NSString *name;
+/**
+ Group description
+ */
+@property (nonatomic, retain) NSString *groupDescription;
+/**
+ Notification  text associated to the group
+ */
 @property (nonatomic, retain) NSString *pushText;
+/**
+ Notification  data associated to the group
+ */
 @property (nonatomic, retain) NSString *pushData;
+/**
+ customer reference associated to the group
+ */
 @property (nonatomic, retain) NSString *clientRef;
 
-+ (B4SGroup *)addGroup:(B4SGroup *)aGroup;
+/**
+ Return group name associated to the given groupId
+ */
 + (NSString *)getGroupName:(NSString *)aGroupId;
+/**
+ Return B4SGroup associated to the given groupId
+ */
 + (B4SGroup *)getGroup:(NSString *)aGroupId;
+/**
+ Returns a list of all groups downloaded from the backend.
+ */
 + (NSArray *)groups;
 
-- (B4SGroup *)initWithName:(NSString *)aName clientRef:(NSString *)aClientRef;
-- (Boolean)isValid;
-- (void)saveGroup:(B4SGroup *)aGroup
-       completion:(void (^)(Boolean success))completion;
-- (void)removeGroup:(B4SGroup *)aGroup
-         completion:(void (^)(Boolean success))completion;
-+ (void)removeGroupById:(NSString *)aGroupId
-             completion:(void (^)(Boolean success))completion;
-
-+ (void)clear;
+/**
+ Number of groups downloaded from the backend
+ */
 + (int)count;
 
 @end

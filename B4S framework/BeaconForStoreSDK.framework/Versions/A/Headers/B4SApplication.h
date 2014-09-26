@@ -10,24 +10,35 @@
 
 @interface B4SApplication : NSObject
 
+/**
+ ApplicationId which had to be used to instantiate B4SSingleton
+ */
 @property (nonatomic, retain) NSString *applicationId;
+/**
+ Given name of the iBeacon
+ */
 @property (nonatomic, retain) NSString *name;
+/**
+ iBeacon additional data
+ */
+@property (nonatomic, retain) NSString *appDescription;
 
-+ (B4SApplication *)addApplication:(B4SApplication *)anApplication;
+/**
+ Returns the application name associated to the given applicationId.
+ */
 + (NSString *)getApplicationName:(NSString *)anApplicationId;
+/**
+ Returns the B4SApplication object  associated to the given applicationId.
+ */
 + (B4SApplication *)getApplication:(NSString *)anApplicationId;
+/**
+ Returns an array of the applications previously loaded with the B4SSingleton fullAppsList method.
+ */
 + (NSArray *)applications;
 
-- (B4SApplication *)initWithName:(NSString *)aName;
-- (Boolean)isValid;
-- (void)saveApplication:(B4SApplication *)anApplication
-             completion:(void (^)(Boolean success))completion;
-- (void)removeApplication:(B4SApplication *)anApplication
-               completion:(void (^)(Boolean success))completion;
-+ (void)removeApplicationById:(NSString *)anApplicationId
-                   completion:(void (^)(Boolean success))completion;
-
-+ (void)clear;
+/**
+ Returns applications count.
+ */
 + (int)count;
 
 @end

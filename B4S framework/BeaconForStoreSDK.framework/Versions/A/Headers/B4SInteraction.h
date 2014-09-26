@@ -1,74 +1,141 @@
 //
-//  EZBContent.h
-//  EZBeacon
+//  B4SInteraction.h
+//  BeaconForStoreSDK
 //
 //  Created by Christophe JANOT on 12/03/2014.
 //  Copyright (c) 2014 Christophe JANOT. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
-#import "B4SShop.h"
+#import "B4SInteraction.h"
 
 @interface B4SInteraction : NSObject
 
+/**
+ Interaction given name
+ */
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic) long afterScanTimeout;
+/**
+ Interaction description
+ */
+@property (nonatomic, retain) NSString *interactionDescription;
+/**
+ ApplicationId the interaction belongs to
+ */
 @property (nonatomic, retain) NSString *appId;
-@property (nonatomic, retain) B4SShop *shop;
-@property (nonatomic) Boolean autoUnlockEnabled;
+/**
+ Internal interaction unique id
+ */
 @property (nonatomic, retain) NSString *interactionId;
-@property (nonatomic) Boolean enabledHoursFrom;
-@property (nonatomic) Boolean enabledHoursTo;
-@property (nonatomic) Boolean lockOnEnabled;
-@property (nonatomic) long proximity;
+/**
+ Notification activation starting hour [0..23]
+ */
+@property (nonatomic) int enabledHoursFrom;
+/**
+ Notification activation ending hour [0..23]
+ */
+@property (nonatomic) int enabledHoursTo;
+/**
+ True if the interaction is Enabled
+ */
+@property (nonatomic) Boolean isEnabled;
+/**
+ iBeacon notification data
+ */
 @property (nonatomic, retain) NSString *pushData;
+/**
+ iBeacon notification texg
+ */
 @property (nonatomic, retain) NSString *pushText;
+/**
+ True if the iBeacon pushText and pushData values should be used for the notification
+ */
 @property (nonatomic) Boolean customPushEnabled;
-@property (nonatomic) Boolean isIncomingInteraction;
-@property (nonatomic) Boolean isOutgoingInteraction;
+/**
+ True if the notification is tagged as the end of a customer transaction
+ */
 @property (nonatomic) Boolean isBuyInteraction;
+/**
+ Max distance of the notification range
+ */
 @property (nonatomic) long rangeMax;
+/**
+ Min distance of the notification range
+ */
 @property (nonatomic) long rangeMin;
+/**
+ Distance to reach to exit from the notification range
+ */
 @property (nonatomic) long rangeOut;
+/**
+ Maximum number of notification to be sent while the customer stay in the interaction range
+ */
 @property (nonatomic) int notificationsMaxCount;
+/**
+ Minimal time to stay in the beacon interaction range before sending a notification
+ */
 @property (nonatomic) int notificationPresenceDuration;
+/**
+ Delay between 2 consecutives notifications
+ */
+@property (nonatomic) long afterScanTimeout;
+/**
+ True if interaction is enabled on mondays
+ */
 @property (nonatomic) Boolean mondayEnabled;
+/**
+ True if interaction is enabled on tuesdays
+ */
 @property (nonatomic) Boolean tuesdayEnabled;
+/**
+ True if interaction is enabled on wednesdays
+ */
 @property (nonatomic) Boolean wednesdayEnabled;
+/**
+ True if interaction is enabled on thursdays
+ */
 @property (nonatomic) Boolean thursdayEnabled;
+/**
+ True if interaction is enabled on fridays
+ */
 @property (nonatomic) Boolean fridayEnabled;
+/**
+ True if interaction is enabled on saturdays
+ */
 @property (nonatomic) Boolean saturdayEnabled;
+/**
+ True if interaction is enabled on sundays
+ */
 @property (nonatomic) Boolean sundayEnabled;
-@property (nonatomic) long type;
+/**
+ Shops Categories to the interaction
+ */
 @property (nonatomic) NSMutableDictionary *categories;
+/**
+ Groups associated to the interaction
+ */
 @property (nonatomic) NSMutableDictionary *groups;
+/**
+ Shops associated to the interaction
+ */
 @property (nonatomic) NSMutableDictionary *shops;
 
-- (void)addCategory:(NSString *)category;
-- (void)addGroup:(NSString *)group;
-- (void)addShop:(NSString *)shop;
-- (Boolean)hasCategory:(NSString *)category andGroup:(NSString *)group;
+/**
+ Returned the B4SInteraction name associated to the given interactionId
+ */
 + (NSString *)getInteractionName:(NSString *)anInteractionId;
+/**
+ Returned the B4SInteraction object associated to the given interactionId
+ */
 + (B4SInteraction *)getInteractionById:(NSString *)anInteractionId;
-+ (B4SInteraction *)addInteraction:(B4SInteraction *)anInteraction;
-+ (B4SInteraction *)addInteractionSummary:(B4SInteraction *)anInteraction;
+/**
+ Returns interactions availables
+ */
 + (NSArray *)interactions;
-+ (NSDictionary *)summary;
 
-- (B4SInteraction *)initWithName:(NSString *)aName;
-- (Boolean)isValid;
-- (void)saveInteraction:(B4SInteraction *)anInteraction
-             completion:(void (^)(Boolean success))completion;
-- (void)removeInteraction:(B4SInteraction *)anInteraction
-               completion:(void (^)(Boolean success))completion;
-+ (void)removeInteractionById:(NSString *)anInteractionId
-                   completion:(void (^)(Boolean success))completion;
-
+/**
+ Returns the number of interactions availables
+ */
 + (int)count;
-+ (int)fullCount;
-+ (void)clearInteractions;
-+ (void)clearSummary;
-- (void)clear;
 
 @end

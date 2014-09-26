@@ -10,25 +10,31 @@
 
 @interface B4SCategory : NSObject
 
+/**
+ Category unique internal identifier
+ */
 @property (nonatomic, retain) NSString *categoryId;
+/**
+ Category given name
+ */
 @property (nonatomic, retain) NSString *name;
 
-+ (B4SCategory *)addCategory:(B4SCategory *)aCategory;
+/**
+ Return category name associated to the given categoryId
+ */
 + (NSString *)getCategoryName:(NSString *)aCategoryId;
+/**
+ Return B4SCategory object associated to the given categoryId
+ */
 + (B4SCategory *)getCategory:(NSString *)aCategoryId;
-+ (B4SCategory *)defaultCategory;
+/**
+ List of categories object downloaded from the backend
+ */
 + (NSArray *)categories;
 
-- (B4SCategory *)initWithName:(NSString *)aName;
-- (Boolean)isValid;
-- (void)saveCategory:(B4SCategory *)aCategory
-          completion:(void (^)(Boolean success))completion;
-- (void)removeCategory:(B4SCategory *)aCategory
-            completion:(void (^)(Boolean success))completion;
-+ (void)removeCategoryById:(NSString *)aCategoryId
-                completion:(void (^)(Boolean success))completion;
-
-+ (void)clear;
+/**
+ Number of categories downloaded from the backend
+ */
 + (int)count;
 
 @end

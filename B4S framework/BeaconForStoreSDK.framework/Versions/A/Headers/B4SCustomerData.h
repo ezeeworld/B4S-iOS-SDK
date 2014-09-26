@@ -17,6 +17,9 @@ typedef enum B4SCustomerGender B4SCustomerGender;
 
 @interface B4SCustomerData : NSObject
 
+/**
+ Customer informations as previously set with B4SSingleton method setUserName:firstName:gender:email:customerRef:
+ */
 @property (nonatomic, retain) NSString *customerRef;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *firstname;
