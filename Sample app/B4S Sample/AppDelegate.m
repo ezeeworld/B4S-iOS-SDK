@@ -27,7 +27,6 @@
                                                    object:nil];
         //Setup B4S
         //B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"]; // MY-APP-ID have to be replaced with one of your own APPID
-        B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"5687cc90-4e09-11e4-af05-5fc4317eb530"];
         [B4SSingleton sharedInstance].delegate = self;
         [[B4SSingleton sharedInstance] startStandAloneMode];
         [b4sSingleton setNotificationSoundname:@"sound.caf"];
