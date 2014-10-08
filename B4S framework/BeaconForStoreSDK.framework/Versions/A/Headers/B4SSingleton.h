@@ -14,6 +14,23 @@ static NSString *const kB4SBeaconOutOfRangeNotificationName = @"B4SBeaconOutOfRa
 static NSString *const kB4SConfigurationUpdate = @"B4SBeaconConfigUpdate";
 static NSString *const kB4SZonesUpdate = @"B4SZonesConfigUpdate";
 
+static NSString *const kB4SNotifText = @"text";
+static NSString *const kB4SNotifData = @"sInteractionData";
+static NSString *const kB4SNotifContentId = @"sInteractionId";
+static NSString *const kB4SNotifContentName = @"sInteractionName";
+static NSString *const kB4SNotifBeaconId = @"sBeaconId";
+static NSString *const kB4SNotifBeaconName = @"sBeaconName";
+static NSString *const kB4SNotifNotificationId = @"sNotificationId";
+static NSString *const kB4SNotifDistance = @"nDistance";
+static NSString *const kB4SNotifBeaconRef = @"sBeaconClientRef";
+static NSString *const kB4SNotifStoreRef = @"sStoreClientRef";
+static NSString *const kB4SNotifGroupRef = @"sGroupClientRef";
+static NSString *const kB4SNotifDate = @"dScanDate";
+static NSString *const kB4SNotifActionId = @"nActionId";
+static NSString *const kB4SNotifPageId = @"sPageId";
+
+static NSString *const kB4SNotificationProcessedNotification = @"B4SNotificationProcessed";
+
 enum B4SBeaconStatus {
     kB4SDETECT_UNDEFINED,
     kB4SDETECT_NO_BEACON,
@@ -39,6 +56,19 @@ enum B4SConfigUpdateCause {
 
 };
 typedef enum B4SConfigUpdateCause B4SConfigUpdateCause;
+
+enum B4SActionType {
+    kB4SCONFIGUPDT_NONE,
+    kB4SCONFIGUPDT_REJECT,
+    kB4SCONFIGUPDT_BUSY,
+    kB4SCONFIGUPDT_INAPP,
+    kB4SCONFIGUPDT_INAPPWEB,
+    kB4SCONFIGUPDT_WEB,
+    kB4SCONFIGUPDT_IMAGE,
+    kB4SCONFIGUPDT_TEXT
+    
+};
+typedef enum B4SActionType B4SActionType;
 
 @class B4SSingleton;
 
@@ -72,20 +102,6 @@ typedef enum B4SConfigUpdateCause B4SConfigUpdateCause;
  */
 - (B4SBeacon *)queryNearestBeaconStatus;
 
-/**
- Returns last generated notification data.
- */
-- (NSDictionary *)getLastNotificationData;
-
-/**
- Called to set the sdk in background mode. Typically used with UIApplication delegate method: applicationDidEnterBackground:
- */
-- (void)setBackgroundMode;
-/**
- Called to set the sdk in foreground mode. Typically used with UIApplication delegate method: applicationWillEnterForeground:
- */
-- (void)setForegroundMode;
-
 - (void)fullBeaconsList:(void (^)(NSArray *beacons))completion;
 
 /**
@@ -97,6 +113,8 @@ typedef enum B4SConfigUpdateCause B4SConfigUpdateCause;
               email:(NSString *)anEmail
         customerRef:(NSString *)aRef;
 - (void)setAcknowledgeData:(NSString *)data;
+
+- (void)notificationFeedback:(NSDictionary *)userInfo;
 
 + (B4SSingleton*) sharedInstance;
 + (B4SSingleton*) setupSharedInstanceWithAppId:(NSString *)anAppId;

@@ -14,11 +14,10 @@ then select « add other » and select **BeaconForStoreSDK.framework**
 ### B4S files
 Add following files to your project : 
 - BeaconForStoreStorage.bundle
-- notif.caf : this file can be replaced with any other sound you'd like to display in your app
+- sound.caf : this file can be replaced with any other sound you'd like to display in your app
 
 ### Additional Frameworks
-The following frameworks are required :
-- AdSupport.framework
+The following additional frameworks are required :
 - CoreBluetooth.framework
 - CoreLocation.framework
 - AVFoundation.framework
@@ -27,6 +26,7 @@ The following frameworks are required :
 - MobileCoreService.framework
 - SystemConfiguration.framework
 - CoreMotion.framework
+- UIKit.framework
 - libc++.dylib
 
 
@@ -44,31 +44,19 @@ The following frameworks are required :
 ```
 - Initialize the Framework in the applicationDidFinishLaunching method
 ```objective-c
+Add an observer for the B4S SDK notification processed event.
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationProcessed:) name:kB4SNotificationProcessedNotification object:nil];
+
 //replace MY-APP-ID with the ID associated to your beacon4store account
 B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID" adminMode:NO];
 [b4sSingleton B4SsetPeriodicBeaconsUpdate:NO];
 [B4SSingleton sharedInstance].delegate = self;
 [[B4SSingleton sharedInstance] startStandAloneMode];
 
-//change this to any other sound if wanted
-[b4sSingleton setNotificationSoundname:@"notif.caf"];
+//change this to any other sound if wanted. If not specified, a default sound will be played
+[b4sSingleton setNotificationSoundname:@"sound.caf"];
 ```
 
-### Set background and foreground interactions
-
-The SDK responds to applicationDidEnterBackground and applicationWillEnterForeground Interactions. Setup these methods in your appDelegate
-
-```objective-c
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-	[[B4SSingleton sharedInstance] setBackgroundMode];
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-	[[B4SSingleton sharedInstance] setForegroundMode]; 
-}
-```
 
 ### Enable background mode
 
@@ -76,28 +64,59 @@ For the SDK to be able to track the beacons even in background mode, you have to
 In the project settings -> Capabilities, turn on background Modes and select following modes :
 - Background fetch
 
+Be careful, you can add 'Location updates' mode if you want to add long term baground mode. By doing this, your application may be rejected by the AppStore.
 
 ### Decode notifications
 
 The SDK uses local notifications to establish communication between beacons and the app.
 
-Implement the  application:didReceiveLocalNotification: method in your appDelegate
+Implement the  application:didReceiveLocalNotification: method in your appDelegate. A notification will be sent by the SDK when a notification is fired.
+You can use the UILocalNotification.userInfo to process yourself the notification. But if you set some automatic action in the B4S setup application, you had to call the B4SSingleton notificationFeedback: method. So, the SDK will display a confirmation panel (if set) and process one of the requested predefined actions.
 
 ```objective-c
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-	NSLog(@"[didReceiveLocalNotification] %@ / %@",[notification.userInfo objectForKey:@"sBeaconId"],[notification.userInfo objectForKey:@"sContentId"]);
-	NSLog(@"notification : %@",notification.description);
-    
-	//send ACK to inform of the notification's reception 
-	NSString *ackStr = [NSString stringWithFormat:@"OPEN#%@:%@",[notification.userInfo objectForKey:@"sBeaconId"],[notification.userInfo objectForKey:@"sContentId"]];
-	[[B4SSingleton sharedInstance] setAcknowledgeData:ackStr];
+    NSLog(@"[didReceiveLocalNotification] %@ / %@",[notification.userInfo objectForKey:kB4SNotifBeaconId],[notification.userInfo objectForKey:kB4SNotifContentName]);
+    NSLog(@"notification : %@",notification.description);
+    self.lastNotification = notification;
 
-	//do what you wish with the notification
-	NSString *cancelButtonTitle = NSLocalizedString(@"OK", @"Title for cancel button in local notification");
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:notification.alertBody message:nil delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
-	[alert show];
+    // If you want to use B4S SDK internal notification processing (UIAlertView, UIWebView, open Url in Safari, ...), you have to call
+    // the B4SSingleton::notificationFeedback: method.
+    [[B4SSingleton sharedInstance] notificationFeedback:notification.userInfo];
 }
+```
+After notification processing, a kB4SNotificationProcessedNotification event is fired by the SDK. You can extract an actionId whose value is one of :
+ - kB4SCONFIGUPDT_INAPP : You set the interaction to open a predefined page in your application. The pageId you set can be retrieve in the userInfo dictionnary.
+ - kB4SCONFIGUPDT_INAPPWEB : A webview was opened to display the url set in the interaction
+ - kB4SCONFIGUPDT_WEB : An url was open in Safari. Or an Url Scheme.
+ - kB4SCONFIGUPDT_REJECT : The user select the 'Cancel' button.
+ - kB4SCONFIGUPDT_NONE : No internal action was required.
+
+```objective-c
+- (void)notificationProcessed:(UILocalNotification *)notificationData {
+    NSLog(@"notificationProcessed : %@",notificationData);
+    NSLog(@"[didReceiveLocalNotification] beaconId=%@",[notificationData.userInfo objectForKey:kB4SNotifBeaconId]);
+    NSLog(@"[didReceiveLocalNotification] beaconName=%@",[notificationData.userInfo objectForKey:kB4SNotifContentName]);
+    NSLog(@"[didReceiveLocalNotification] distance=%@",[notificationData.userInfo objectForKey:kB4SNotifDistance]);
+    NSLog(@"[didReceiveLocalNotification] interaction name=%@",[notificationData.userInfo objectForKey:kB4SNotifContentName]);
+    NSLog(@"[didReceiveLocalNotification] interaction id=%@",[notificationData.userInfo objectForKey:kB4SNotifContentId]);
+    NSLog(@"[didReceiveLocalNotification] text=%@",[notificationData.userInfo objectForKey:kB4SNotifText]);
+    NSLog(@"[didReceiveLocalNotification] data=%@",[notificationData.userInfo objectForKey:kB4SNotifData]);
+    NSLog(@"[didReceiveLocalNotification] group clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifGroupRef]);
+    NSLog(@"[didReceiveLocalNotification] store clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifStoreRef]);
+    NSLog(@"[didReceiveLocalNotification] beacon clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifBeaconRef]);
+    NSLog(@"[didReceiveLocalNotification] actionId=%d",actionId);
+
+    int actionId = [[notificationData.userInfo objectForKey:kB4SNotifActionId] intValue];
+    if(actionId == kB4SCONFIGUPDT_INAPP) {
+        NSString *pageId = [notificationData.userInfo objectForKey:kB4SNotifPageId];
+        NSLog(@"inapp pageId : %@",pageId);
+        // Open the application UIView associated to the pageId value
+    } else if(actionId == kB4SCONFIGUPDT_REJECT) {
+        // An alertview was set, but the user select the 'Cancel' button. Nothing to do.
+    }
+}
+
 ```
 ### Customize notifications
 
