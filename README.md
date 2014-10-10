@@ -57,6 +57,9 @@ B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP
 [b4sSingleton setNotificationSoundname:@"sound.caf"];
 ```
 
+### Enable bluetootk on iOS8
+
+Starting with iOS8, in order to use bluetooth with iBeacons, you had to specify these key : NSLocationAlwaysUsageDescription with a String which describe your usage of iBeacon. If you don't specify this key, you will not be able to use iBeacons on iOS8 devices.
 
 ### Enable background mode
 
@@ -105,6 +108,9 @@ After notification processing, a kB4SNotificationProcessedNotification event is 
     NSLog(@"[didReceiveLocalNotification] group clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifGroupRef]);
     NSLog(@"[didReceiveLocalNotification] store clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifStoreRef]);
     NSLog(@"[didReceiveLocalNotification] beacon clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifBeaconRef]);
+    NSLog(@"[didReceiveLocalNotification] beacon udid=%@",[notificationData.userInfo objectForKey:kB4SBeaconUdid]);
+    NSLog(@"[didReceiveLocalNotification] beacon major=%@",[notificationData.userInfo objectForKey:kB4SBeaconMajor]);
+    NSLog(@"[didReceiveLocalNotification] beacon minor=%@",[notificationData.userInfo objectForKey:kB4SBeaconMinor]);
     NSLog(@"[didReceiveLocalNotification] actionId=%d",actionId);
 
     int actionId = [[notificationData.userInfo objectForKey:kB4SNotifActionId] intValue];

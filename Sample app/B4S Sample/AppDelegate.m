@@ -11,9 +11,6 @@
 
 @interface AppDelegate ()
 
-@property (strong, nonatomic) UILocalNotification *lastNotification;
-@property (retain, nonatomic) AVAudioPlayer *audioPlayer;
-
 @end
 
 @implementation AppDelegate
@@ -28,6 +25,7 @@
         //Setup B4S
         //B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"]; // MY-APP-ID have to be replaced with one of your own APPID
         [B4SSingleton sharedInstance].delegate = self;
+        [b4sSingleton setUserName:@"ClientName" firstName:@"ClientFirstname" gender:0 email:@"clientEmail@b4s.com" customerRef:@"yourOwnClientRef"];
         [[B4SSingleton sharedInstance] startStandAloneMode];
         [b4sSingleton setNotificationSoundname:@"sound.caf"];
     }
@@ -40,7 +38,6 @@
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         NSLog(@"[didReceiveLocalNotification] %@ / %@",[notification.userInfo objectForKey:kB4SNotifBeaconId],[notification.userInfo objectForKey:kB4SNotifContentName]);
         NSLog(@"notification : %@",notification.description);
-        self.lastNotification = notification;
         
         // If you want to use B4S SDK internal notification processing (UIAlertView, UIWebView, open Url in Safari, ...), you have to call
         // the B4SSingleton::notificationFeedback: method.
@@ -66,6 +63,9 @@
         NSLog(@"[didReceiveLocalNotification] group clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifGroupRef]);
         NSLog(@"[didReceiveLocalNotification] store clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifStoreRef]);
         NSLog(@"[didReceiveLocalNotification] beacon clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifBeaconRef]);
+        NSLog(@"[didReceiveLocalNotification] beacon udid=%@",[notificationData.userInfo objectForKey:kB4SBeaconUdid]);
+        NSLog(@"[didReceiveLocalNotification] beacon major=%@",[notificationData.userInfo objectForKey:kB4SBeaconMajor]);
+        NSLog(@"[didReceiveLocalNotification] beacon minor=%@",[notificationData.userInfo objectForKey:kB4SBeaconMinor]);
         NSLog(@"[didReceiveLocalNotification] actionId=%d",actionId);
         
         if(actionId == kB4SCONFIGUPDT_INAPP) {

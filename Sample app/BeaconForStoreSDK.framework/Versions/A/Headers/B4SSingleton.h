@@ -28,6 +28,9 @@ static NSString *const kB4SNotifGroupRef = @"sGroupClientRef";
 static NSString *const kB4SNotifDate = @"dScanDate";
 static NSString *const kB4SNotifActionId = @"nActionId";
 static NSString *const kB4SNotifPageId = @"sPageId";
+static NSString *const kB4SBeaconMajor = @"sMajor";
+static NSString *const kB4SBeaconMinor = @"sMinor";
+static NSString *const kB4SBeaconUdid = @"sUdid";
 
 static NSString *const kB4SNotificationProcessedNotification = @"B4SNotificationProcessed";
 
