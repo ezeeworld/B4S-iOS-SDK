@@ -29,6 +29,9 @@ The following additional frameworks are required :
 - UIKit.framework
 - libc++.dylib
 
+## New in 1.1.8
+- Added Full time support for notification activation start and end time.
+
 ## New in 1.1.7
 - Notifications are sent more efficiently when application is in background mode and when application is wake up by iOS.
 - InApp webview design was slightly modified.
