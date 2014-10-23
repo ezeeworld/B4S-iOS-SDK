@@ -29,6 +29,10 @@ The following additional frameworks are required :
 - UIKit.framework
 - libc++.dylib
 
+## New in 1.1.7
+- Notifications are sent more efficiently when application is in background mode and when application is wake up by iOS.
+- InApp webview design was slightly modified.
+- New functionnalities matching the new B4S Setup application.
 
 ## Usage
 
@@ -66,8 +70,6 @@ Starting with iOS8, in order to use bluetooth with iBeacons, you had to specify 
 For the SDK to be able to track the beacons even in background mode, you have to enable background modes in your application.
 In the project settings -> Capabilities, turn on background Modes and select following modes :
 - Background fetch
-
-Be careful, you can add 'Location updates' mode if you want to add long term baground mode. By doing this, your application may be rejected by the AppStore.
 
 ### Decode notifications
 
