@@ -148,8 +148,23 @@
                       andUserInfo:(NSMutableDictionary *)userInfos
                        completion:(void (^)(NSString *pushText, NSString *pushData, NSMutableDictionary *userInfos))completion {
     if(completion) {
-        NSLog(@"[customizeNotificationText] set notification text with braces");
-        completion([NSString stringWithFormat:@"[%@]",aText], aData, userInfos);
+        NSLog(@"[customizeNotificationText] userInfos=%@",userInfos);
+        NSLog(@"[customizeNotificationText] aText=%@",aText);
+        if([[userInfos objectForKey:kB4SNotifContentId] isEqualToString:@"0d426370-667c-11e4-ab8a-b93da388fb93"]) {
+            NSLog(@"[customizeNotificationText] use notifications count and notificationId to update the message.");
+            NSLog(@"[customizeNotificationText] pageId=%@",[userInfos objectForKey:kB4SNotifPageId]);
+            NSNumber *notificationsCount = [userInfos objectForKey:kB4SNotificationsCount];
+            NSLog(@"[customizeNotificationText] notificationsCount=%@",notificationsCount);
+            NSArray* texts = [aText componentsSeparatedByString: @"/"];
+            if((notificationsCount.intValue == 1) || ([texts count] == 1)) {
+                completion([texts objectAtIndex: 0], aData, userInfos);
+            } else {
+                completion([texts objectAtIndex: 1], aData, userInfos);
+            }
+        } else {
+            NSLog(@"[customizeNotificationText] set notification text with braces");
+            completion([NSString stringWithFormat:@"[%@]",aText], aData, userInfos);
+        }
     }
 }
 #pragma mark --

@@ -16,6 +16,7 @@ static NSString *const kB4SZonesUpdate = @"B4SZonesConfigUpdate";
 
 static NSString *const kB4SNotifText = @"text";
 static NSString *const kB4SNotifData = @"sInteractionData";
+static NSString *const kB4SNotificationsCount = @"nNotificationsCount";
 static NSString *const kB4SNotifContentId = @"sInteractionId";
 static NSString *const kB4SNotifContentName = @"sInteractionName";
 static NSString *const kB4SNotifBeaconId = @"sBeaconId";
