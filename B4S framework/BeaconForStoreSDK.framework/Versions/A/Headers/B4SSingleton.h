@@ -117,6 +117,15 @@ typedef enum B4SActionType B4SActionType;
         customerRef:(NSString *)aRef;
 - (void)setAcknowledgeData:(NSString *)data;
 
+/**
+ Set if you do not want more notifications to be sent to the customer.
+ */
+- (void)setAppNotReadyToAcceptNextInteraction;
+/**
+ Set if you want to notifications to be sent again to the customer after a previous call to setAppNotReadyToAcceptNextInteraction:
+ */
+- (void)setAppReadyToAcceptNextInteraction;
+
 - (void)notificationFeedback:(NSDictionary *)userInfo;
 
 + (B4SSingleton*) sharedInstance;

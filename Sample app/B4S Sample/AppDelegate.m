@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <MobileCoreServices/UTCoreTypes.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
@@ -72,10 +73,73 @@
             NSString *pageId = [notificationData.userInfo objectForKey:kB4SNotifPageId];
             NSLog(@"[didReceiveLocalNotification] inapp pageId : %@",pageId);
             // Open the application UIView associated to the pageId value
+            if([pageId isEqualToString:@"photo"]) {
+                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                picker.delegate = self;
+                picker.allowsEditing = YES;
+                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                picker.showsCameraControls = YES;
+                
+                UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+                [navigationController presentViewController:picker animated:YES completion:NULL];
+                [[B4SSingleton sharedInstance] setAppNotReadyToAcceptNextInteraction];
+            } else if([pageId isEqualToString:@"twitter"]) {
+                dispatch_async(dispatch_get_main_queue(), ^{ // Accelerate the switch to the application.
+                    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]) {
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://post?message="]];
+                    }
+                });
+            } else if([pageId isEqualToString:@"calendar"]) {
+                dispatch_async(dispatch_get_main_queue(), ^{ // Accelerate the switch to the application.
+                    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"calshow://"]]) {
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"calshow://"]];
+                    }
+                });
+            }
         } else if(actionId == kB4SCONFIGUPDT_REJECT) {
             // An alertview was set, but the user select the 'Cancel' button. Nothing to do.
         }
     }
+}
+
+#pragma mark UIImagePickerControllerDelegates
+- (void) imagePickerController:(UIImagePickerController *)picker
+ didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSLog(@"Media Info: %@", info);
+    NSString *mediaType = [info valueForKey:UIImagePickerControllerMediaType];
+    
+    if([mediaType isEqualToString:(NSString*)kUTTypeImage]) {
+        UIImage *photoTaken = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        
+        //Save Photo to library only if it wasnt already saved i.e. its just been taken
+        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+            UIImageWriteToSavedPhotosAlbum(photoTaken, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        }
+        
+    }
+    [picker dismissViewControllerAnimated:NO completion:nil];
+    [[B4SSingleton sharedInstance] setAppReadyToAcceptNextInteraction];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:NO completion:nil];
+    [[B4SSingleton sharedInstance] setAppReadyToAcceptNextInteraction];
+}
+
+#pragma mark --
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    UIAlertView *alert;
+    NSLog(@"Image:%@", image);
+    if (error) {
+        alert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                           message:[error localizedDescription]
+                                          delegate:nil
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
 
 #pragma mark B4SDelegate
@@ -107,6 +171,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [[B4SSingleton sharedInstance] configRefresh:kB4SCONFIGUPDT_APPSTART];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

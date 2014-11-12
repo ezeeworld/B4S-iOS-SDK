@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <BeaconForStoreSDK/BeaconForStoreSDK.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,B4SDelegate,UIAlertViewDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,B4SDelegate,UIAlertViewDelegate,UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
