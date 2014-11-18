@@ -119,6 +119,12 @@ typedef enum B4SActionType B4SActionType;
 - (void)setAcknowledgeData:(NSString *)data;
 
 /**
+ Force configuration reload (even if already cached) and clear interactions counters.
+*/
+- (void)demoReset;
+
+- (void)unlockCurrentInteraction;
+/**
  Set if you do not want more notifications to be sent to the customer.
  */
 - (void)setAppNotReadyToAcceptNextInteraction;

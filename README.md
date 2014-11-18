@@ -2,7 +2,7 @@
 
 the B4S SDK uses Bluetooth 4.0 BLE (Bluetooth Low Energy) and will only be available on **iPhone 4S** devices and up.
 - Minimum iOS target : iOS 7
-- Xcode 5 is required
+- Xcode 6 is required
 
 ## Installation
 
@@ -18,8 +18,8 @@ Add following files to your project :
 
 ### Additional Frameworks
 The following additional frameworks are required :
-- CoreBluetooth.framework
-- CoreLocation.framework
+- CoreBluetooth.framework (Should be declared as optional)
+- CoreLocation.framework (Should be declared as optional)
 - AVFoundation.framework
 - Security.framework
 - CodeData.framework
