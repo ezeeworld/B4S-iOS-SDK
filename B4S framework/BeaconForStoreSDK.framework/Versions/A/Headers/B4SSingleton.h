@@ -119,6 +119,10 @@ typedef enum B4SActionType B4SActionType;
 - (void)setAcknowledgeData:(NSString *)data;
 
 /**
+ If set to true, the interactions list will be set accordingly to the nearest beacon and not the phone location.
+*/
+- (void)setDemoMode:(BOOL)enabled;
+/**
  Force configuration reload (even if already cached) and clear interactions counters.
 */
 - (void)demoReset;
