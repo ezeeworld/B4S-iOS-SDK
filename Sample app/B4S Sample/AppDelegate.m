@@ -73,7 +73,7 @@
             NSString *pageId = [notificationData.userInfo objectForKey:kB4SNotifPageId];
             NSLog(@"[didReceiveLocalNotification] inapp pageId : %@",pageId);
             // Open the application UIView associated to the pageId value
-            if([pageId isEqualToString:@"photo"]) {
+            if([pageId isEqualToString:@"photoTest"]) { // 'photo' pageId is already supported inside the SDK
                 UIImagePickerController *picker = [[UIImagePickerController alloc] init];
                 picker.delegate = self;
                 picker.allowsEditing = YES;
@@ -83,13 +83,13 @@
                 UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
                 [navigationController presentViewController:picker animated:YES completion:NULL];
                 [[B4SSingleton sharedInstance] setAppNotReadyToAcceptNextInteraction];
-            } else if([pageId isEqualToString:@"twitter"]) {
+            } else if([pageId isEqualToString:@"twitterTest"]) { // 'twitter' pageId is already supported inside the SDK
                 dispatch_async(dispatch_get_main_queue(), ^{ // Accelerate the switch to the application.
                     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]) {
                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://post?message="]];
                     }
                 });
-            } else if([pageId isEqualToString:@"calendar"]) {
+            } else if([pageId isEqualToString:@"calendarTest"]) { // 'calendar' pageId is already supported inside the SDK
                 dispatch_async(dispatch_get_main_queue(), ^{ // Accelerate the switch to the application.
                     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"calshow://"]]) {
                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"calshow://"]];
@@ -150,21 +150,8 @@
     if(completion) {
         NSLog(@"[customizeNotificationText] userInfos=%@",userInfos);
         NSLog(@"[customizeNotificationText] aText=%@",aText);
-        if([[userInfos objectForKey:kB4SNotifContentId] isEqualToString:@"0d426370-667c-11e4-ab8a-b93da388fb93"]) {
-            NSLog(@"[customizeNotificationText] use notifications count and notificationId to update the message.");
-            NSLog(@"[customizeNotificationText] pageId=%@",[userInfos objectForKey:kB4SNotifPageId]);
-            NSNumber *notificationsCount = [userInfos objectForKey:kB4SNotificationsCount];
-            NSLog(@"[customizeNotificationText] notificationsCount=%@",notificationsCount);
-            NSArray* texts = [aText componentsSeparatedByString: @"/"];
-            if((notificationsCount.intValue == 1) || ([texts count] == 1)) {
-                completion([texts objectAtIndex: 0], aData, userInfos);
-            } else {
-                completion([texts objectAtIndex: 1], aData, userInfos);
-            }
-        } else {
-            NSLog(@"[customizeNotificationText] set notification text with braces");
-            completion([NSString stringWithFormat:@"[%@]",aText], aData, userInfos);
-        }
+        NSLog(@"[customizeNotificationText] set notification text with braces");
+        completion([NSString stringWithFormat:@"[%@]",aText], aData, userInfos);
     }
 }
 #pragma mark --
