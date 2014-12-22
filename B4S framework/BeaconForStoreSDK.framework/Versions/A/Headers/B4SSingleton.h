@@ -4,7 +4,7 @@
 //
 //  Created by Christophe JANOT on 23/04/2014.
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
-// 
+//  
 
 #import <UIKit/UIKit.h>
 #import "B4SInteraction.h"
