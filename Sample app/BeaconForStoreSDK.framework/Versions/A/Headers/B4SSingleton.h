@@ -4,7 +4,7 @@
 //
 //  Created by Christophe JANOT on 23/04/2014.
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
-//  
+// 
 
 #import <UIKit/UIKit.h>
 #import "B4SInteraction.h"
@@ -105,7 +105,13 @@ typedef enum B4SActionType B4SActionType;
  Return the nearest iBeacon
  */
 - (B4SBeacon *)queryNearestBeaconStatus;
-
+/**
+ Enable/Disable the SDK bluetooth warning message if Bluetooth is OFF
+ */
+- (void)setBluetoothWarnStatus:(Boolean)enabled;
+/**
+Return the full beacons list
+*/
 - (void)fullBeaconsList:(void (^)(NSArray *beacons))completion;
 
 /**
