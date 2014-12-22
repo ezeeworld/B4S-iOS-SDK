@@ -27,7 +27,14 @@ The following additional frameworks are required :
 - SystemConfiguration.framework
 - CoreMotion.framework
 - UIKit.framework
-- libc++.dylib
+
+## New in 1.1.50
+- iBeacon calibration scheme updated
+- New shop in/out detection scheme
+- Suppressed c++ stuff
+- Enhanced iBeacon configuration setup
+- Fix battery level setup.
+- added -setBluetoothWarnStatus method
 
 ## New in 1.1.8
 - Added Full time support for notification activation start and end time.
