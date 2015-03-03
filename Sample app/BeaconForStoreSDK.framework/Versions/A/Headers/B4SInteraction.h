@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "B4SInteraction.h"
+#import "B4SShop.h"
 
 @interface B4SInteraction : NSObject
 
@@ -132,6 +134,10 @@
  Returns interactions availables
  */
 + (NSArray *)interactions;
+/**
+ Returns shops near the location set in parameter
+ */
++ (NSArray *)shopsList:(CLLocation *)loc;
 
 /**
  Returns the number of interactions availables

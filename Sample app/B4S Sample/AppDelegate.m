@@ -69,7 +69,7 @@
         NSLog(@"[didReceiveLocalNotification] beacon minor=%@",[notificationData.userInfo objectForKey:kB4SBeaconMinor]);
         NSLog(@"[didReceiveLocalNotification] actionId=%d",actionId);
         
-        if(actionId == kB4SCONFIGUPDT_INAPP) {
+        if(actionId == B4SActionType_INAPP) {
             NSString *pageId = [notificationData.userInfo objectForKey:kB4SNotifPageId];
             NSLog(@"[didReceiveLocalNotification] inapp pageId : %@",pageId);
             // Open the application UIView associated to the pageId value
@@ -96,7 +96,7 @@
                     }
                 });
             }
-        } else if(actionId == kB4SCONFIGUPDT_REJECT) {
+        } else if(actionId == B4SActionType_REJECT) {
             // An alertview was set, but the user select the 'Cancel' button. Nothing to do.
         }
     }
@@ -173,7 +173,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    [[B4SSingleton sharedInstance] configRefresh:kB4SCONFIGUPDT_APPSTART];
+    [[B4SSingleton sharedInstance] configRefresh:B4SConfigUpdateCause_APPSTART];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

@@ -9,70 +9,74 @@
 #import <UIKit/UIKit.h>
 #import "B4SInteraction.h"
 
-static NSString *const kB4SBeaconNotificationName = @"B4SBeaconNotification";
-static NSString *const kB4SBeaconOutOfRangeNotificationName = @"B4SBeaconOutOfRangeNotification";
-static NSString *const kB4SConfigurationUpdate = @"B4SBeaconConfigUpdate";
-static NSString *const kB4SZonesUpdate = @"B4SZonesConfigUpdate";
+extern NSString *const kB4SBeaconNotificationName;
+extern NSString *const kB4SBeaconOutOfRangeNotificationName;
+extern NSString *const kB4SConfigurationUpdate;
+extern NSString *const kB4SZonesUpdate;
+extern NSString *const kB4SUserMoved;
+extern NSString *const kB4SInteractionsUpdated;
 
-static NSString *const kB4SNotifText = @"text";
-static NSString *const kB4SNotifData = @"sInteractionData";
-static NSString *const kB4SNotificationsCount = @"nNotificationsCount";
-static NSString *const kB4SNotifContentId = @"sInteractionId";
-static NSString *const kB4SNotifContentName = @"sInteractionName";
-static NSString *const kB4SNotifBeaconId = @"sBeaconId";
-static NSString *const kB4SNotifBeaconName = @"sBeaconName";
-static NSString *const kB4SNotifNotificationId = @"sNotificationId";
-static NSString *const kB4SNotifDistance = @"nDistance";
-static NSString *const kB4SNotifBeaconRef = @"sBeaconClientRef";
-static NSString *const kB4SNotifStoreRef = @"sStoreClientRef";
-static NSString *const kB4SNotifGroupRef = @"sGroupClientRef";
-static NSString *const kB4SNotifDate = @"dScanDate";
-static NSString *const kB4SNotifActionId = @"nActionId";
-static NSString *const kB4SNotifPageId = @"sPageId";
-static NSString *const kB4SBeaconMajor = @"sMajor";
-static NSString *const kB4SBeaconMinor = @"sMinor";
-static NSString *const kB4SBeaconUdid = @"sUdid";
+extern NSString *const kB4SNotifText;
+extern NSString *const kB4SNotificationsCount;
+extern NSString *const kB4SNotifData;
+extern NSString *const kB4SNotifContentId;
+extern NSString *const kB4SNotifContentName;
+extern NSString *const kB4SNotifBeaconId;
+extern NSString *const kB4SNotifBeaconName;
+extern NSString *const kB4SNotifNotificationId;
+extern NSString *const kB4SNotifDistance;
+extern NSString *const kB4SNotifBeaconRef;
+extern NSString *const kB4SNotifStoreRef;
+extern NSString *const kB4SNotifGroupRef;
+extern NSString *const kB4SNotifGroupName;
+extern NSString *const kB4SNotifGroupId;
+extern NSString *const kB4SNotifShopName;
+extern NSString *const kB4SNotifShopId;
+extern NSString *const kB4SNotifDate;
+extern NSString *const kB4SNotifActionId;
+extern NSString *const kB4SNotifPageId;
+extern NSString *const kB4SBeaconMajor;
+extern NSString *const kB4SBeaconMinor;
+extern NSString *const kB4SBeaconUdid;
 
 static NSString *const kB4SNotificationProcessedNotification = @"B4SNotificationProcessed";
 
-enum B4SBeaconStatus {
-    kB4SDETECT_UNDEFINED,
-    kB4SDETECT_NO_BEACON,
-    kB4SDETECT_MULTIPLE_BEACONS,
-    kB4SDETECT_QUERY_BEACON,
-    kB4SDETECT_NEW_BEACON,
-    kB4SDETECT_REGISTERED,
-    kB4SDETECT_REG_ERROR,
-    kB4SDETECT_EXISTING,
-    kB4SDETECT_SRV_ERROR,
-    kB4SDETECT_UNAUTHORIZED
+typedef NS_ENUM(NSInteger, B4SBeaconStatus) {
+    B4SBeaconStatus_UNDEFINED,
+    B4SBeaconStatus_NO_BEACON,
+    B4SBeaconStatus_MULTIPLE_BEACONS,
+    B4SBeaconStatus_QUERY_BEACON,
+    B4SBeaconStatus_NEW_BEACON,
+    B4SBeaconStatus_REGISTERED,
+    B4SBeaconStatus_REG_ERROR,
+    B4SBeaconStatus_EXISTING,
+    B4SBeaconStatus_SRV_ERROR,
+    B4SBeaconStatus_UNAUTHORIZED
 };
-typedef enum B4SBeaconStatus B4SBeaconStatus;
 
-enum B4SConfigUpdateCause {
-    kB4SCONFIGUPDT_SDKLOOP,
-    kB4SCONFIGUPDT_MOVE,
-    kB4SCONFIGUPDT_BEACONREG,
-    kB4SCONFIGUPDT_IBSDKLOOP,
-    kB4SCONFIGUPDT_REGIONIN,
-    kB4SCONFIGUPDT_REGIONOUT,
-    kB4SCONFIGUPDT_APPSTART
-
+typedef NS_ENUM(NSInteger, B4SConfigUpdateCause) {
+    B4SConfigUpdateCause_SDKLOOP,
+    B4SConfigUpdateCause_MOVE,
+    B4SConfigUpdateCause_BEACONREG,
+    B4SConfigUpdateCause_IBSDKLOOP,
+    B4SConfigUpdateCause_REGIONIN,
+    B4SConfigUpdateCause_REGIONOUT,
+    B4SConfigUpdateCause_APPSTART,
+    B4SConfigUpdateCause_DEMO
 };
-typedef enum B4SConfigUpdateCause B4SConfigUpdateCause;
 
-enum B4SActionType {
-    kB4SCONFIGUPDT_NONE,
-    kB4SCONFIGUPDT_REJECT,
-    kB4SCONFIGUPDT_BUSY,
-    kB4SCONFIGUPDT_INAPP,
-    kB4SCONFIGUPDT_INAPPWEB,
-    kB4SCONFIGUPDT_WEB,
-    kB4SCONFIGUPDT_IMAGE,
-    kB4SCONFIGUPDT_TEXT
-    
+typedef NS_ENUM(NSInteger, B4SActionType) {
+    B4SActionType_NONE,
+    B4SActionType_REJECT,
+    B4SActionType_BUSY,
+    B4SActionType_INAPP,
+    B4SActionType_INAPPWEB,
+    B4SActionType_WEB,
+    B4SActionType_IMAGE,
+    B4SActionType_TEXT
 };
-typedef enum B4SActionType B4SActionType;
+
+B4SActionType translateIntToB4SActionTypeValue ( NSInteger anIntValue );
 
 @class B4SSingleton;
 

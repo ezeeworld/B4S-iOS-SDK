@@ -28,6 +28,13 @@ The following additional frameworks are required :
 - CoreMotion.framework
 - UIKit.framework
 
+## New in 1.3.0
+- Made some interface change for swift support
+
+## New in 1.2.0
+- Fastest sdk initialization
+- Fastest iBeacon detection
+
 ## New in 1.1.50
 - iBeacon calibration scheme updated
 - New shop in/out detection scheme
@@ -52,16 +59,20 @@ The following additional frameworks are required :
 ```objective-c
 #import <BeaconForStoreSDK/BeaconForStoreSDK.h>
 ```
+- Import the Framework in your Bridging-Header.h file
+```swift
+#import <BeaconForStoreSDK/BeaconForStoreSDK.h>
+```
 - Set the B4S delegate
 ```objective-c
 @interface AppDelegate : UIResponder <UIApplicationDelegate,B4SDelegate>
 ```
 - Initialize the Framework in the applicationDidFinishLaunching method
 ```objective-c
-Add an observer for the B4S SDK notification processed event.
+//Add an observer for the B4S SDK notification processed event.
 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationProcessed:) name:kB4SNotificationProcessedNotification object:nil];
 
-//replace MY-APP-ID with the ID associated to your beacon4store account
+//Replace MY-APP-ID with the ID associated to your beacon4store account
 B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID" adminMode:NO];
 [b4sSingleton B4SsetPeriodicBeaconsUpdate:NO];
 [B4SSingleton sharedInstance].delegate = self;
@@ -70,8 +81,20 @@ B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP
 //change this to any other sound if wanted. If not specified, a default sound will be played
 [b4sSingleton setNotificationSoundname:@"sound.caf"];
 ```
+```swift
+//Add an observer for the B4S SDK notification processed event.
+NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationProcessed:", name: kB4SNotificationProcessedNotification, object: nil)
 
-### Enable bluetootk on iOS8
+//Replace MY-APP-ID with the ID associated to your beacon4store account
+let b4sSingleton = B4SSingleton.setupSharedInstanceWithAppId("MY-APP-ID")
+B4SSingleton.sharedInstance().delegate = self;
+B4SSingleton.sharedInstance().startStandAloneMode()
+
+//change this to any other sound if wanted. If not specified, a default sound will be played
+b4sSingleton.notificationSoundname = "sound.caf"
+```
+
+### Enable bluetooth on iOS8
 
 Starting with iOS8, in order to use bluetooth with iBeacons, you had to specify these key : NSLocationAlwaysUsageDescription with a String which describe your usage of iBeacon. If you don't specify this key, you will not be able to use iBeacons on iOS8 devices.
 
@@ -100,37 +123,64 @@ You can use the UILocalNotification.userInfo to process yourself the notificatio
     [[B4SSingleton sharedInstance] notificationFeedback:notification.userInfo];
 }
 ```
+```swift
+func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+{
+    println("[didReceiveLocalNotification] \(notification.userInfo?[kB4SNotifBeaconId]) / \(notification.userInfo?[kB4SNotifContentName)")
+    println("notification : \(notification.description)");
+            
+    // If you want to use B4S SDK internal notification processing (UIAlertView, UIWebView, open Url in Safari, ...), you have to call
+    // the B4SSingleton::notificationFeedback: method.
+    B4SSingleton.sharedInstance().notificationFeedback(notification.userInfo?)
+    // After post processing made through the notificationFeedback method, the delegate:notificationProcessed will be called.
+}
+```
 After notification processing, a kB4SNotificationProcessedNotification event is fired by the SDK. You can extract an actionId whose value is one of :
- - kB4SCONFIGUPDT_INAPP : You set the interaction to open a predefined page in your application. The pageId you set can be retrieve in the userInfo dictionnary.
- - kB4SCONFIGUPDT_INAPPWEB : A webview was opened to display the url set in the interaction
- - kB4SCONFIGUPDT_WEB : An url was open in Safari. Or an Url Scheme.
- - kB4SCONFIGUPDT_REJECT : The user select the 'Cancel' button.
- - kB4SCONFIGUPDT_NONE : No internal action was required.
+ - B4SActionType_INAPP : You set the interaction to open a predefined page in your application. The pageId you set can be retrieve in the userInfo dictionnary.
+ - B4SActionType_INAPPWEB : A webview was opened to display the url set in the interaction
+ - B4SActionType_WEB : An url was open in Safari. Or an Url Scheme.
+ - B4SActionType_REJECT : The user select the 'Cancel' button.
+ - B4SActionType_NONE : No internal action was required.
 
 ```objective-c
 - (void)notificationProcessed:(UILocalNotification *)notificationData {
     NSLog(@"notificationProcessed : %@",notificationData);
-    NSLog(@"[didReceiveLocalNotification] beaconId=%@",[notificationData.userInfo objectForKey:kB4SNotifBeaconId]);
-    NSLog(@"[didReceiveLocalNotification] beaconName=%@",[notificationData.userInfo objectForKey:kB4SNotifContentName]);
-    NSLog(@"[didReceiveLocalNotification] distance=%@",[notificationData.userInfo objectForKey:kB4SNotifDistance]);
-    NSLog(@"[didReceiveLocalNotification] interaction name=%@",[notificationData.userInfo objectForKey:kB4SNotifContentName]);
-    NSLog(@"[didReceiveLocalNotification] interaction id=%@",[notificationData.userInfo objectForKey:kB4SNotifContentId]);
-    NSLog(@"[didReceiveLocalNotification] text=%@",[notificationData.userInfo objectForKey:kB4SNotifText]);
-    NSLog(@"[didReceiveLocalNotification] data=%@",[notificationData.userInfo objectForKey:kB4SNotifData]);
-    NSLog(@"[didReceiveLocalNotification] group clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifGroupRef]);
-    NSLog(@"[didReceiveLocalNotification] store clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifStoreRef]);
-    NSLog(@"[didReceiveLocalNotification] beacon clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifBeaconRef]);
-    NSLog(@"[didReceiveLocalNotification] beacon udid=%@",[notificationData.userInfo objectForKey:kB4SBeaconUdid]);
-    NSLog(@"[didReceiveLocalNotification] beacon major=%@",[notificationData.userInfo objectForKey:kB4SBeaconMajor]);
-    NSLog(@"[didReceiveLocalNotification] beacon minor=%@",[notificationData.userInfo objectForKey:kB4SBeaconMinor]);
-    NSLog(@"[didReceiveLocalNotification] actionId=%d",actionId);
+    NSLog(@"[notificationProcessed] beaconId=%@",[notificationData.userInfo objectForKey:kB4SNotifBeaconId]);
+    NSLog(@"[notificationProcessed] beaconName=%@",[notificationData.userInfo objectForKey:kB4SNotifContentName]);
+    NSLog(@"[notificationProcessed] distance=%@",[notificationData.userInfo objectForKey:kB4SNotifDistance]);
+    NSLog(@"[notificationProcessed] interaction name=%@",[notificationData.userInfo objectForKey:kB4SNotifContentName]);
+    NSLog(@"[notificationProcessed] interaction id=%@",[notificationData.userInfo objectForKey:kB4SNotifContentId]);
+    NSLog(@"[notificationProcessed] text=%@",[notificationData.userInfo objectForKey:kB4SNotifText]);
+    NSLog(@"[notificationProcessed] data=%@",[notificationData.userInfo objectForKey:kB4SNotifData]);
+    NSLog(@"[notificationProcessed] group clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifGroupRef]);
+    NSLog(@"[notificationProcessed] store clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifStoreRef]);
+    NSLog(@"[notificationProcessed] beacon clientRef=%@",[notificationData.userInfo objectForKey:kB4SNotifBeaconRef]);
+    NSLog(@"[notificationProcessed] beacon udid=%@",[notificationData.userInfo objectForKey:kB4SBeaconUdid]);
+    NSLog(@"[notificationProcessed] beacon major=%@",[notificationData.userInfo objectForKey:kB4SBeaconMajor]);
+    NSLog(@"[notificationProcessed] beacon minor=%@",[notificationData.userInfo objectForKey:kB4SBeaconMinor]);
+    NSLog(@"[notificationProcessed] actionId=%d",actionId);
 
     int actionId = [[notificationData.userInfo objectForKey:kB4SNotifActionId] intValue];
-    if(actionId == kB4SCONFIGUPDT_INAPP) {
+    if(actionId == B4SActionType_INAPP) {
         NSString *pageId = [notificationData.userInfo objectForKey:kB4SNotifPageId];
         NSLog(@"inapp pageId : %@",pageId);
         // Open the application UIView associated to the pageId value
-    } else if(actionId == kB4SCONFIGUPDT_REJECT) {
+    } else if(actionId == B4SActionType_REJECT) {
+        // An alertview was set, but the user select the 'Cancel' button. Nothing to do.
+    }
+}
+
+```
+```switft
+- (void)notificationProcessed:(UILocalNotification *)notificationData {
+    let actionId:B4SActionType = translateIntToB4SActionTypeValue(notificationData.userInfo?[kB4SNotifActionId] as Int);
+
+    if(actionId == .INAPP) {
+    	let pageId = notificationData.userInfo?[kB4SNotifPageId] as String;
+        println("[notificationProcessed] inapp pageId : \(pageId)");
+	// The next value is the shop client own reference set for the shop in B4SManager
+        let storeId = notificationData.userInfo?[kB4SNotifStoreRef] as String;
+    } else if(actionId == .REJECT) {
         // An alertview was set, but the user select the 'Cancel' button. Nothing to do.
     }
 }
@@ -148,6 +198,14 @@ You can customize the notification messages and data sent to your application by
     if(completion) {
         NSLog(@"[customizeNotificationText] set notification text with braces");
         completion([NSString stringWithFormat:@"[%@]",aText], aData, userInfos);
+    }
+}
+```
+```swift
+func customizeNotificationText(aText: String!, andData aData: String!, andUserInfo userInfos: NSMutableDictionary!, completion: ((String!, String!, NSMutableDictionary!) -> Void)!) {
+    if completion != nil {
+        println("[customizeNotificationText] set notification text with braces")
+        completion("[\(aText)]", aData, userInfos)
     }
 }
 ```
