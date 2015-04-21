@@ -28,6 +28,10 @@ The following additional frameworks are required :
 - CoreMotion.framework
 - UIKit.framework
 
+## New in 1.4.0
+- Added new virtual beacon feature
+- Added enhanced tracking metrics
+
 ## New in 1.3.0
 - Made some interface change for swift support
 
