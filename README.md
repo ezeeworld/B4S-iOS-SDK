@@ -28,6 +28,9 @@ The following additional frameworks are required :
 - CoreMotion.framework
 - UIKit.framework
 
+## New in 1.4.4
+- Change support for notification on Apple Watch
+
 ## New in 1.4.0
 - Added new virtual beacon feature
 - Added enhanced tracking metrics
@@ -190,6 +193,18 @@ After notification processing, a kB4SNotificationProcessedNotification event is 
 }
 
 ```
+### Record user data
+
+```objective-c
+You can record user data (name, firstname, gender, email, userId) by calling the following method on the singleton
+- (void)setUserName:(NSString *)aName
+          firstName:(NSString *)aFirstname
+             gender:(B4SCustomerGender)aGender
+              email:(NSString *)anEmail
+        customerRef:(NSString *)aRef;
+
+```
+
 ### Customize notifications
 
 You can customize the notification messages and data sent to your application by implementing the customizeNotificationText:andData:andUserInfo:completion: method in your appDelegate
