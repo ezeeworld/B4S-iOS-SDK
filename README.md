@@ -195,8 +195,9 @@ After notification processing, a kB4SNotificationProcessedNotification event is 
 ```
 ### Record user data
 
+B4S can relate beacon interactions tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call every time).
+
 ```objective-c
-You can record user data (name, firstname, gender, email, userId) by calling the following method on the singleton
 - (void)setUserName:(NSString *)aName
           firstName:(NSString *)aFirstname
              gender:(B4SCustomerGender)aGender
