@@ -98,6 +98,11 @@ B4SActionType translateIntToB4SActionTypeValue ( NSInteger anIntValue );
 @property (nonatomic, retain) NSString *notificationSoundname;
 
 /**
+ Enable notifications. A categories set can be specified. 
+ A default category identifier (B4S) is created for beacons notifications.
+ */
+- (void)notificationsSetup:(NSMutableSet *)categories;
+/**
  Force full reload of interactions, groups, shops, beacons
  */
 - (void)configRefresh:(B4SConfigUpdateCause)aCause;
@@ -151,5 +156,7 @@ Return the full beacons list
 
 + (B4SSingleton*) sharedInstance;
 + (B4SSingleton*) setupSharedInstanceWithAppId:(NSString *)anAppId;
++ (B4SSingleton*) setupSharedInstanceWithAppId:(NSString *)anAppId
+                            notificationsSetup:(Boolean)notificationsEnabled;
 
 @end

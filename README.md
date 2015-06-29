@@ -28,6 +28,9 @@ The following additional frameworks are required :
 - CoreMotion.framework
 - UIKit.framework
 
+## New in 1.4.9
+- Added remote debug feature.
+
 ## New in 1.4.4
 - Change support for notification on Apple Watch
 
@@ -103,13 +106,14 @@ b4sSingleton.notificationSoundname = "sound.caf"
 
 ### Enable bluetooth on iOS8
 
-Starting with iOS8, in order to use bluetooth with iBeacons, you had to specify these key : NSLocationAlwaysUsageDescription with a String which describe your usage of iBeacon. If you don't specify this key, you will not be able to use iBeacons on iOS8 devices.
+Starting with iOS8, in order to use bluetooth with iBeacons, you had to specify these key : NSLocationAlwaysUsageDescription with a String which describe your usage of iBeacon. If you don't specify this key, you will not be able to detect iBeacon on iOS8 devices.
 
 ### Enable background mode
 
 For the SDK to be able to track the beacons even in background mode, you have to enable background modes in your application.
 In the project settings -> Capabilities, turn on background Modes and select following modes :
 - Background fetch
+Notice that the use of beacons and background fetch will wake your application up on a regular basis. So if you are tracking application launches for metrics purpose, the best practice will be to do it in the 'applicationWillEnterForeground' delegate method.
 
 ### Decode notifications
 

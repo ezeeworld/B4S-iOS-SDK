@@ -26,7 +26,8 @@
         //Setup B4S
         B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"]; // MY-APP-ID have to be replaced with one of your own APPID
         [B4SSingleton sharedInstance].delegate = self;
-        [b4sSingleton setUserName:@"ClientName" firstName:@"ClientFirstname" gender:0 email:@"clientEmail@domain.com" customerRef:@"yourOwnClientRef"];
+        [b4sSingleton setUserName:@"ClientName" firstName:@"ClientFirstname" gender:kB4SGENDER_UNDEFINED email:@"clientEmail@domain.com" customerRef:@"yourOwnClientRef"];
+        
         [[B4SSingleton sharedInstance] startStandAloneMode];
         [b4sSingleton setNotificationSoundname:@"sound.caf"];
     }
