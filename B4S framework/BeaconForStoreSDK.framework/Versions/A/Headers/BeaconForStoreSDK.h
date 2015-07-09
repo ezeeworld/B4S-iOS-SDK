@@ -11,4 +11,5 @@
 #import "B4SBeacon.h"
 #import "B4SCustomerData.h"
 #import "B4SInteraction.h"
+#import "B4SBehaviours.h"
 #import "B4SSingleton.h"

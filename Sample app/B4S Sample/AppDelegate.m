@@ -24,6 +24,10 @@
                                                      name:kB4SNotificationProcessedNotification
                                                    object:nil];
         //Setup B4S
+        [B4SBehaviours warnForBluetooth:true after:0 count:2 andEvery:2 withTitle:@"Bluetooth" andText:@"Bluetooth is disabled. Do you want to enabled it ?"];
+        [B4SBehaviours warnForGeolocation:true after:3 count:2 andEvery:2 withTitle:@"Geoloc" andText:@"Geolocation is disabled. Do you want to enable it ?"];
+        [B4SBehaviours warnForNotifications:true after:1 count:2 andEvery:2 withTitle:@"Notifications " andText:@"Notifications are disabled. You need to activate them in order to use this application."];
+
         B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"]; // MY-APP-ID have to be replaced with one of your own APPID
         [B4SSingleton sharedInstance].delegate = self;
         [b4sSingleton setUserName:@"ClientName" firstName:@"ClientFirstname" gender:kB4SGENDER_UNDEFINED email:@"clientEmail@domain.com" customerRef:@"yourOwnClientRef"];

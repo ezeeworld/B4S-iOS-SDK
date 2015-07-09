@@ -28,6 +28,9 @@ The following additional frameworks are required :
 - CoreMotion.framework
 - UIKit.framework
 
+## New in 1.4.28
+- Added B4S Behaviours feature.
+
 ## New in 1.4.9
 - Added remote debug feature.
 
@@ -207,6 +210,17 @@ B4S can relate beacon interactions tot individual customers. Supplying the custo
              gender:(B4SCustomerGender)aGender
               email:(NSString *)anEmail
         customerRef:(NSString *)aRef;
+
+```
+
+### B4S Behaviours
+
+This feature allows you to automatically warn the user if bluetooth, notifications or geolocation are disabled. This setup must be done before initializing the B4S Singleton.
+
+```objective-c
+[B4SBehaviours warnForBluetooth:true after:0 count:2 andEvery:2 withTitle:@"Bluetooth" andText:@"Bluetooth is disabled. Do you want to enabled it ?"];
+[B4SBehaviours warnForGeolocation:true after:3 count:2 andEvery:2 withTitle:@"Geoloc" andText:@"Geolocation is disabled. Do you want to enable it ?"];
+[B4SBehaviours warnForNotifications:true after:1 count:2 andEvery:2 withTitle:@"Notifications " andText:@"Notifications are disabled. You need to activate them in order to use this application."];
 
 ```
 
