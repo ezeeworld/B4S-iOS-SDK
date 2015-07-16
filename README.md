@@ -107,6 +107,8 @@ B4SSingleton.sharedInstance().startStandAloneMode()
 b4sSingleton.notificationSoundname = "sound.caf"
 ```
 
+You can generate your own application ID for each of your applications with 'B4S Manager' application.
+
 ### Enable bluetooth on iOS8
 
 Starting with iOS8, in order to use bluetooth with iBeacons, you had to specify these key : NSLocationAlwaysUsageDescription with a String which describe your usage of iBeacon. If you don't specify this key, you will not be able to detect iBeacon on iOS8 devices.
