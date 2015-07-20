@@ -8,6 +8,7 @@
 #import "B4SCategory.h"
 #import "B4SGroup.h"
 #import "B4SShop.h"
+#import "B4STag.h"
 #import "B4SBeacon.h"
 #import "B4SCustomerData.h"
 #import "B4SInteraction.h"

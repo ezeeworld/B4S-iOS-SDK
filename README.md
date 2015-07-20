@@ -28,6 +28,9 @@ The following additional frameworks are required :
 - CoreMotion.framework
 - UIKit.framework
 
+## New in 1.5.0
+- Added B4S Tagging feature.
+
 ## New in 1.4.28
 - Added B4S Behaviours feature.
 
@@ -214,6 +217,14 @@ B4S can relate beacon interactions tot individual customers. Supplying the custo
         customerRef:(NSString *)aRef;
 
 ```
+
+### Application tagging
+
+You can tag your application with the B4S SDK. You can set two values : The first parameter is the event descriptor and the second the userData asociated to the event.
+
+   ```objective-c
+        [B4STag event:@"Test" userData:@"test"];
+   ```
 
 ### B4S Behaviours
 
