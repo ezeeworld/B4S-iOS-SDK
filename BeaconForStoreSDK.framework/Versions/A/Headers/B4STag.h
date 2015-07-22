@@ -12,5 +12,7 @@
 
 + (void)event:(NSString *)anEvent
      userData:(NSString *)userData;
++ (void)event:(NSString *)anEvent
+     userDict:(NSDictionary *)userDict;
 
 @end
