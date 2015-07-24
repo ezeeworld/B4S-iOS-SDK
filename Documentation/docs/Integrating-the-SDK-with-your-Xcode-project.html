@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Integrating the SDK with your Xcode project Document</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BeaconForStore SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Ezeeworld</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Home</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">Integrating the SDK with your Xcode project Document</h1>
+
+					<h1>Hardware &amp; software requirements</h1>
+
+<p> The B4S SDK uses Bluetooth 4.0 BLE (Bluetooth Low Energy) and thus is only available on the following devices:</p>
+
+<ul>
+<li>iPhone 4S and up</li>
+<li>iPod Touch 5th generation and up</li>
+<li>iPad 3rd generation and up</li>
+<li>iPad mini (all versions)</li>
+</ul>
+
+
+<p>  Minimum iOS target : iOS 7
+  Xcode 6 is required for development</p>
+
+<h1>Installation</h1>
+
+<p>You must perform the following tasks to integrate the BeaconForStore SDK with your application:</p>
+
+<ul>
+<li>Get your application ID</li>
+<li>Import required frameworks</li>
+<li>Import BeaconForStoreStorage.bundle</li>
+<li>Configure application modes</li>
+<li>Allow location usage</li>
+<li>Code-level integration</li>
+</ul>
+
+
+<h2>Get your application ID</h2>
+
+<p>In order to use the SDK you must know the application ID that is tied to your BeaconForStore account. To get this App ID:</p>
+
+<ul>
+<li>Install the <a href="[https://itunes.apple.com/fr/app/b4s-manager/id903400204?mt=8](https://itunes.apple.com/fr/app/b4s-manager/id903400204?mt=8)">B4SManager</a> app from the App Store</li>
+<li>Log-in with your B4S account</li>
+<li>Go to the &ldquo;Applications&rdquo; section</li>
+<li>Tap on your application</li>
+<li>Use the &ldquo;Share&rdquo; button on the &ldquo;Application ID&rdquo; section to send the application ID to yourself as an email.</li>
+</ul>
+
+
+<h2>Import frameworks</h2>
+
+<ul>
+<li>Open your Xcode project</li>
+<li>Select your project in the Project navigator</li>
+<li>Select your application target</li>
+<li>Select the &ldquo;Build phase&rdquo; tab</li>
+<li>Open Project Settings -> Build Phases</li>
+<li>Unfold the &ldquo;Link Binary With Libraries&rdquo; phase</li>
+<li>Click &lsquo;+&rsquo;</li>
+<li>Click &ldquo;Add Other&hellip;&rdquo;</li>
+<li>Select the <strong>BeaconForStoreSDK.framework</strong> on your drive</li>
+<li>Click &ldquo;+&rdquo; again</li>
+<li>Select the following frameworks:
+
+<ul>
+<li>AVFoundation.framework</li>
+<li>CoreBluetooth.framework</li>
+<li>CodeData.framework</li>
+<li>CoreLocation.framework</li>
+<li>CoreMotion.framework</li>
+<li>MobileCoreService.framework</li>
+<li>Security.framework</li>
+<li>SystemConfiguration.framework</li>
+<li>UIKit.framework</li>
+</ul>
+</li>
+<li>Set the framework status to &ldquo;Optional&rdquo; for the following frameworks:
+
+<ul>
+<li>CoreBluetooth.framework</li>
+<li>CoreLocation.framework</li>
+</ul>
+</li>
+</ul>
+
+
+<p><img src="images/frameworks.png"/></p>
+
+<h2>Import BeaconForStoreStorage.bundle</h2>
+
+<ul>
+<li>Drag &amp; drop the BeaconForStoreStorage.bundle onto your project</li>
+<li>Check the &ldquo;Copy items if needed&rdquo; box</li>
+<li>Add the project to your application target</li>
+</ul>
+
+
+<h2>Configure application modes</h2>
+
+<p>To be able to track the beacons even when in background mode, you must enable background modes in your application.</p>
+
+<ul>
+<li>Select your project in the Project navigator</li>
+<li>Select your application target</li>
+<li>Select the &ldquo;Capabilities&rdquo; tab</li>
+<li>Turn on &ldquo;Background Modes&rdquo;</li>
+<li>Check the &ldquo;Background fetch mode&rdquo;</li>
+</ul>
+
+
+<p> <img src="images/backgroundmodes.png"/></p>
+
+<p> The application will be started by iOS when entering a geofence region or detecting an iBeacon, thus the didFinishLaunchingWithOptions: method from your app delegate will be called.</p>
+
+<p> So if your app calls a tagging / analytics tool (Flurry, Google Analytics&hellip;) from this method, your metrics will be eroneous. You should use the  &lsquo;applicationWillEnterForeground&rsquo; delegate method to track application launches instead.</p>
+
+<h2>Allow location usage</h2>
+
+<p>Starting with iOS8, you must add a key to your Info.plist to be able to get the user location.</p>
+
+<ul>
+<li>Open your Info.plist file</li>
+<li>Add a NSLocationAlwaysUsageDescription key</li>
+<li>Set its value to a string describing the reason for accessing the user’s location information</li>
+</ul>
+
+
+<p>Please see <a href="[https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html)#//apple_ref/doc/uid/TP40009251-SW18">this document</a> for more information</p>
+
+<h2>Code-level integration</h2>
+
+<p>Refer to <a href="Using-the-SDK.html">this document</a></p>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Copyright &copy; 2015 Ezeeworld. All rights reserved. Updated: 2015-07-24</p>
+							
+							
+							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
