@@ -2,7 +2,7 @@
 //  ViewController.m
 //  B4S Sample
 //
-//  Created by Stéphanie Spenlé on 30/07/2014.
+//  Created by Ezeeworld on 30/07/2014.
 //  Copyright (c) 2014 ezeeworld. All rights reserved.
 //
 

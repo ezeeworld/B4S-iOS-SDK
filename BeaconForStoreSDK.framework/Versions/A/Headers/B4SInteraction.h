@@ -2,14 +2,15 @@
 //  B4SInteraction.h
 //  BeaconForStoreSDK
 //
-//  Created by Christophe JANOT on 12/03/2014.
-//  Copyright (c) 2014 Christophe JANOT. All rights reserved.
+//  Created by Ezeeworld on 12/03/2014.
+//  Copyright (c) 2014 Ezeeworld. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "B4SInteraction.h"
-#import "B4SShop.h"
+
+@class  B4SInteraction;
+@class  B4SShop;
 
 @interface B4SInteraction : NSObject
 

@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  B4S Sample
 //
-//  Created by Stéphanie Spenlé on 30/07/2014.
+//  Created by Ezeeworld on 30/07/2014.
 //  Copyright (c) 2014 ezeeworld. All rights reserved.
 // 
 
@@ -14,7 +14,7 @@
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -24,10 +24,11 @@
                                                      name:kB4SNotificationProcessedNotification
                                                    object:nil];
         //Setup B4S
-        [B4SBehaviours warnForBluetooth:false after:2 count:2 andEvery:2 withTitle:@"Bluetooth" andText:@"Bluetooth is disabled. Do you want to enabled it ?"];
-        [B4SBehaviours warnForNotifications:false after:3 count:2 andEvery:2 withTitle:@"Notifications " andText:@"Notifications are disabled. Do you want to enabled them ?"];
+        [B4SBehaviours warnForBluetooth:false after:2 count:2 andEvery:2 withTitle:@"Bluetooth" andText:@"Bluetooth is disabled. Do you want to enable it ?"];
+        [B4SBehaviours warnForNotifications:false after:3 count:2 andEvery:2 withTitle:@"Notifications " andText:@"Notifications are disabled. Do you want to enable them ?"];
 
-        B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"]; // MY-APP-ID have to be replaced with one of your own APPID
+#warning Enter your Ezeeworld app ID here
+        B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"<MY-APP-ID>"];
         [B4SSingleton sharedInstance].delegate = self;
         [b4sSingleton setUserName:@"ClientName" firstName:@"ClientFirstname" gender:kB4SGENDER_UNDEFINED email:@"clientEmail@domain.com" customerRef:@"yourOwnClientRef"];
         

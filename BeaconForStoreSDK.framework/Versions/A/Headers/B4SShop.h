@@ -1,11 +1,13 @@
 //
 //  B4SShop.h
 //
-//  Created by Christophe JANOT on 19/03/2014.
+//  Created by Ezeeworld on 19/03/2014.
 //  Copyright (c) 2014 Fanny Renauld. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+@class B4SGroup;
 
 @interface B4SShop : NSObject
 

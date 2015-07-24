@@ -2,12 +2,15 @@
 //  B4SBeacon.h
 //  BeaconForStoreSDK
 //
-//  Created by Christophe JANOT on 23/04/2014.
+//  Created by Ezeeworld on 23/04/2014.
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "B4SInteraction.h"
+
+@class B4SGroup;
+@class B4SCategory;
+@class B4SShop;
 
 @interface B4SBeacon : NSObject
 /**

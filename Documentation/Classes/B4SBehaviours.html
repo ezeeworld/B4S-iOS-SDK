@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>B4SBehaviours Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BeaconForStore SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Ezeeworld</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/bluetoothNotified">bluetoothNotified</option>
+		
+		<option value="//api/name/foregroundCounts">foregroundCounts</option>
+		
+		<option value="//api/name/geolocNotified">geolocNotified</option>
+		
+		<option value="//api/name/notifsNotified">notifsNotified</option>
+		
+		<option value="//api/name/warnBluetoothCount">warnBluetoothCount</option>
+		
+		<option value="//api/name/warnForBluetoothDisabled">warnForBluetoothDisabled</option>
+		
+		<option value="//api/name/warnForBluetoothIntervalCount">warnForBluetoothIntervalCount</option>
+		
+		<option value="//api/name/warnForBluetoothLaunchCount">warnForBluetoothLaunchCount</option>
+		
+		<option value="//api/name/warnForBluetoothMaxCount">warnForBluetoothMaxCount</option>
+		
+		<option value="//api/name/warnForBluetoothText">warnForBluetoothText</option>
+		
+		<option value="//api/name/warnForBluetoothTitle">warnForBluetoothTitle</option>
+		
+		<option value="//api/name/warnForGeolocationDisabled">warnForGeolocationDisabled</option>
+		
+		<option value="//api/name/warnForGeolocationIntervalCount">warnForGeolocationIntervalCount</option>
+		
+		<option value="//api/name/warnForGeolocationLaunchCount">warnForGeolocationLaunchCount</option>
+		
+		<option value="//api/name/warnForGeolocationMaxCount">warnForGeolocationMaxCount</option>
+		
+		<option value="//api/name/warnForGeolocationText">warnForGeolocationText</option>
+		
+		<option value="//api/name/warnForGeolocationTitle">warnForGeolocationTitle</option>
+		
+		<option value="//api/name/warnForNotificationsDisabled">warnForNotificationsDisabled</option>
+		
+		<option value="//api/name/warnForNotificationsIntervalCount">warnForNotificationsIntervalCount</option>
+		
+		<option value="//api/name/warnForNotificationsLaunchCount">warnForNotificationsLaunchCount</option>
+		
+		<option value="//api/name/warnForNotificationsMaxCount">warnForNotificationsMaxCount</option>
+		
+		<option value="//api/name/warnForNotificationsText">warnForNotificationsText</option>
+		
+		<option value="//api/name/warnForNotificationsTitle">warnForNotificationsTitle</option>
+		
+		<option value="//api/name/warnGeolocationCount">warnGeolocationCount</option>
+		
+		<option value="//api/name/warnNotificationsCount">warnNotificationsCount</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/sharedInstance">+ sharedInstance</option>
+		
+		<option value="//api/name/warnForBluetooth:after:count:andEvery:withTitle:andText:">+ warnForBluetooth:after:count:andEvery:withTitle:andText:</option>
+		
+		<option value="//api/name/warnForGeolocation:after:count:andEvery:withTitle:andText:">+ warnForGeolocation:after:count:andEvery:withTitle:andText:</option>
+		
+		<option value="//api/name/warnForNotifications:after:count:andEvery:withTitle:andText:">+ warnForNotifications:after:count:andEvery:withTitle:andText:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">B4SBehaviours Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>UIAlertViewDelegate</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>B4SBehaviours.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This feature allows you to automatically warn the user if bluetooth, notifications or geolocation are disabled. This setup must be done before initializing the B4S Singleton.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/foregroundCounts" title="foregroundCounts"></a>
+	<h3 class="method-title"><code><a href="#//api/name/foregroundCounts">&nbsp;&nbsp;foregroundCounts</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger foregroundCounts</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/geolocNotified" title="geolocNotified"></a>
+	<h3 class="method-title"><code><a href="#//api/name/geolocNotified">&nbsp;&nbsp;geolocNotified</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean geolocNotified</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bluetoothNotified" title="bluetoothNotified"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bluetoothNotified">&nbsp;&nbsp;bluetoothNotified</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean bluetoothNotified</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/notifsNotified" title="notifsNotified"></a>
+	<h3 class="method-title"><code><a href="#//api/name/notifsNotified">&nbsp;&nbsp;notifsNotified</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean notifsNotified</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnBluetoothCount" title="warnBluetoothCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnBluetoothCount">&nbsp;&nbsp;warnBluetoothCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnBluetoothCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForBluetoothDisabled" title="warnForBluetoothDisabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForBluetoothDisabled">&nbsp;&nbsp;warnForBluetoothDisabled</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean warnForBluetoothDisabled</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForBluetoothLaunchCount" title="warnForBluetoothLaunchCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForBluetoothLaunchCount">&nbsp;&nbsp;warnForBluetoothLaunchCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForBluetoothLaunchCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForBluetoothMaxCount" title="warnForBluetoothMaxCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForBluetoothMaxCount">&nbsp;&nbsp;warnForBluetoothMaxCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForBluetoothMaxCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForBluetoothIntervalCount" title="warnForBluetoothIntervalCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForBluetoothIntervalCount">&nbsp;&nbsp;warnForBluetoothIntervalCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForBluetoothIntervalCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForBluetoothTitle" title="warnForBluetoothTitle"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForBluetoothTitle">&nbsp;&nbsp;warnForBluetoothTitle</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *warnForBluetoothTitle</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForBluetoothText" title="warnForBluetoothText"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForBluetoothText">&nbsp;&nbsp;warnForBluetoothText</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *warnForBluetoothText</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnNotificationsCount" title="warnNotificationsCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnNotificationsCount">&nbsp;&nbsp;warnNotificationsCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnNotificationsCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForNotificationsDisabled" title="warnForNotificationsDisabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForNotificationsDisabled">&nbsp;&nbsp;warnForNotificationsDisabled</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean warnForNotificationsDisabled</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForNotificationsLaunchCount" title="warnForNotificationsLaunchCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForNotificationsLaunchCount">&nbsp;&nbsp;warnForNotificationsLaunchCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForNotificationsLaunchCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForNotificationsMaxCount" title="warnForNotificationsMaxCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForNotificationsMaxCount">&nbsp;&nbsp;warnForNotificationsMaxCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForNotificationsMaxCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForNotificationsIntervalCount" title="warnForNotificationsIntervalCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForNotificationsIntervalCount">&nbsp;&nbsp;warnForNotificationsIntervalCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForNotificationsIntervalCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForNotificationsTitle" title="warnForNotificationsTitle"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForNotificationsTitle">&nbsp;&nbsp;warnForNotificationsTitle</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *warnForNotificationsTitle</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForNotificationsText" title="warnForNotificationsText"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForNotificationsText">&nbsp;&nbsp;warnForNotificationsText</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *warnForNotificationsText</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnGeolocationCount" title="warnGeolocationCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnGeolocationCount">&nbsp;&nbsp;warnGeolocationCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnGeolocationCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForGeolocationDisabled" title="warnForGeolocationDisabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForGeolocationDisabled">&nbsp;&nbsp;warnForGeolocationDisabled</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean warnForGeolocationDisabled</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForGeolocationLaunchCount" title="warnForGeolocationLaunchCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForGeolocationLaunchCount">&nbsp;&nbsp;warnForGeolocationLaunchCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForGeolocationLaunchCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForGeolocationMaxCount" title="warnForGeolocationMaxCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForGeolocationMaxCount">&nbsp;&nbsp;warnForGeolocationMaxCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForGeolocationMaxCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForGeolocationIntervalCount" title="warnForGeolocationIntervalCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForGeolocationIntervalCount">&nbsp;&nbsp;warnForGeolocationIntervalCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger warnForGeolocationIntervalCount</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForGeolocationTitle" title="warnForGeolocationTitle"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForGeolocationTitle">&nbsp;&nbsp;warnForGeolocationTitle</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *warnForGeolocationTitle</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForGeolocationText" title="warnForGeolocationText"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForGeolocationText">&nbsp;&nbsp;warnForGeolocationText</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *warnForGeolocationText</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForBluetooth:after:count:andEvery:withTitle:andText:" title="warnForBluetooth:after:count:andEvery:withTitle:andText:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForBluetooth:after:count:andEvery:withTitle:andText:">+&nbsp;warnForBluetooth:after:count:andEvery:withTitle:andText:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (void)warnForBluetooth:(Boolean)<em>aStatus</em> after:(NSInteger)<em>aLaunchCount</em> count:(NSInteger)<em>aMaxCount</em> andEvery:(NSInteger)<em>anInterval</em> withTitle:(NSString *)<em>aTitle</em> andText:(NSString *)<em>aText</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForGeolocation:after:count:andEvery:withTitle:andText:" title="warnForGeolocation:after:count:andEvery:withTitle:andText:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForGeolocation:after:count:andEvery:withTitle:andText:">+&nbsp;warnForGeolocation:after:count:andEvery:withTitle:andText:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (void)warnForGeolocation:(Boolean)<em>aStatus</em> after:(NSInteger)<em>aLaunchCount</em> count:(NSInteger)<em>aMaxCount</em> andEvery:(NSInteger)<em>anInterval</em> withTitle:(NSString *)<em>aTitle</em> andText:(NSString *)<em>aText</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/warnForNotifications:after:count:andEvery:withTitle:andText:" title="warnForNotifications:after:count:andEvery:withTitle:andText:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/warnForNotifications:after:count:andEvery:withTitle:andText:">+&nbsp;warnForNotifications:after:count:andEvery:withTitle:andText:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (void)warnForNotifications:(Boolean)<em>aStatus</em> after:(NSInteger)<em>aLaunchCount</em> count:(NSInteger)<em>aMaxCount</em> andEvery:(NSInteger)<em>anInterval</em> withTitle:(NSString *)<em>aTitle</em> andText:(NSString *)<em>aText</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sharedInstance" title="sharedInstance"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedInstance">+&nbsp;sharedInstance</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (B4SBehaviours *)sharedInstance</code></div>
+
+		    
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 Ezeeworld. All rights reserved. Updated: 2015-07-24</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

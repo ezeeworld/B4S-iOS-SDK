@@ -2,7 +2,7 @@
 //  B4SCategory.h
 //  BeaconForStoreSDK
 //
-//  Created by Christophe JANOT on 14/05/2014.
+//  Created by Ezeeworld on 14/05/2014.
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
 //
 

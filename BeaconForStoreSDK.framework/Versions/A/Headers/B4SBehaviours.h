@@ -2,12 +2,15 @@
 //  B4SBehaviours.h
 //  BeaconForStoreSDK
 //
-//  Created by Christophe Janot on 02/07/2015.
+//  Created by Ezeeworld on 02/07/2015.
 //  Copyright (c) 2015 Ezeeworld. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  This feature allows you to automatically warn the user if bluetooth, notifications or geolocation are disabled. This setup must be done before initializing the B4S Singleton.
+ */
 @interface B4SBehaviours : NSObject<UIAlertViewDelegate>
 
 @property (nonatomic) NSInteger foregroundCounts;

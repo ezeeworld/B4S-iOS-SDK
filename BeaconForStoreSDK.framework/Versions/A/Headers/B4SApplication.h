@@ -2,7 +2,7 @@
 //  B4SApplication.h
 //  BeaconForStoreSDK
 //
-//  Created by Christophe JANOT on 21/07/2014.
+//  Created by Ezeeworld on 21/07/2014.
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
 //
 

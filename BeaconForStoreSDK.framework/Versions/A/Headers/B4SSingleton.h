@@ -2,12 +2,18 @@
 //  B4SSingleton.h
 //  BeaconForStoreSDK
 //
-//  Created by Christophe JANOT on 23/04/2014.
+//  Created by Ezeeworld on 23/04/2014.
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
 // 
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "B4SInteraction.h"
+#include    "B4SCustomerGender.h"
+#include    "B4SEnums.h"
+
+@class B4SBeacon;
+
+extern NSString *const kB4SNotificationProcessedNotification;
 
 extern NSString *const kB4SBeaconNotificationName;
 extern NSString *const kB4SBeaconOutOfRangeNotificationName;
@@ -39,43 +45,6 @@ extern NSString *const kB4SBeaconMajor;
 extern NSString *const kB4SBeaconMinor;
 extern NSString *const kB4SBeaconUdid;
 
-static NSString *const kB4SNotificationProcessedNotification = @"B4SNotificationProcessed";
-
-typedef NS_ENUM(NSInteger, B4SBeaconStatus) {
-    B4SBeaconStatus_UNDEFINED,
-    B4SBeaconStatus_NO_BEACON,
-    B4SBeaconStatus_MULTIPLE_BEACONS,
-    B4SBeaconStatus_QUERY_BEACON,
-    B4SBeaconStatus_NEW_BEACON,
-    B4SBeaconStatus_REGISTERED,
-    B4SBeaconStatus_REG_ERROR,
-    B4SBeaconStatus_EXISTING,
-    B4SBeaconStatus_SRV_ERROR,
-    B4SBeaconStatus_UNAUTHORIZED
-};
-
-typedef NS_ENUM(NSInteger, B4SConfigUpdateCause) {
-    B4SConfigUpdateCause_SDKLOOP,
-    B4SConfigUpdateCause_MOVE,
-    B4SConfigUpdateCause_BEACONREG,
-    B4SConfigUpdateCause_IBSDKLOOP,
-    B4SConfigUpdateCause_REGIONIN,
-    B4SConfigUpdateCause_REGIONOUT,
-    B4SConfigUpdateCause_APPSTART,
-    B4SConfigUpdateCause_DEMO
-};
-
-typedef NS_ENUM(NSInteger, B4SActionType) {
-    B4SActionType_NONE,
-    B4SActionType_REJECT,
-    B4SActionType_BUSY,
-    B4SActionType_INAPP,
-    B4SActionType_INAPPWEB,
-    B4SActionType_WEB,
-    B4SActionType_IMAGE,
-    B4SActionType_TEXT
-};
-
 B4SActionType translateIntToB4SActionTypeValue ( NSInteger anIntValue );
 
 @class B4SSingleton;
@@ -96,11 +65,10 @@ B4SActionType translateIntToB4SActionTypeValue ( NSInteger anIntValue );
 
 @property (nonatomic, weak)   id<B4SDelegate> delegate;
 @property (nonatomic, retain) NSString *notificationSoundname;
-
 /**
  Enable notifications. A categories set can be specified. 
  A default category identifier (B4S) is created for beacons notifications.
- */
+*/		  
 - (void)notificationsSetup:(NSMutableSet *)categories;
 /**
  Force full reload of interactions, groups, shops, beacons
@@ -117,7 +85,7 @@ B4SActionType translateIntToB4SActionTypeValue ( NSInteger anIntValue );
 /**
  Enable/Disable the SDK bluetooth warning message if Bluetooth is OFF
  */
-- (void)setBluetoothWarnStatus:(Boolean)enabled;
+- (void)setBluetoothWarnStatus:(BOOL)enabled;
 /**
 Return the full beacons list
 */
