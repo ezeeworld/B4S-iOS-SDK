@@ -9,6 +9,7 @@
   * iPad mini (all versions)
   
   Minimum iOS target : iOS 7
+  
   Xcode 6 is required for development
 
 # Installation
@@ -47,10 +48,10 @@ In order to use the SDK you must know the application ID that is tied to your Be
  * Select the following frameworks:
    * AVFoundation.framework
    * CoreBluetooth.framework
-   * CodeData.framework
+   * CoreData.framework
    * CoreLocation.framework
    * CoreMotion.framework
-   * MobileCoreService.framework
+   * MobileCoreServices.framework
    * Security.framework
    * SystemConfiguration.framework
    * UIKit.framework
@@ -64,8 +65,11 @@ In order to use the SDK you must know the application ID that is tied to your Be
 
  * Drag & drop the BeaconForStoreStorage.bundle onto your project
  * Check the "Copy items if needed" box
- * Add the project to your application target
+ * Add the bundle to your application target
+ * Check if the bundle appears in the "Copy File" step of your application target
  
+<img src="images/copyBundleResources.png"/>
+
 ## Configure application modes
 
 To be able to track the beacons even when in background mode, you must enable background modes in your application.
@@ -90,7 +94,7 @@ Starting with iOS8, you must add a key to your Info.plist to be able to get the 
  * Add a NSLocationAlwaysUsageDescription key
  * Set its value to a string describing the reason for accessing the user’s location information
  
-Please see <a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18">this document</a> for more information
+Please see <a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html">this document</a> for more information
 
 ## Code-level integration
 
