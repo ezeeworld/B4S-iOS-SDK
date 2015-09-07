@@ -60,6 +60,14 @@ In order to use the SDK you must know the application ID that is tied to your Be
    * CoreLocation.framework 
 
 <img src="images/frameworks.png"/>
+
+## Add linker flags
+
+ * Open Project Settings -> Build Settings
+ * Scroll to the "Linking" section
+ * In "Other Linker Flags" add "-ObjC" (this setting is case-sensitive)
+ 
+ <img src="images/linkerFlags.jpg"/>
   
 ## Import BeaconForStoreStorage.bundle
 

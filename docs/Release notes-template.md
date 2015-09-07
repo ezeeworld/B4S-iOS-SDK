@@ -1,3 +1,7 @@
+#1.5.9
+
+ * Add support for IDFA
+
 # 1.5.4
 
  *  Added a feature to attach a dictionary to a tag
