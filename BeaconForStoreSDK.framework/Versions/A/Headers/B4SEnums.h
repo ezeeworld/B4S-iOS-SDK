@@ -40,6 +40,12 @@ typedef NS_ENUM(NSInteger, B4SConfigUpdateCause) {
     B4SConfigUpdateCause_DEMO
 };
 
+typedef NS_ENUM(NSInteger, B4SiOSAddTrackingStatus) {
+    B4SiOSAddTrackingStatusOff = 0,
+    B4SiOSAddTrackingStatusOn = 1,
+    B4SiOSAddTrackingStatusUnknown = 2
+};
+
 /**
  *  The type of an action associated with a notification
  */
