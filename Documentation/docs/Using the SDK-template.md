@@ -18,8 +18,7 @@ Objective-C:
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationProcessed:) name:kB4SNotificationProcessedNotification object:nil];
 
 	//Replace MY-APP-ID with the ID associated with your BeaconForStore account
-	B4SSingleton *b4sSingleton = [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID" adminMode:NO];
-	[b4sSingleton B4SsetPeriodicBeaconsUpdate:NO];
+	[B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"];
 	[B4SSingleton sharedInstance].delegate = self;
 	[[B4SSingleton sharedInstance] startStandAloneMode];
 
@@ -55,10 +54,6 @@ Objective-C:
 
 	- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 	{
-	    NSLog(@"[didReceiveLocalNotification] %@ / %@",[notification.userInfo objectForKey:kB4SNotifBeaconId],[notification.userInfo objectForKey:kB4SNotifContentName]);
-	    NSLog(@"notification : %@",notification.description);
-	    self.lastNotification = notification;
-	
 	    // If you want to use B4S SDK internal notification processing (UIAlertView, UIWebView, open Url in Safari, ...), you must call
 	    // the B4SSingleton:notificationFeedback: method.
 	    [[B4SSingleton sharedInstance] notificationFeedback:notification.userInfo];

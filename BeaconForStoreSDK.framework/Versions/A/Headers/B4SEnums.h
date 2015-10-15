@@ -40,6 +40,31 @@ typedef NS_ENUM(NSInteger, B4SConfigUpdateCause) {
     B4SConfigUpdateCause_DEMO
 };
 
+/**
+ *  The source of a notification shown to the user
+ */
+typedef NS_ENUM(NSInteger, B4SNotificationSource){
+    
+    /**
+     *  Unknown source
+     */
+    B4SNotificationSourceUnknown = 0,
+    /**
+     *  A hardware beacon
+     */
+    B4SNotificationSourceBeacon = 1,
+    /**
+     *  A push notification
+     */
+    B4SNotificationSourcePushNotification = 2,
+    
+    /**
+     *  A geofence
+     */
+    B4SNotificationSourceGeofence = 3
+};
+
+
 typedef NS_ENUM(NSInteger, B4SiOSAddTrackingStatus) {
     B4SiOSAddTrackingStatusOff = 0,
     B4SiOSAddTrackingStatusOn = 1,

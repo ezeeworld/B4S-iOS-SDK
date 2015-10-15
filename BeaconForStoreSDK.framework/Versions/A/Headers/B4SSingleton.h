@@ -12,6 +12,7 @@
 #include    "B4SEnums.h"
 
 @class B4SBeacon;
+@class B4SRemoteNotification;
 
 extern NSString *const kB4SNotificationProcessedNotification;
 
@@ -24,7 +25,7 @@ extern NSString *const kB4SInteractionsUpdated;
 
 extern NSString *const kB4SNotifText;
 extern NSString *const kB4SNotificationsCount;
-extern NSString *const kB4SNotifData;
+extern NSString *const kB4SNotifInteractionData;
 extern NSString *const kB4SNotifContentId;
 extern NSString *const kB4SNotifContentName;
 extern NSString *const kB4SNotifBeaconId;
@@ -44,8 +45,9 @@ extern NSString *const kB4SNotifPageId;
 extern NSString *const kB4SBeaconMajor;
 extern NSString *const kB4SBeaconMinor;
 extern NSString *const kB4SBeaconUdid;
+extern  NSString    *const  kB4SNotifNotificationSource;
 
-B4SActionType translateIntToB4SActionTypeValue ( NSInteger anIntValue );
+B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
 
 @class B4SSingleton;
 
@@ -99,7 +101,19 @@ Return the full beacons list
              gender:(B4SCustomerGender)aGender
               email:(NSString *)anEmail
         customerRef:(NSString *)aRef;
-- (void)setAcknowledgeData:(NSString *)data;
+
+
+/**
+ *  Enable the Push notification feature
+ */
+- (void)enablePushNotifications;
+
+/**
+ *  Complete the registration for Push notifications. This method MUST be called from application:didRegisterForRemoteNotificationsWithDeviceToken: otherwise the device won't receive Push notifications.
+ *
+ *  @param deviceToken The token passed as a parameter to application:didRegisterForRemoteNotificationsWithDeviceToken:
+ */
+- (void)registerPushNotificationDeviceToken:(NSData *)deviceToken;
 
 /**
  If set to true, the interactions list will be set accordingly to the nearest beacon and not the phone location.
@@ -111,10 +125,12 @@ Return the full beacons list
 - (void)demoReset;
 
 - (void)unlockCurrentInteraction;
+
 /**
  Set if you do not want more notifications to be sent to the customer.
  */
 - (void)setAppNotReadyToAcceptNextInteraction;
+
 /**
  Set if you want to notifications to be sent again to the customer after a previous call to setAppNotReadyToAcceptNextInteraction:
  */
@@ -125,6 +141,6 @@ Return the full beacons list
 + (B4SSingleton*) sharedInstance;
 + (B4SSingleton*) setupSharedInstanceWithAppId:(NSString *)anAppId;
 + (B4SSingleton*) setupSharedInstanceWithAppId:(NSString *)anAppId
-                            notificationsSetup:(Boolean)notificationsEnabled;
+                            notificationsSetup:(BOOL)notificationsEnabled;
 
 @end

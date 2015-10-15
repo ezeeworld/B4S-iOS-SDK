@@ -25,7 +25,16 @@ You must perform the following tasks to integrate the BeaconForStore SDK with yo
 
 ## Get your application ID
 
-In order to use the SDK you must know the application ID that is tied to your BeaconForStore account. To get this App ID:
+In order to use the SDK you must know the application ID that is tied to your BeaconForStore account. 
+
+### Using the web interface
+
+ * Go to <a href="https://b4s.ezeeworld.com">https://b4s.ezeeworld.com</A>
+ * Log-in with your B4S account
+ * Go to the "Applications" section
+ * Select your application ID
+
+### Using B4S Manager
 
  * Install the <a href="https://itunes.apple.com/fr/app/b4s-manager/id903400204?mt=8">B4SManager</a> app from the App Store
  * Log-in with your B4S account
@@ -39,7 +48,6 @@ In order to use the SDK you must know the application ID that is tied to your Be
  * Select your project in the Project navigator
  * Select your application target
  * Select the "Build phase" tab
- * Open Project Settings -> Build Phases
  * Unfold the "Link Binary With Libraries" phase
  * Click '+'
  * Click "Add Other..."
@@ -67,8 +75,8 @@ In order to use the SDK you must know the application ID that is tied to your Be
  * Scroll to the "Linking" section
  * In "Other Linker Flags" add "-ObjC" (this setting is case-sensitive)
  
- <img src="images/linkerFlags.jpg"/>
-  
+     <img src="images/LinkerFlags.jpg"/>
+
 ## Import BeaconForStoreStorage.bundle
 
  * Drag & drop the BeaconForStoreStorage.bundle onto your project
