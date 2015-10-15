@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>B4SConfigUpdateCause Constants Reference</title>
+	<title>B4SNotificationSource Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,7 +59,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">B4SConfigUpdateCause Constants Reference</h1>
+					<h1 class="title">B4SNotificationSource Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -75,29 +75,27 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">B4SConfigUpdateCause</h3>
+                    <h3 class="subsubtitle method-title">B4SNotificationSource</h3>
                     
+					
+					<div class="section section-overview">
+                        <p>The source of a notification shown to the user</p>
+					</div>
+					
+					
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSInteger, B4SConfigUpdateCause ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, B4SNotificationSource ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SConfigUpdateCause_SDKLOOP</a>,<br>
+                            &nbsp;&nbsp; <a href="">B4SNotificationSourceUnknown</a> = 0,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SConfigUpdateCause_MOVE</a>,<br>
+                            &nbsp;&nbsp; <a href="">B4SNotificationSourceBeacon</a> = 1,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SConfigUpdateCause_BEACONREG</a>,<br>
+                            &nbsp;&nbsp; <a href="">B4SNotificationSourcePushNotification</a> = 2,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SConfigUpdateCause_IBSDKLOOP</a>,<br>
-                            
-                            &nbsp;&nbsp; <a href="">B4SConfigUpdateCause_REGIONIN</a>,<br>
-                            
-                            &nbsp;&nbsp; <a href="">B4SConfigUpdateCause_REGIONOUT</a>,<br>
-                            
-                            &nbsp;&nbsp; <a href="">B4SConfigUpdateCause_APPSTART</a>,<br>
-                            
-                            &nbsp;&nbsp; <a href="">B4SConfigUpdateCause_DEMO</a>,<br>
+                            &nbsp;&nbsp; <a href="">B4SNotificationSourceGeofence</a> = 3,<br>
                             
                             };</code>
                     
@@ -107,8 +105,15 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="B4SConfigUpdateCause_SDKLOOP"></a><code>B4SConfigUpdateCause_SDKLOOP</code></dt>
+                            <dt><a name="" title="B4SNotificationSourceUnknown"></a><code>B4SNotificationSourceUnknown</code></dt>
 <dd>
+
+
+<p>Unknown source</p>
+
+
+
+
 
     
 	<p>
@@ -117,8 +122,15 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SConfigUpdateCause_MOVE"></a><code>B4SConfigUpdateCause_MOVE</code></dt>
+                            <dt><a name="" title="B4SNotificationSourceBeacon"></a><code>B4SNotificationSourceBeacon</code></dt>
 <dd>
+
+
+<p>A hardware beacon</p>
+
+
+
+
 
     
 	<p>
@@ -127,8 +139,15 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SConfigUpdateCause_BEACONREG"></a><code>B4SConfigUpdateCause_BEACONREG</code></dt>
+                            <dt><a name="" title="B4SNotificationSourcePushNotification"></a><code>B4SNotificationSourcePushNotification</code></dt>
 <dd>
+
+
+<p>A push notification</p>
+
+
+
+
 
     
 	<p>
@@ -137,48 +156,15 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SConfigUpdateCause_IBSDKLOOP"></a><code>B4SConfigUpdateCause_IBSDKLOOP</code></dt>
+                            <dt><a name="" title="B4SNotificationSourceGeofence"></a><code>B4SNotificationSourceGeofence</code></dt>
 <dd>
 
-    
-	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="B4SConfigUpdateCause_REGIONIN"></a><code>B4SConfigUpdateCause_REGIONIN</code></dt>
-<dd>
 
-    
-	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="B4SConfigUpdateCause_REGIONOUT"></a><code>B4SConfigUpdateCause_REGIONOUT</code></dt>
-<dd>
+<p>A geofence</p>
 
-    
-	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="B4SConfigUpdateCause_APPSTART"></a><code>B4SConfigUpdateCause_APPSTART</code></dt>
-<dd>
 
-    
-	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="B4SConfigUpdateCause_DEMO"></a><code>B4SConfigUpdateCause_DEMO</code></dt>
-<dd>
+
+
 
     
 	<p>
@@ -191,6 +177,17 @@
                     </div>
                     
 
+                    
+                    
+
+                    
+
+                    
+                    <div class="method-subsection declared-in-section">
+                        <h4 class="method-subtitle">Declared In</h4>
+                        <p><code class="declared-in-ref">B4SEnums.h</code></p>
+                    </div>
+                    
                     
                     
                     
