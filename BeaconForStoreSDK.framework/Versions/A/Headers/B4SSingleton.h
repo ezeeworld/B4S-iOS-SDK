@@ -7,12 +7,12 @@
 // 
 
 #import <Foundation/Foundation.h>
-#import "B4SInteraction.h"
 #include    "B4SCustomerGender.h"
 #include    "B4SEnums.h"
 
 @class B4SBeacon;
 @class B4SRemoteNotification;
+@class B4SInteraction;
 
 extern NSString *const kB4SNotificationProcessedNotification;
 
@@ -54,8 +54,14 @@ B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
 @protocol B4SDelegate <NSObject>
 
 @optional
+
 /**
- Delegate method before sent before sending a notification. You can use it to customise notification text and data.
+ *  This delegate method is called before displaying a notification to the user. Call the completion method with the original text, data and userInfos or modify those parematers as you see fit
+ *
+ *  @param aText      The notification text
+ *  @param aData      The notification associated data
+ *  @param userInfos  The notification userInfo
+ *  @param completion The completion block to call with original or modified parameters
  */
 - (void)customizeNotificationText:(NSString *)aText
                           andData:(NSString *)aData
@@ -65,36 +71,29 @@ B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
 
 @interface B4SSingleton : NSObject
 
-@property (nonatomic, weak)   id<B4SDelegate> delegate;
-@property (nonatomic, retain) NSString *notificationSoundname;
-/**
- Enable notifications. A categories set can be specified. 
- A default category identifier (B4S) is created for beacons notifications.
-*/		  
-- (void)notificationsSetup:(NSMutableSet *)categories;
-/**
- Force full reload of interactions, groups, shops, beacons
- */
-- (void)configRefresh:(B4SConfigUpdateCause)aCause;
-/**
- Start iBeacon listening mode
- */
-- (void)startStandAloneMode;
-/**
- Return the nearest iBeacon
- */
-- (B4SBeacon *)queryNearestBeaconStatus;
-/**
- Enable/Disable the SDK bluetooth warning message if Bluetooth is OFF
- */
-- (void)setBluetoothWarnStatus:(BOOL)enabled;
-/**
-Return the full beacons list
-*/
-- (void)fullBeaconsList:(void (^)(NSArray *beacons))completion;
 
 /**
- Record the current customer information to the backend
+ *  The delegate
+ */
+@property (nonatomic, weak)   id<B4SDelegate> delegate;
+
+
+#pragma mark - Customizing the notifications
+
+/**
+ *  The name of the filename played when a notification is shonw to the user. This must be the name a a file in CAF format ("Core Audio File") present in the app bundle
+ */
+@property (nonatomic, retain) NSString *notificationSoundname;
+
+
+/**
+ *  Save the customer information to the BeaconForStore backend. This information is cached, it's not necessary to call this method on every app launch
+ *
+ *  @param aName      Customer name
+ *  @param aFirstname Customer firstname
+ *  @param aGender    Customer gender
+ *  @param anEmail    Customer e-mail address
+ *  @param aRef       Customer reference. This can be a customer ID, or stringified JSON data if you need extra fields
  */
 - (void)setUserName:(NSString *)aName
           firstName:(NSString *)aFirstname
@@ -102,6 +101,8 @@ Return the full beacons list
               email:(NSString *)anEmail
         customerRef:(NSString *)aRef;
 
+
+#pragma mark - Push notifications
 
 /**
  *  Enable the Push notification feature
@@ -115,17 +116,7 @@ Return the full beacons list
  */
 - (void)registerPushNotificationDeviceToken:(NSData *)deviceToken;
 
-/**
- If set to true, the interactions list will be set accordingly to the nearest beacon and not the phone location.
-*/
-- (void)setDemoMode:(BOOL)enabled;
-/**
- Force configuration reload (even if already cached) and clear interactions counters.
-*/
-- (void)demoReset;
-
-- (void)unlockCurrentInteraction;
-
+#pragma mark - Temporarly disable notifications
 /**
  Set if you do not want more notifications to be sent to the customer.
  */
@@ -136,11 +127,34 @@ Return the full beacons list
  */
 - (void)setAppReadyToAcceptNextInteraction;
 
+#pragma mark - Showing notifications
+/**
+ *  This methods must be called from your app delegate application:didReceiveLocalNotification:
+ *
+ *  @param userInfo The userInfo dictionary received by the application:didReceiveLocalNotification: method
+ */
 - (void)notificationFeedback:(NSDictionary *)userInfo;
 
+#pragma mark - Initialisation
+/**
+ *  Get the SDK singleton
+ *
+ *  @return Returns the SDK Singleton or nil if [B4SSingleton setupSharedInstanceWithAppId:] hasn't been called previously
+ */
 + (B4SSingleton*) sharedInstance;
+
+/**
+ *  Initialize the SDK
+ *
+ *  @param anAppId Your BeaconForStore app ID. Use the B4SCustomer iOS app to get this identifier
+ *
+ *  @return The B4S Singleton
+ */
 + (B4SSingleton*) setupSharedInstanceWithAppId:(NSString *)anAppId;
-+ (B4SSingleton*) setupSharedInstanceWithAppId:(NSString *)anAppId
-                            notificationsSetup:(BOOL)notificationsEnabled;
+
+/**
+ *  Start to listen to beacons. This method must be called AFTER [B4SSingleton setupSharedInstanceWithAppId:]
+ */
+- (void)startStandAloneMode;
 
 @end

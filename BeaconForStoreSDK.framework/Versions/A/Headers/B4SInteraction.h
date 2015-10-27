@@ -12,6 +12,14 @@
 @class  B4SInteraction;
 @class  B4SShop;
 
+typedef NS_ENUM(NSInteger, B4SInteractionType)
+{
+    B4SInteractionTypeUnknown,
+    B4SInteractionTypeBeacon,
+    B4SInteractionTypeVirtualBeacon,
+    B4SInteractionTypePush
+};
+
 @interface B4SInteraction : NSObject
 
 /**
@@ -26,6 +34,10 @@
  ApplicationId the interaction belongs to
  */
 @property (nonatomic, retain) NSString *appId;
+/**
+ Interaction type
+ */
+@property (nonatomic, readonly) B4SInteractionType type;
 /**
  Internal interaction unique id
  */
@@ -54,10 +66,6 @@
  True if the iBeacon pushText and pushData values should be used for the notification
  */
 @property (nonatomic) Boolean customPushEnabled;
-/**
- True if the notification is tagged as the end of a customer transaction
- */
-@property (nonatomic) Boolean isBuyInteraction;
 /**
  Max distance of the notification range
  */

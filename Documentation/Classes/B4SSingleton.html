@@ -66,8 +66,6 @@
 		
 		<option value="//api/name/setupSharedInstanceWithAppId:">+ setupSharedInstanceWithAppId:</option>
 		
-		<option value="//api/name/setupSharedInstanceWithAppId:notificationsSetup:">+ setupSharedInstanceWithAppId:notificationsSetup:</option>
-		
 		<option value="//api/name/sharedInstance">+ sharedInstance</option>
 		
 	</optgroup>
@@ -76,19 +74,9 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/configRefresh:">- configRefresh:</option>
-		
-		<option value="//api/name/demoReset">- demoReset</option>
-		
 		<option value="//api/name/enablePushNotifications">- enablePushNotifications</option>
 		
-		<option value="//api/name/fullBeaconsList:">- fullBeaconsList:</option>
-		
 		<option value="//api/name/notificationFeedback:">- notificationFeedback:</option>
-		
-		<option value="//api/name/notificationsSetup:">- notificationsSetup:</option>
-		
-		<option value="//api/name/queryNearestBeaconStatus">- queryNearestBeaconStatus</option>
 		
 		<option value="//api/name/registerPushNotificationDeviceToken:">- registerPushNotificationDeviceToken:</option>
 		
@@ -96,15 +84,9 @@
 		
 		<option value="//api/name/setAppReadyToAcceptNextInteraction">- setAppReadyToAcceptNextInteraction</option>
 		
-		<option value="//api/name/setBluetoothWarnStatus:">- setBluetoothWarnStatus:</option>
-		
-		<option value="//api/name/setDemoMode:">- setDemoMode:</option>
-		
 		<option value="//api/name/setUserName:firstName:gender:email:customerRef:">- setUserName:firstName:gender:email:customerRef:</option>
 		
 		<option value="//api/name/startStandAloneMode">- startStandAloneMode</option>
-		
-		<option value="//api/name/unlockCurrentInteraction">- unlockCurrentInteraction</option>
 		
 	</optgroup>
 	
@@ -157,10 +139,35 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The delegate</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;B4SDelegate&gt; delegate</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -173,236 +180,14 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The name of the filename played when a notification is shonw to the user. This must be the name a a file in CAF format (&ldquo;Core Audio File&rdquo;) present in the app bundle</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *notificationSoundname</code></div>
-
-		    
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/notificationsSetup:" title="notificationsSetup:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/notificationsSetup:">&ndash;&nbsp;notificationsSetup:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Enable notifications. A categories set can be specified.
-A default category identifier (B4S) is created for beacons notifications.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)notificationsSetup:(NSMutableSet *)<em>categories</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/configRefresh:" title="configRefresh:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configRefresh:">&ndash;&nbsp;configRefresh:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Force full reload of interactions, groups, shops, beacons</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)configRefresh:(B4SConfigUpdateCause)<em>aCause</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/startStandAloneMode" title="startStandAloneMode"></a>
-	<h3 class="method-title"><code><a href="#//api/name/startStandAloneMode">&ndash;&nbsp;startStandAloneMode</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Start iBeacon listening mode</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)startStandAloneMode</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/queryNearestBeaconStatus" title="queryNearestBeaconStatus"></a>
-	<h3 class="method-title"><code><a href="#//api/name/queryNearestBeaconStatus">&ndash;&nbsp;queryNearestBeaconStatus</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Return the nearest iBeacon</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (B4SBeacon *)queryNearestBeaconStatus</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setBluetoothWarnStatus:" title="setBluetoothWarnStatus:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setBluetoothWarnStatus:">&ndash;&nbsp;setBluetoothWarnStatus:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Enable/Disable the SDK bluetooth warning message if Bluetooth is OFF</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setBluetoothWarnStatus:(BOOL)<em>enabled</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/fullBeaconsList:" title="fullBeaconsList:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/fullBeaconsList:">&ndash;&nbsp;fullBeaconsList:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Return the full beacons list</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)fullBeaconsList:(void ( ^ ) ( NSArray *beacons ))<em>completion</em></code></div>
 
 		    
 			
@@ -438,7 +223,7 @@ A default category identifier (B4S) is created for beacons notifications.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Record the current customer information to the backend</p>
+				<p>Save the customer information to the BeaconForStore backend. This information is cached, it&rsquo;s not necessary to call this method on every app launch</p>
 			</div>
 			
 		    
@@ -446,6 +231,38 @@ A default category identifier (B4S) is created for beacons notifications.</p>
 			<div class="method-subsection method-declaration"><code>- (void)setUserName:(NSString *)<em>aName</em> firstName:(NSString *)<em>aFirstname</em> gender:(B4SCustomerGender)<em>aGender</em> email:(NSString *)<em>anEmail</em> customerRef:(NSString *)<em>aRef</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>aName</code></th>
+						<td><p>Customer name</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>aFirstname</code></th>
+						<td><p>Customer firstname</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>aGender</code></th>
+						<td><p>Customer gender</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>anEmail</code></th>
+						<td><p>Customer e-mail address</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>aRef</code></th>
+						<td><p>Customer reference. This can be a customer ID, or stringified JSON data if you need extra fields</p></td>
+					</tr>
+				
+				</table>
+			</div>
 			
 
 			
@@ -562,104 +379,6 @@ A default category identifier (B4S) is created for beacons notifications.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/setDemoMode:" title="setDemoMode:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setDemoMode:">&ndash;&nbsp;setDemoMode:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>If set to true, the interactions list will be set accordingly to the nearest beacon and not the phone location.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setDemoMode:(BOOL)<em>enabled</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/demoReset" title="demoReset"></a>
-	<h3 class="method-title"><code><a href="#//api/name/demoReset">&ndash;&nbsp;demoReset</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Force configuration reload (even if already cached) and clear interactions counters.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)demoReset</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/unlockCurrentInteraction" title="unlockCurrentInteraction"></a>
-	<h3 class="method-title"><code><a href="#//api/name/unlockCurrentInteraction">&ndash;&nbsp;unlockCurrentInteraction</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-
-			<div class="method-subsection method-declaration"><code>- (void)unlockCurrentInteraction</code></div>
-
-		    
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/setAppNotReadyToAcceptNextInteraction" title="setAppNotReadyToAcceptNextInteraction"></a>
 	<h3 class="method-title"><code><a href="#//api/name/setAppNotReadyToAcceptNextInteraction">&ndash;&nbsp;setAppNotReadyToAcceptNextInteraction</a></code>
 </h3>
@@ -751,10 +470,47 @@ A default category identifier (B4S) is created for beacons notifications.</p>
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>This methods must be called from your app <a href="#//api/name/delegate">delegate</a> application:didReceiveLocalNotification:</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>- (void)notificationFeedback:(NSDictionary *)<em>userInfo</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>userInfo</code></th>
+						<td><p>The userInfo dictionary received by the application:didReceiveLocalNotification: method</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -767,10 +523,40 @@ A default category identifier (B4S) is created for beacons notifications.</p>
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the SDK singleton</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>+ (B4SSingleton *)sharedInstance</code></div>
 
 		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns the SDK Singleton or nil if <a href="#//api/name/setupSharedInstanceWithAppId:">[B4SSingleton setupSharedInstanceWithAppId:]</a> hasn&rsquo;t been called previously</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -783,15 +569,57 @@ A default category identifier (B4S) is created for beacons notifications.</p>
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Initialize the SDK</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>+ (B4SSingleton *)setupSharedInstanceWithAppId:(NSString *)<em>anAppId</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>anAppId</code></th>
+						<td><p>Your BeaconForStore app ID. Use the B4SCustomer iOS app to get this identifier</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The B4S Singleton</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/setupSharedInstanceWithAppId:notificationsSetup:" title="setupSharedInstanceWithAppId:notificationsSetup:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setupSharedInstanceWithAppId:notificationsSetup:">+&nbsp;setupSharedInstanceWithAppId:notificationsSetup:</a></code>
+	<a name="//api/name/startStandAloneMode" title="startStandAloneMode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startStandAloneMode">&ndash;&nbsp;startStandAloneMode</a></code>
 </h3>
 
 	<div class="method-info">
@@ -799,10 +627,35 @@ A default category identifier (B4S) is created for beacons notifications.</p>
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Start to listen to beacons. This method must be called AFTER <a href="#//api/name/setupSharedInstanceWithAppId:">[B4SSingleton setupSharedInstanceWithAppId:]</a></p>
+			</div>
+			
+		    
 
-			<div class="method-subsection method-declaration"><code>+ (B4SSingleton *)setupSharedInstanceWithAppId:(NSString *)<em>anAppId</em> notificationsSetup:(BOOL)<em>notificationsEnabled</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startStandAloneMode</code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div>
@@ -820,7 +673,7 @@ A default category identifier (B4S) is created for beacons notifications.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Ezeeworld. All rights reserved. Updated: 2015-10-15</p>
+						<p class="copyright">Copyright &copy; 2015 Ezeeworld. All rights reserved. Updated: 2015-10-27</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
