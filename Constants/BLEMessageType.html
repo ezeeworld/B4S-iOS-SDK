@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>B4SActionType Constants Reference</title>
+	<title>BLEMessageType Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">B4SActionType Constants Reference</h1>
+					<h1 class="title">BLEMessageType Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>B4SEnums.h</td>
+	<td>BLEMessage.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,11 +75,11 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">B4SActionType</h3>
+                    <h3 class="subsubtitle method-title">BLEMessageType</h3>
                     
 					
 					<div class="section section-overview">
-                        <p>The type of an action associated with a notification</p>
+                        <p>The type of message send/receive</p>
 					</div>
 					
 					
@@ -87,23 +87,25 @@
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSInteger, B4SActionType ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, BLEMessageType ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SActionType_NONE</a>,<br>
+                            &nbsp;&nbsp; <a href="">BLEMessageType_NONE</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SActionType_REJECT</a>,<br>
+                            &nbsp;&nbsp; <a href="">BLEMessageType_NOTIFICATION</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SActionType_BUSY</a>,<br>
+                            &nbsp;&nbsp; <a href="">BLEMessageType_TEXT</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SActionType_INAPP</a>,<br>
+                            &nbsp;&nbsp; <a href="">BLEMessageType_DEEPLINK</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SActionType_INAPPWEB</a>,<br>
+                            &nbsp;&nbsp; <a href="">BLEMessageType_EXURL</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SActionType_WEB</a>,<br>
+                            &nbsp;&nbsp; <a href="">BLEMessageType_INURL</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SActionType_IMAGE</a>,<br>
+                            &nbsp;&nbsp; <a href="">BLEMessageType_RID</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SActionType_TEXT</a>,<br>
+                            &nbsp;&nbsp; <a href="">BLEMessageType_RCD</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">BLEMessageType_NME</a>,<br>
                             
                             };</code>
                     
@@ -113,11 +115,11 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="B4SActionType_NONE"></a><code>B4SActionType_NONE</code></dt>
+                            <dt><a name="" title="BLEMessageType_NONE"></a><code>BLEMessageType_NONE</code></dt>
 <dd>
 
 
-<p>No internal action was required.</p>
+<p>The type of message send/receive</p>
 
 
 
@@ -125,16 +127,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="B4SActionType_REJECT"></a><code>B4SActionType_REJECT</code></dt>
+                            <dt><a name="" title="BLEMessageType_NOTIFICATION"></a><code>BLEMessageType_NOTIFICATION</code></dt>
 <dd>
 
 
-<p>The user chose not to open the notification</p>
+<p>The message with this type will automaticaly display a local notification</p>
 
 
 
@@ -142,16 +144,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="B4SActionType_BUSY"></a><code>B4SActionType_BUSY</code></dt>
+                            <dt><a name="" title="BLEMessageType_TEXT"></a><code>BLEMessageType_TEXT</code></dt>
 <dd>
 
 
-
+<p>This is a simple text message. No local notification will be generated.</p>
 
 
 
@@ -159,16 +161,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="B4SActionType_INAPP"></a><code>B4SActionType_INAPP</code></dt>
+                            <dt><a name="" title="BLEMessageType_DEEPLINK"></a><code>BLEMessageType_DEEPLINK</code></dt>
 <dd>
 
 
-<p>The interaction is configured to open a predefined page in your application. Use [notificationData.userInfo objectForKey:kB4SNotifPageId] to know the page to open</p>
+<p>This is an inter-application data message.</p>
 
 
 
@@ -176,16 +178,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="B4SActionType_INAPPWEB"></a><code>B4SActionType_INAPPWEB</code></dt>
+                            <dt><a name="" title="BLEMessageType_EXURL"></a><code>BLEMessageType_EXURL</code></dt>
 <dd>
 
 
-<p>A webview was opened to display the url set in the interaction</p>
+<p>Open URL in navigator.</p>
 
 
 
@@ -193,16 +195,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="B4SActionType_WEB"></a><code>B4SActionType_WEB</code></dt>
+                            <dt><a name="" title="BLEMessageType_INURL"></a><code>BLEMessageType_INURL</code></dt>
 <dd>
 
 
-<p>An URL was open in Safari, or an URL Scheme was opened</p>
+<p>Open URL in webview.</p>
 
 
 
@@ -210,16 +212,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="B4SActionType_IMAGE"></a><code>B4SActionType_IMAGE</code></dt>
+                            <dt><a name="" title="BLEMessageType_RID"></a><code>BLEMessageType_RID</code></dt>
 <dd>
 
 
-<p>Unused</p>
+
 
 
 
@@ -227,16 +229,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="B4SActionType_TEXT"></a><code>B4SActionType_TEXT</code></dt>
+                            <dt><a name="" title="BLEMessageType_RCD"></a><code>BLEMessageType_RCD</code></dt>
 <dd>
 
 
-<p>Unused</p>
+
 
 
 
@@ -244,7 +246,24 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="BLEMessageType_NME"></a><code>BLEMessageType_NME</code></dt>
+<dd>
+
+
+
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">BLEMessage.h</code>.
 	</p>
 	
 </dd>
@@ -261,7 +280,7 @@
                     
                     <div class="method-subsection declared-in-section">
                         <h4 class="method-subtitle">Declared In</h4>
-                        <p><code class="declared-in-ref">B4SEnums.h</code></p>
+                        <p><code class="declared-in-ref">BLEMessage.h</code></p>
                     </div>
                     
                     

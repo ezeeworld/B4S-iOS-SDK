@@ -10,7 +10,7 @@
   
   Minimum iOS target : iOS 7
   
-  Xcode 6 is required for development
+  Xcode 6 or higher is required for development
 
 # Installation
 
@@ -44,44 +44,25 @@ In order to use the SDK you must know the application ID that is tied to your Be
 
 ## Import frameworks
 
- * Open your Xcode project
- * Select your project in the Project navigator
- * Select your application target
- * Select the "Build phase" tab
- * Unfold the "Link Binary With Libraries" phase
- * Click '+'
- * Click "Add Other..."
- * Select the **BeaconForStoreSDK.framework** on your drive
- * Click "+" again
- * Select the following frameworks:
-   * AVFoundation.framework
-   * CoreBluetooth.framework
-   * CoreData.framework
-   * CoreLocation.framework
-   * CoreMotion.framework
-   * MobileCoreServices.framework
-   * Security.framework
-   * SystemConfiguration.framework
-   * UIKit.framework
- * Set the framework status to "Optional" for the following frameworks:
-   * CoreBluetooth.framework
-   * CoreLocation.framework 
-
-<img src="images/frameworks.png"/>
-
+ * Drag & drop the BeaconForStoreSDK.framework onto your project
+ * Check the "Copy items if needed" box
+ * Add the Framework to your application target
+ * Click "Finish"
+ 
 ## Add linker flags
 
  * Open Project Settings -> Build Settings
  * Scroll to the "Linking" section
  * In "Other Linker Flags" add "-ObjC" (this setting is case-sensitive)
  
-     <img src="images/LinkerFlags.jpg"/>
+     <img src="images/linkerFlags.jpg"/>
 
 ## Import BeaconForStoreStorage.bundle
 
  * Drag & drop the BeaconForStoreStorage.bundle onto your project
  * Check the "Copy items if needed" box
  * Add the bundle to your application target
+ * Click "Finish"
  * Check if the bundle appears in the "Copy File" step of your application target
  
 <img src="images/copyBundleResources.png"/>
@@ -94,7 +75,7 @@ To be able to track the beacons even when in background mode, you must enable ba
  * Select your application target
  * Select the "Capabilities" tab
  * Turn on "Background Modes"
- * Check the "Background fetch mode"
+ * Check the "Background fetch" mode
  
  <img src="images/backgroundmodes.png"/>
  
@@ -104,14 +85,10 @@ To be able to track the beacons even when in background mode, you must enable ba
  
 ## Allow location usage
 
-Starting with iOS8, you must add a key to your Info.plist to be able to get the user location.
+Starting with iOS8, you **must** add a key to your Info.plist to be able to get the user location.
 
  * Open your Info.plist file
  * Add a NSLocationAlwaysUsageDescription key
  * Set its value to a string describing the reason for accessing the user’s location information
  
 Please see <a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html">this document</a> for more information
-
-## Code-level integration
-
-Refer to <a href="Using-the-SDK.html">this document</a> 

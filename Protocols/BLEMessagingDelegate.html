@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>B4STag Class Reference</title>
+	<title>BLEMessagingDelegate Protocol Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -43,8 +43,6 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-	<option value="overview">Overview</option>
-	
 
 	
 	
@@ -56,15 +54,17 @@
 	
 
 	
-	<optgroup label="Class Methods">
+
+	
+	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/event:userData:">+ event:userData:</option>
+		<option value="//api/name/clientExited:">- clientExited:</option>
 		
-		<option value="//api/name/event:userDict:">+ event:userDict:</option>
+		<option value="//api/name/messageReceived:">- messageReceived:</option>
+		
+		<option value="//api/name/newClientEntered:">- newClientEntered:</option>
 		
 	</optgroup>
-	
-
 	
 	
 </select>
@@ -79,29 +79,21 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">B4STag Class Reference</h1>
+					<h1 class="title">BLEMessagingDelegate Protocol Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Inherits from</th>
+	<th>Conforms to</th>
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>B4STag.h</td>
+	<td>BLESingleton.h</td>
 </tr>
 						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Tagging feature</p>
-					</div>
-					
-					
 
 					
 					
@@ -114,8 +106,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/event:userData:" title="event:userData:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/event:userData:">+&nbsp;event:userData:</a></code>
+	<a name="//api/name/newClientEntered:" title="newClientEntered:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/newClientEntered:">&ndash;&nbsp;newClientEntered:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -125,31 +117,14 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Tag an event</p>
+				<p>Delegate method to notifying a client entry.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>anEvent</em> userData:(NSString *)<em>userData</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)newClientEntered:(BLEClient *)<em>aClient</em></code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>anEvent</code></th>
-						<td><p>The event</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>userData</code></th>
-						<td><p>attached user data as a string</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -165,15 +140,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4STag.h</code></p>
+				<p><code class="declared-in-ref">BLESingleton.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/event:userDict:" title="event:userDict:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/event:userDict:">+&nbsp;event:userDict:</a></code>
+	<a name="//api/name/clientExited:" title="clientExited:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clientExited:">&ndash;&nbsp;clientExited:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -183,31 +158,14 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Tag an event</p>
+				<p>Delegate method to notifying a client exit.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (void)event:(NSString *)<em>anEvent</em> userDict:(NSDictionary *)<em>userDict</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)clientExited:(BLEClient *)<em>aClient</em></code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>anEvent</code></th>
-						<td><p>The event</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>userDict</code></th>
-						<td><p>Attached used datas a a dictionary</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -223,7 +181,48 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4STag.h</code></p>
+				<p><code class="declared-in-ref">BLESingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/messageReceived:" title="messageReceived:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/messageReceived:">&ndash;&nbsp;messageReceived:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Delegate method to notifying an incoming message.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)messageReceived:(BLEMessage *)<em>aMessage</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BLESingleton.h</code></p>
 			</div>
 			
 			
