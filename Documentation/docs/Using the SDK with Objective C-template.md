@@ -10,9 +10,9 @@ Depending on how you use the B4S SDK, some steps are mandatory, some are optiona
 
 The base integration requires the following steps.
 
- * Import the umbrella header In your AppDelegate.h
+ * Import the Framework In your AppDelegate.m
 
-		#import <BeaconForStoreSDK/BeaconForStoreSDK.h>
+		@import BeaconForStoreSDK;
 
  *  Initialize and start the SDK in the application:didFinishLaunchingWithOptions: method: 
 

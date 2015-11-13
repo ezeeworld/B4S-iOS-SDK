@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		019A7D1519E5D86F001D080D /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 019A7D1419E5D86F001D080D /* sound.caf */; };
 		01D179D219D580CC004ED9AA /* Splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01D179D119D580CC004ED9AA /* Splash@2x.png */; };
-		1CE289A51B594D57009C500D /* BeaconForStoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE289A41B594D57009C500D /* BeaconForStoreSDK.framework */; };
 		1CE289A71B594D61009C500D /* BeaconForStoreStorage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1CE289A61B594D61009C500D /* BeaconForStoreStorage.bundle */; };
 		2B6DE88D1989435000532B49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DE88B1989435000532B49 /* InfoPlist.strings */; };
 		2B6DE88F1989435000532B49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6DE88E1989435000532B49 /* main.m */; };
@@ -17,6 +16,7 @@
 		2B6DE8961989435000532B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DE8941989435000532B49 /* Main.storyboard */; };
 		2B6DE8991989435000532B49 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6DE8981989435000532B49 /* ViewController.m */; };
 		2B6DE89B1989435000532B49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B6DE89A1989435000532B49 /* Images.xcassets */; };
+		6764390A1BE3E087009224A4 /* BeaconForStoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 676439091BE3E087009224A4 /* BeaconForStoreSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,6 @@
 		01D179CB19D57293004ED9AA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		01D179CD19D572B6004ED9AA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		01D179D119D580CC004ED9AA /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash@2x.png"; sourceTree = "<group>"; };
-		1CE289A41B594D57009C500D /* BeaconForStoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BeaconForStoreSDK.framework; path = SDK/BeaconForStoreSDK.framework; sourceTree = "<group>"; };
 		1CE289A61B594D61009C500D /* BeaconForStoreStorage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BeaconForStoreStorage.bundle; sourceTree = "<group>"; };
 		2B6DE87F1989435000532B49 /* B4S Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B4S Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6DE8821989435000532B49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -48,6 +47,7 @@
 		2B6DE8C11989493700532B49 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		2B6DE8C31989494900532B49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2B6DE8C51989496200532B49 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		676439091BE3E087009224A4 /* BeaconForStoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BeaconForStoreSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CE289A51B594D57009C500D /* BeaconForStoreSDK.framework in Frameworks */,
+				6764390A1BE3E087009224A4 /* BeaconForStoreSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +73,7 @@
 		1CE289A31B594D38009C500D /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				676439091BE3E087009224A4 /* BeaconForStoreSDK.framework */,
 				1CE289A61B594D61009C500D /* BeaconForStoreStorage.bundle */,
 			);
 			path = SDK;
@@ -100,7 +101,6 @@
 		2B6DE8811989435000532B49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1CE289A41B594D57009C500D /* BeaconForStoreSDK.framework */,
 				01D179CD19D572B6004ED9AA /* CoreLocation.framework */,
 				01D179CB19D57293004ED9AA /* AVFoundation.framework */,
 				01D179C919D57281004ED9AA /* CoreData.framework */,
@@ -170,7 +170,7 @@
 		2B6DE8771989435000532B49 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = ezeeworld;
 				TargetAttributes = {
 					2B6DE87E1989435000532B49 = {

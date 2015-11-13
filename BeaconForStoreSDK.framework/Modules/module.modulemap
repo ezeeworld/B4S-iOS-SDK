@@ -1,0 +1,4 @@
+framework module BeaconForStoreSDK {
+    umbrella header "BeaconForStoreSDK.h"
+    export *
+}

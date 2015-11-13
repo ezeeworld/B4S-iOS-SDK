@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 ezeeworld. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <BeaconForStoreSDK/BeaconForStoreSDK.h>
+
+@import UIKit;
+
+@import BeaconForStoreSDK;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, B4SDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

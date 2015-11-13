@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Ezeeworld. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
 
 /**
  *  This feature allows you to automatically warn the user if bluetooth, notifications or geolocation are disabled. This setup must be done before initializing the B4S Singleton.
