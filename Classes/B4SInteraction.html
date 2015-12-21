@@ -58,6 +58,8 @@
 		
 		<option value="//api/name/appId">appId</option>
 		
+		<option value="//api/name/campaignId">campaignId</option>
+		
 		<option value="//api/name/categories">categories</option>
 		
 		<option value="//api/name/customPushEnabled">customPushEnabled</option>
@@ -81,6 +83,8 @@
 		<option value="//api/name/name">name</option>
 		
 		<option value="//api/name/notificationPresenceDuration">notificationPresenceDuration</option>
+		
+		<option value="//api/name/notificationType">notificationType</option>
 		
 		<option value="//api/name/notificationsMaxCount">notificationsMaxCount</option>
 		
@@ -308,6 +312,88 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) B4SInteractionType type</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SInteraction.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/notificationType" title="notificationType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/notificationType">&nbsp;&nbsp;notificationType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notification type</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) B4SNotificationType notificationType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SInteraction.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/campaignId" title="campaignId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/campaignId">&nbsp;&nbsp;campaignId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Internal campaign unique id</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *campaignId</code></div>
 
 		    
 			
@@ -589,7 +675,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>True if the iBeacon <a href="#//api/name/pushText">pushText</a> and <a href="#//api/name/pushData">pushData</a> values should be used for the notification</p>
+				<p>True if the iBeacon pushText and pushData values should be used for the notification</p>
 			</div>
 			
 		    
@@ -881,7 +967,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean mondayEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL mondayEnabled</code></div>
 
 		    
 			
@@ -922,7 +1008,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean tuesdayEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL tuesdayEnabled</code></div>
 
 		    
 			
@@ -963,7 +1049,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean wednesdayEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL wednesdayEnabled</code></div>
 
 		    
 			
@@ -1004,7 +1090,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean thursdayEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL thursdayEnabled</code></div>
 
 		    
 			
@@ -1045,7 +1131,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean fridayEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL fridayEnabled</code></div>
 
 		    
 			
@@ -1086,7 +1172,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean saturdayEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL saturdayEnabled</code></div>
 
 		    
 			
@@ -1127,7 +1213,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean sundayEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL sundayEnabled</code></div>
 
 		    
 			
@@ -1168,7 +1254,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSMutableDictionary *categories</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSMutableDictionary&lt;NSString*NSString*&gt; *categories</code></div>
 
 		    
 			
@@ -1209,7 +1295,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSMutableDictionary *groups</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSMutableDictionary&lt;NSString*NSString*&gt; *groups</code></div>
 
 		    
 			
@@ -1250,7 +1336,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSMutableDictionary *shops</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSMutableDictionary&lt;NSString*NSString*&gt; *shops</code></div>
 
 		    
 			
@@ -1286,7 +1372,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returned the B4SInteraction <a href="#//api/name/name">name</a> associated to the given <a href="#//api/name/interactionId">interactionId</a></p>
+				<p>Returned the B4SInteraction name associated to the given interactionId</p>
 			</div>
 			
 		    
@@ -1327,7 +1413,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returned the B4SInteraction object associated to the given <a href="#//api/name/interactionId">interactionId</a></p>
+				<p>Returned the B4SInteraction object associated to the given interactionId</p>
 			</div>
 			
 		    
@@ -1373,7 +1459,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (NSArray *)interactions</code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSArray&lt;B4SInteraction*&gt; *)interactions</code></div>
 
 		    
 			
@@ -1409,12 +1495,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns <a href="#//api/name/shops">shops</a> near the location set in parameter</p>
+				<p>Returns shops near the location set in parameter</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (NSArray *)shopsList:(CLLocation *)<em>loc</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSArray&lt;B4SShop*&gt; *)shopsList:(CLLocation *)<em>loc</em></code></div>
 
 		    
 			
@@ -1450,7 +1536,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the number of <a href="#//api/name/interactions">interactions</a> availables</p>
+				<p>Returns the number of interactions availables</p>
 			</div>
 			
 		    
@@ -1494,7 +1580,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Ezeeworld. All rights reserved. Updated: 2015-11-05</p>
+						<p class="copyright">Copyright &copy; 2015 Ezeeworld. All rights reserved. Updated: 2015-12-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

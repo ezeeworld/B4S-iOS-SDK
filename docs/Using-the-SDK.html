@@ -40,136 +40,289 @@
 				<main role="main">
 					<h1 class="title">Using the SDK Document</h1>
 
-					<h2>Import the umbrella header In your AppDelegate.h (Objective-C only) :</h2>
+					<p>Depending on how you use the B4S SDK, some steps are mandatory, some are optional.</p>
 
-<pre><code>#import &lt;BeaconForStoreSDK/BeaconForStoreSDK.h&gt;
+<ul>
+<li>Base integration for counting visits</li>
+<li>Recording user data</li>
+<li>Beacon-based notifications</li>
+<li>Application tagging</li>
+<li>Push notifications</li>
+</ul>
+
+
+<h1>Base integration</h1>
+
+<p>The base integration requires the following steps.</p>
+
+<ul>
+<li>Import the Framework In your AppDelegate.m</li>
+</ul>
+
+
+<pre><code>
+    @import BeaconForStoreSDK;
+</pre>
+
+
+<p></code></p>
+
+<pre><code class="swift">
+    @import BeaconForStoreSDK
 </code></pre>
 
-<h2>Import the Framework in your Bridging-Header.h file (Swift only)</h2>
 
-<pre><code>#import &lt;BeaconForStoreSDK/BeaconForStoreSDK.h&gt;
+<ul>
+<li>Initialize and start the SDK in the application:didFinishLaunchingWithOptions: method:</li>
+</ul>
+
+
+<pre><code>
+    //Replace MY-APP-ID with the ID associated with your BeaconForStore account
+    [B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"];
+    [[B4SSingleton sharedInstance] startStandAloneMode];
+</pre>
+
+
+<p></code></p>
+
+<pre><code class="swift">
+    //Replace MY-APP-ID with the ID associated with your BeaconForStore account
+    B4SSingleton.setupSharedInstanceWithAppId("MY-APP-ID")
+    B4SSingleton.sharedInstance().startStandAloneMode()
 </code></pre>
 
-<h2>Implement B4SDelegate in your app delegate (Objective-C only)</h2>
 
-<pre><code>@interface AppDelegate : UIResponder &lt;UIApplicationDelegate,B4SDelegate&gt;    
+<h1>Recording user data</h1>
+
+<p>B4S can relate events tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call this every time) using the [B4SSingleton setUserName:firstName:gender:email:customerRef:] method:</p>
+
+<pre><code>
+    [[B4SSingleton sharedInstance] setUserName:@"Bernard" firstName:@"VanCode" gender:B4SCustomerGender_MALE email:@"bernard@vancode.com" customerRef:@"90210"];
+</pre>
+
+
+<p></code></p>
+
+<pre><code class="swift">
+    B4SSingleton.sharedInstance().setUserName("Bernard", firstName: "VanCode", gender: B4SCustomerGender.MALE, email: "bernard@vancode.com", customerRef: "90210")
 </code></pre>
 
-<h2>Initialize the Framework in the application:didFinishLaunchingWithOptions: method:</h2>
 
-<p>Objective-C:</p>
+<h1>Beacon-based notifications</h1>
 
-<pre><code>//Add an observer for the B4S SDK notification processed event.
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationProcessed:) name:kB4SNotificationProcessedNotification object:nil];
+<p>The B4S SDK uses local notifications to establish communication between beacons and the app.</p>
 
-//Replace MY-APP-ID with the ID associated with your BeaconForStore account
-[B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"];
-[B4SSingleton sharedInstance].delegate = self;
-[[B4SSingleton sharedInstance] startStandAloneMode];
+<p>Implement the application:didReceiveLocalNotification: method in your appDelegate. A notification will be sent by the SDK when a notification is fired. You can use the UILocalNotification.userInfo to process the notification yourself. But if you set up some automatic action in the B4S Manager application or using the web app, you must call the [B4SSingleton notificationFeedback:] method. So, the SDK will display a confirmation panel (if any) and process one of the requested predefined actions.</p>
 
-// Use this method to change the sound played when you app shows a notification to the user
-// The sound file must be in .caf (Core Audio File) format and imported into your project
-[b4sSingleton setNotificationSoundname:@"sound.caf"];
+<pre><code>
+    - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+    {
+        [[B4SSingleton sharedInstance] notificationFeedback:notification.userInfo];
+    }
 </code></pre>
 
-<p>Swift:</p>
 
-<pre><code>//Add an observer for the B4S SDK notification processed event.
-NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationProcessed:", name: kB4SNotificationProcessedNotification, object: nil)
-
-//Replace MY-APP-ID with the ID associated to your beacon4store account
-let b4sSingleton = B4SSingleton.setupSharedInstanceWithAppId("MY-APP-ID")
-B4SSingleton.sharedInstance().delegate = self;
-B4SSingleton.sharedInstance().startStandAloneMode()
-
-// Use this method to change the sound played when you app shows a notification to the user
-// The sound file must be in .caf (Core Audio File) format and imported into your project
-b4sSingleton.notificationSoundname = "sound.caf"
+<pre><code class="swift">
+    func    application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        B4SSingleton.sharedInstance().notificationFeedback(notification.userInfo)
+    }
 </code></pre>
 
-<h2>Decoding notifications</h2>
-
-<p>The SDK uses local notifications to establish communication between beacons and the app.</p>
-
-<p>Implement the application:didReceiveLocalNotification: method in your appDelegate. A notification will be sent by the SDK when a notification is fired. You can use the UILocalNotification.userInfo to process the notification yourself. But if you set up some automatic action in the B4S setup application, you must call the <a href="../Classes/B4SSingleton.html#//api/name/notificationFeedback:">[B4SSingleton notificationFeedback:]</a> method. So, the SDK will display a confirmation panel (if any) and process one of the requested predefined actions.</p>
-
-<p>Objective-C:</p>
-
-<pre><code>- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
-    // If you want to use B4S SDK internal notification processing (UIAlertView, UIWebView, open Url in Safari, ...), you must call
-    // the B4SSingleton:notificationFeedback: method.
-    [[B4SSingleton sharedInstance] notificationFeedback:notification.userInfo];
-}
-</code></pre>
-
-<p>Swift:</p>
-
-<pre><code>func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-{
-    println("[didReceiveLocalNotification] \(notification.userInfo?[kB4SNotifBeaconId]) / \(notification.userInfo?[kB4SNotifContentName)")
-    println("notification : \(notification.description)");
-
-    // If you want to use B4S SDK internal notification processing (UIAlertView, UIWebView, open Url in Safari, ...), you have to call
-    // the B4SSingleton:notificationFeedback: method.
-    B4SSingleton.sharedInstance().notificationFeedback(notification.userInfo?)
-    // After post processing made through the notificationFeedback method, the delegate:notificationProcessed will be called.
-}
-</code></pre>
 
 <p>After processing a notification, a kB4SNotificationProcessedNotification event is fired by the SDK. The notification type is a B4SActionType that you can get using [[notificationData.userInfo objectForKey:kB4SNotifActionId] intValue]</p>
 
-<h2>Record user data</h2>
+<h1>Application tagging</h1>
 
-<p>B4S can relate beacon interactions tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call every time) using the <a href="../Classes/B4SSingleton.html#//api/name/setUserName:firstName:gender:email:customerRef:">[B4SSingleton setUserName:firstName:gender:email:customerRef:]</a></p>
+<p>You can tag your application with the B4S SDK. You can set two values : The first parameter is the event descriptor and the second the userData asociated to the event. Use the [B4STag event:userData:] and  [B4STag event:userData:]  methods</p>
 
-<h2>Application tagging</h2>
-
-<p>You can tag your application with the B4S SDK. You can set two values : The first parameter is the event descriptor and the second the userData asociated to the event.</p>
-
-<pre><code>[B4STag event:@"Test" userData:@"test"];
+<pre><code>
+    [B4STag event:@"menuClose" userData:@"menu_id_42"];
+    [B4STag event:@"menuOpen" userDict:@{@"menu_id": @(42), @"item_id": @(12)}];
 </code></pre>
 
-<h2>B4S Behaviours</h2>
 
-<p>This feature allows you to automatically warn the user if Bluetooth, notifications or geolocation are disabled. This setup <strong>must</strong> be done before initializing the B4S Singleton.</p>
-
-<pre><code>[B4SBehaviours warnForBluetooth:true after:0 count:2 andEvery:2 withTitle:@"Bluetooth" andText:@"Bluetooth is disabled. Do you want to enabled it ?"];
-[B4SBehaviours warnForGeolocation:true after:3 count:2 andEvery:2 withTitle:@"Geoloc" andText:@"Geolocation is disabled. Do you want to enable it ?"];
-[B4SBehaviours warnForNotifications:true after:1 count:2 andEvery:2 withTitle:@"Notifications " andText:@"Notifications are disabled. You need to activate them in order to use this application."];
+<pre><code class="swift">
+    B4STag.event("menuClose", userData: "menu_id_42")
+    B4STag.event("menuOpen", userData: ["menu_id" : 42, "item_id": 12])
 </code></pre>
 
-<h2>Customize notifications</h2>
 
-<p>You can customize the notification messages and data sent to your application by implementing the <a href="../Protocols/B4SDelegate.html#//api/name/customizeNotificationText:andData:andUserInfo:completion:">[B4SDelegate customizeNotificationText:andData:andUserInfo:completion:]</a> method in your appDelegate</p>
+<h1>B4S Behaviours</h1>
 
-<p>Objective-C:</p>
+<p>This feature allows you to automatically warn the user if Bluetooth, notifications or geolocation are disabled. This setup <strong>must</strong> be done before initializing the B4S Singleton. See the B4SBehaviours class for more details.</p>
 
-<pre><code>- (void)customizeNotificationText:(NSString *)aText
-                          andData:(NSString *)aData
-                      andUserInfo:(NSMutableDictionary *)userInfos
-                       completion:(void (^)(NSString *pushText, NSString *pushData, NSMutableDictionary *userInfos))completion {
-    if (completion) {
-        NSLog(@"[customizeNotificationText] set notification text with braces");
-        completion([NSString stringWithFormat:@"[%@]",aText], aData, userInfos);
+<pre><code>
+    [B4SBehaviours warnForBluetooth:true after:0 count:2 andEvery:2 withTitle:@"Bluetooth" andText:@"Bluetooth is disabled. Do you want to enable it ?"];
+    [B4SBehaviours warnForGeolocation:true after:3 count:2 andEvery:2 withTitle:@"Geoloc" andText:@"Geolocation is disabled. Do you want to enable it ?"];
+    [B4SBehaviours warnForNotifications:true after:1 count:2 andEvery:2 withTitle:@"Notifications" andText:@"Notifications are disabled. You need to activate them in order to use this application."];
+</code></pre>
+
+
+<pre><code class="swift">
+    B4SBehaviours.warnForBluetooth(true, after: 0, count: 2, andEvery: 2, withTitle: "Bluetooth", andText: "Bluetooth is disabled. Do you want to enable it ?")
+    B4SBehaviours.warnForGeolocation(true, after: 3, count: 2, andEvery: 2, withTitle: "Geoloc", andText: "Geolocation is disabled. Do you want to enable it ?")
+    B4SBehaviours.warnForNotifications(true, after: 1, count: 2, andEvery: 2, withTitle: "Notifications", andText: "Notifications are disabled. You need to activate them in order to use this application")
+</code></pre>
+
+
+<h1>Custom notifications</h1>
+
+<p>You can customize the notification messages and data sent to your application</p>
+
+<ul>
+<li>Implement B4SDelegate in your app delegate</li>
+</ul>
+
+
+<pre><code>
+    @interface AppDelegate : UIResponder <UIApplicationDelegate,B4SDelegate>
+</code></pre>
+
+
+<pre><code class="swift">
+    class AppDelegate: UIResponder, UIApplicationDelegate, B4SDelegate {
+</code></pre>
+
+
+<p>     <br/>
+ * In your application:didFinishLaunchingWithOptions: method: set the singleton delegate to your app delegate <em>after</em> calling [B4SSingleton setupSharedInstanceWithAppId:]</p>
+
+<pre><code>
+    [B4SSingleton sharedInstance].delegate = self;      
+</code></pre>
+
+
+<pre><code class="swift">
+    B4SSingleton.sharedInstance().delegate = self
+</code></pre>
+
+
+<p></p>
+
+<ul>
+<li>Implement the [B4SDelegate customizeNotificationText:andData:andUserInfo:completion:] in your app delegate</li>
+</ul>
+
+
+<pre><code>
+    - (void)customizeNotificationText:(NSString *)aText
+                              andData:(NSString *)aData
+                          andUserInfo:(NSMutableDictionary *)userInfos
+                           completion:(void (^)(NSString *pushText, NSString *pushData, NSMutableDictionary *userInfos))completion {
+        if (completion) {
+            NSLog(@"[customizeNotificationText] surround notification text with braces");
+            completion([NSString stringWithFormat:@"[%@]",aText], aData, userInfos);
+        }
     }
+</code></pre>
+
+
+<pre><code class="swift">
+    func        customizeNotificationText(aText: String!, andData aData: String!, andUserInfo userInfos: NSMutableDictionary!, completion: ((String!, String!, NSMutableDictionary!) -> Void)!) {
+            if completion {
+                print("customizeNotificationText: surround notification text with braces")
+                completion("[\(aText)]", aData, userInfos)
+            }
+        }
+</code></pre>
+
+
+<p></p>
+
+<h1>Custom alert sound</h1>
+
+<ul>
+<li>Change the sound played when you app shows a notification to the user. The sound file must be in .caf (Core Audio File) format and imported into your project</li>
+</ul>
+
+
+<pre><code>
+    [[B4SSingleton sharedInstance] setNotificationSoundname:@"sound.caf"];
+</code></pre>
+
+
+<pre><code class="swift">
+    B4SSingleton.sharedInstance().notificationSoundname = "sound.caf"
+</code></pre>
+
+
+<p></p>
+
+<h1>Push notifications</h1>
+
+<p><em>To use remote push notifications you must first follow the instructions of the &ldquo;Base integration&rdquo; and &ldquo;Beacon-based notifications&rdquo; sections</em></p>
+
+<h2>Certificates</h2>
+
+<ul>
+<li>Follow <A href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ProvisioningDevelopment.html#//apple_ref/doc/uid/TP40008194-CH104-SW1"> Apple Developer documentation</A> on how to get Certificates for push notifications</li>
+</ul>
+
+
+<h2>Target configuration</h2>
+
+<ul>
+<li>Select your application target</li>
+<li>Select the &ldquo;Capabilities&rdquo; tab</li>
+<li>Set Push Notifications to &ldquo;On&rdquo;
+  <img src="images/pushNotificationsOn.jpg"/></li>
+<li>In Background Modes enable &ldquo;Remotes Notifications&rdquo; in addition to &ldquo;Background Fetch&rdquo;
+  <img src="images/backgroundMode-pushNotificationsOn.jpg"/></li>
+</ul>
+
+
+<h2>Code</h2>
+
+<ul>
+<li>After initializing the SDK with the setupSharedInstanceWithAppId: call enablePushNotifications:
+<pre><code>[[B4SSingleton sharedInstance] enablePushNotifications];
+</code></pre></li>
+</ul>
+
+
+<pre><code class="swift">B4SSingleton.sharedInstance().enablePushNotifications()
+</code></pre>
+
+
+<p></p>
+
+<ul>
+<li><p>Implement application:didRegisterForRemoteNotificationsWithDeviceToken: in your app delegate:
+<pre><code>     - (void)application:(UIApplication<em>)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData</em>)deviceToken
+  {
+     [[B4SSingleton sharedInstance] registerPushNotificationDeviceToken:deviceToken];
+  }
+</code></pre>
+<pre><code class="swift">   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
+  {
+      B4SSingleton.sharedInstance().registerPushNotificationDeviceToken(deviceToken)
+  }
+</code></pre></p></li>
+<li><p>Implement application:didReceiveRemoteNotification: in your app delegate:
+<pre><code></p>
+
+<ul>
+<li> (void)application:(UIApplication ​<em>)application didReceiveRemoteNotification:(NSDictionary </em>​)userInfo
+{
+   [B4SSingleton sharedInstance] notificationFeedback:userInfo];
 }
 </code></pre>
-
-<p>Swift:</p>
-
-<pre><code>func customizeNotificationText(aText: String!, andData aData: String!, andUserInfo userInfos: NSMutableDictionary!, completion: ((String!, String!, NSMutableDictionary!) -&gt; Void)!) {
-    if completion != nil {
-        println("[customizeNotificationText] set notification text with braces")
-        completion("[\(aText)]", aData, userInfos)
-    }
+<pre><code class="swift">
+func application( application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+{
+   B4SSingleton.sharedInstance().notificationFeedback(userInfo)
 }
-</code></pre>
+</code></pre></li>
+</ul>
+</li>
+</ul>
+
 
 					<footer>
 						<div class="footer-copyright">
 							
-							<p class="copyright">Copyright &copy; 2015 Ezeeworld. All rights reserved. Updated: 2015-10-15</p>
+							<p class="copyright">Copyright &copy; 2015 Ezeeworld. All rights reserved. Updated: 2015-12-17</p>
 							
 							
 							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

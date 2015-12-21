@@ -11,6 +11,8 @@
   Minimum iOS target : iOS 7
   
   Xcode 6 or higher is required for development
+  
+  The B4S SDK supports App Transport Security, no exception is required
 
 # Installation
 
