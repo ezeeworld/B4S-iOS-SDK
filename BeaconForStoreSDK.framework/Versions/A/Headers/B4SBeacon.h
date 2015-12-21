@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @class B4SGroup;
 @class B4SCategory;
 @class B4SShop;
+@class B4SInteraction;
 
 @interface B4SBeacon : NSObject
 /**
@@ -41,6 +42,8 @@
  Last temperature reported for the iBeacon.
  */
 @property (nonatomic) int temperature;
+@property (nonatomic) int color;
+@property (nonatomic) BOOL runStatus;
 @property (nonatomic, retain) NSString *hwVersion;
 @property (nonatomic, retain) NSString *fwVersion;
 @property (nonatomic, retain) NSString *model;
@@ -92,7 +95,7 @@
 /**
  Interactions matching with the iBeacon.
  */
-@property (nonatomic, retain) NSMutableSet *interactions;
+@property (nonatomic, retain) NSMutableSet<B4SInteraction *> *interactions;
 /**
  Group the iBeacon belongs to.
  */
@@ -111,7 +114,7 @@
 /**
  List of iBeacons downloaded from the backend
  */
-+ (NSArray *)beacons;
++ (NSArray<B4SBeacon *> *)beacons;
 /**
  Number of iBeacons downloaded from the backend
  */

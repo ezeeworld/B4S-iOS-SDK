@@ -58,7 +58,16 @@ pre > code, .method-declaration code {
 	font-size: .85em;
 	padding: 4px 0 4px 10px;
 	border-left: 5px solid rgba(0, 155, 51, .2);
+	
+	&.swift {
+		border-left: 5px solid #FAA43E;
+	}
 
+	&.swift:before {
+		content: "Swift";
+		color: #FAA43E;
+	}
+	
 	&:before {
 		content: "Objective-C";
 		display: block;

@@ -5,7 +5,7 @@
 //  Copyright (c) 2014 Fanny Renauld. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @class B4SGroup;
 
@@ -47,11 +47,11 @@
 /**
  Returns the list of shop previously downloaded from the backend
  */
-+ (NSArray *)shops;
++ (NSArray<B4SShop *> *)shops;
 /**
  Returns the list of shop associated to the given groupId previously downloaded from the backend
  */
-+ (NSArray *)shopsForGroup:(NSString *)groupId;
++ (NSArray<B4SShop *> *)shopsForGroup:(NSString *)groupId;
 
 /**
  Return the number of shops.

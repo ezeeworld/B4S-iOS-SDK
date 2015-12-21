@@ -40,7 +40,7 @@
         
         
         // Optional configuration: set user information, configure a delegate, change the default sound
-        [[B4SSingleton sharedInstance] setUserName:@"ClientName" firstName:@"ClientFirstname" gender:kB4SGENDER_UNDEFINED email:@"clientEmail@domain.com" customerRef:@"yourOwnClientRef"];
+        [[B4SSingleton sharedInstance] setUserName:@"ClientName" firstName:@"ClientFirstname" gender:B4SCustomerGender_UNDEFINED email:@"clientEmail@domain.com" customerRef:@"yourOwnClientRef"];
         [B4SSingleton sharedInstance].delegate = self;
 
         [[B4SSingleton sharedInstance] setNotificationSoundname:@"sound.caf"];

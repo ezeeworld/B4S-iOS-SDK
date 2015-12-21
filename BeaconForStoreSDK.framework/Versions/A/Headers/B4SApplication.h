@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface B4SApplication : NSObject
 
@@ -34,7 +34,7 @@
 /**
  Returns an array of the applications previously loaded with the B4SSingleton fullAppsList method.
  */
-+ (NSArray *)applications;
++ (NSArray<B4SApplication *> *)applications;
 
 /**
  Returns applications count.

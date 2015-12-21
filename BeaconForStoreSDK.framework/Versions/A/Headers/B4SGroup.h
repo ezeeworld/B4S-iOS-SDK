@@ -5,7 +5,7 @@
 //  Copyright (c) 2014 Fanny Renauld. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface B4SGroup : NSObject
 
@@ -45,7 +45,7 @@
 /**
  Returns a list of all groups downloaded from the backend.
  */
-+ (NSArray *)groups;
++ (NSArray<B4SGroup *> *)groups;
 
 /**
  Number of groups downloaded from the backend

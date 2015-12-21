@@ -109,10 +109,16 @@ typedef NS_ENUM(NSInteger, B4SActionType){
     B4SActionType_TEXT
 };
 
-enum B4SMovement {
-    kB4SMAPMOVE_NO,
-    kB4SMAPMOVE_YES
+typedef NS_ENUM(NSInteger, B4SMovement) {
+    B4SMovement_NO,
+    B4SMovement_YES
 };
-typedef enum B4SMovement B4SMovement;
+
+typedef NS_ENUM(NSInteger, B4SEvents) {
+    B4SEvents_NOTIFICATION,
+    B4SEvents_SHOPIN,
+    B4SEvents_SHOPOUT,
+    B4SEvents_BEACON
+};
 
 #endif

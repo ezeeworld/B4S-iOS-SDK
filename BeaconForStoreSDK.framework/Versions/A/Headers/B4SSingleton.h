@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
 // 
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #include    "B4SCustomerGender.h"
 #include    "B4SEnums.h"
 
@@ -27,6 +27,7 @@ extern NSString *const kB4SNotifText;
 extern NSString *const kB4SNotificationsCount;
 extern NSString *const kB4SNotifInteractionData;
 extern NSString *const kB4SNotifContentId;
+extern NSString *const kB4SNotifCampaignId;
 extern NSString *const kB4SNotifContentName;
 extern NSString *const kB4SNotifBeaconId;
 extern NSString *const kB4SNotifBeaconName;
@@ -84,6 +85,11 @@ B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
  *  The name of the filename played when a notification is shonw to the user. This must be the name a a file in CAF format ("Core Audio File") present in the app bundle
  */
 @property (nonatomic, retain) NSString *notificationSoundname;
+
+/**
+ *  Set to YES if you want the phone to vibrate when a notification is fired.
+ */
+@property (nonatomic) BOOL vibrateOnNotification;
 
 
 /**

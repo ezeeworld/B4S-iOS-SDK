@@ -9,11 +9,10 @@
 #ifndef BeaconForStoreSDK_B4SCustomerGender_h
 #define BeaconForStoreSDK_B4SCustomerGender_h
 
-enum B4SCustomerGender {
-    kB4SGENDER_UNDEFINED,
-    kB4SGENDER_FEMALE,
-    kB4SGENDER_MALE
+typedef NS_ENUM(NSInteger, B4SCustomerGender) {
+    B4SCustomerGender_UNDEFINED,
+    B4SCustomerGender_FEMALE,
+    B4SCustomerGender_MALE
 };
-typedef enum B4SCustomerGender B4SCustomerGender;
 
 #endif

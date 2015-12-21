@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ezeeworld. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import "B4SCustomerGender.h"
 
 @interface B4SCustomerData : NSObject
