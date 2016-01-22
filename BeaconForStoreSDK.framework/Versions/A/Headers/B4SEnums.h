@@ -16,18 +16,6 @@ typedef NS_ENUM(NSInteger, B4SNetworkStatus) {
     B4SNetworkStatus_WWAN
 };
 
-typedef NS_ENUM(NSInteger, B4SBeaconStatus) {
-    B4SBeaconStatus_UNDEFINED,
-    B4SBeaconStatus_NO_BEACON,
-    B4SBeaconStatus_MULTIPLE_BEACONS,
-    B4SBeaconStatus_QUERY_BEACON,
-    B4SBeaconStatus_NEW_BEACON,
-    B4SBeaconStatus_REGISTERED,
-    B4SBeaconStatus_REG_ERROR,
-    B4SBeaconStatus_EXISTING,
-    B4SBeaconStatus_SRV_ERROR,
-    B4SBeaconStatus_UNAUTHORIZED
-};
 
 typedef NS_ENUM(NSInteger, B4SConfigUpdateCause) {
     B4SConfigUpdateCause_SDKLOOP,
@@ -38,6 +26,15 @@ typedef NS_ENUM(NSInteger, B4SConfigUpdateCause) {
     B4SConfigUpdateCause_REGIONOUT,
     B4SConfigUpdateCause_APPSTART,
     B4SConfigUpdateCause_DEMO
+};
+
+typedef NS_ENUM(NSInteger, B4SSessionEndCause) {
+    kB4SSESSION_END_RANGEOUT,
+    kB4SSESSION_END_SWAP,
+    kB4SSESSION_END_NOBEACONS,
+    kB4SSESSION_END_FORCED,
+    kB4SSESSION_END_MAXCOUNT,
+    kB4SSESSION_END
 };
 
 /**
@@ -109,16 +106,49 @@ typedef NS_ENUM(NSInteger, B4SActionType){
     B4SActionType_TEXT
 };
 
+/**
+ *  Is the device moving
+ */
 typedef NS_ENUM(NSInteger, B4SMovement) {
-    B4SMovement_NO,
-    B4SMovement_YES
+    /**
+     *  The devide is static
+     */
+    B4SMovement_STATIC,
+    /**
+     *  The device is moving
+     */
+    B4SMovement_MOVING
 };
 
-typedef NS_ENUM(NSInteger, B4SEvents) {
-    B4SEvents_NOTIFICATION,
-    B4SEvents_SHOPIN,
-    B4SEvents_SHOPOUT,
-    B4SEvents_BEACON
+
+/**
+ *  The type of an event generated within the customer journey
+ */
+typedef NS_ENUM(NSInteger, B4SJourneyEventType) {
+    /**
+     *  Notification shown to the user
+     */
+    B4SJourneyEventType_NOTIFICATION = 0,
+    /**
+     *  Shop entry
+     */
+    B4SJourneyEventType_SHOPIN = 1,
+    /**
+     *  Shop exit
+     */
+    B4SJourneyEventType_SHOPOUT = 2,
+    /**
+     *  Encounter a beacon (entered in the beacon radio range)
+     */
+    B4SJourneyEventType_BEACON = 3,
+    /**
+     *  The user has read a notification
+     */
+    B4SJourneyEventType_NOTIFICATIONREAD = 4,
+    /**
+     *  The user navigated to a manual tag within the app
+     */
+    B4SJourneyEventType_MANUALTAG = 5
 };
 
 #endif

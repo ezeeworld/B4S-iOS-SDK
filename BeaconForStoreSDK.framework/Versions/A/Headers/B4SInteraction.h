@@ -59,14 +59,7 @@ typedef NS_ENUM(NSInteger, B4SNotificationType)
  Internal interaction unique id
  */
 @property (nonatomic, retain) NSString *interactionId;
-/**
- Notification activation starting hour [0..23]
- */
-@property (nonatomic) int enabledHoursFrom;
-/**
- Notification activation ending hour [0..23]
- */
-@property (nonatomic) int enabledHoursTo;
+
 /**
  True if the interaction is Enabled
  */

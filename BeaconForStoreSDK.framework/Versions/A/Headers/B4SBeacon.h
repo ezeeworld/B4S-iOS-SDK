@@ -12,6 +12,7 @@
 @class B4SCategory;
 @class B4SShop;
 @class B4SInteraction;
+@class CLLocation;
 
 @interface B4SBeacon : NSObject
 /**
@@ -58,7 +59,7 @@
 /**
  Last time the iBeacon was seen by a customer application
  */
-@property (nonatomic, retain) NSDate * lastScanDate;
+@property (nonatomic, retain) NSDate *lastScanDate;
 /**
  Map X position of the iBeacon
  */
@@ -72,25 +73,23 @@
  */
 @property (nonatomic) int zPos;
 
-@property (nonatomic) int beaconRangeIn;
-@property (nonatomic) int beaconRangeOut;
 
 /**
  iBeacon notification text
  */
-@property (nonatomic, retain) NSString * beaconPushText;
+@property (nonatomic, retain) NSString *pushText;
 /**
  iBeacon notification data
  */
-@property (nonatomic, retain) NSString * beaconPushData;
+@property (nonatomic, retain) NSString *pushData;
 /**
  iBeacon customer reference
  */
-@property (nonatomic, retain) NSString * beaconClientRef;
+@property (nonatomic, retain) NSString *clientRef;
 /**
  iBeacon given name
  */
-@property (nonatomic, retain) NSString * beaconName;
+@property (nonatomic, retain) NSString *name;
 
 /**
  Interactions matching with the iBeacon.
@@ -99,17 +98,25 @@
 /**
  Group the iBeacon belongs to.
  */
-@property (nonatomic, weak) B4SGroup * beaconGroup;
+@property (nonatomic, weak) B4SGroup *beaconGroup;
 /**
  Shop the iBeacon belongs to.
  */
-@property (nonatomic, weak) B4SShop * beaconShop;
+@property (nonatomic, weak) B4SShop *beaconShop;
 /**
  Category the iBeacon is attached to.
  */
-@property (nonatomic, weak) B4SCategory * beaconCategory;
+@property (nonatomic, weak) B4SCategory *beaconCategory;
 
-- (int)beaconRangeInDistance;
+/**
+ Virtual beacon coordinates.
+ */
+@property (nonatomic, retain) CLLocation *location;
+/**
+ Virtual beacon radius.
+ */
+@property (nonatomic) float radius;
+
 
 /**
  List of iBeacons downloaded from the backend
@@ -120,4 +127,8 @@
  */
 + (int)count;
 
+/**
+ *  Details on where is located
+ */
+@property(readonly) NSString    *beaconDescription;
 @end

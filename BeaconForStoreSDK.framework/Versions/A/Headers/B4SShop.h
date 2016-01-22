@@ -37,30 +37,24 @@
 @property (nonatomic, retain) B4SGroup *group;
 
 /**
- Return shop name associated to the given shopId
- */
-+ (NSString *)getShopName:(NSString *)aShopId;
-/**
  Return B4SShop object associated to the given shopId
  */
-+ (B4SShop *)getShop:(NSString *)aShopId;
++ (B4SShop *)getShopWithId:(NSString *)aShopId;
 /**
  Returns the list of shop previously downloaded from the backend
  */
+
 + (NSArray<B4SShop *> *)shops;
 /**
  Returns the list of shop associated to the given groupId previously downloaded from the backend
  */
-+ (NSArray<B4SShop *> *)shopsForGroup:(NSString *)groupId;
++ (NSArray<B4SShop *> *)shopsWithGroupId:(NSString *)groupId;
 
 /**
  Return the number of shops.
  */
-+ (int)count;
-/**
- Return the number of shops belonging to groupId.
- */
-+ (int)countForGroup:(NSString *)groupId;
++ (NSUInteger)count;
+
 /**
  Return the nearest shop.
  */
