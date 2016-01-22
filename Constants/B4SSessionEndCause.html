@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>B4SMovement Constants Reference</title>
+	<title>B4SSessionEndCause Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,7 +59,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">B4SMovement Constants Reference</h1>
+					<h1 class="title">B4SSessionEndCause Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -75,23 +75,25 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">B4SMovement</h3>
+                    <h3 class="subsubtitle method-title">B4SSessionEndCause</h3>
                     
-					
-					<div class="section section-overview">
-                        <p>Is the device moving</p>
-					</div>
-					
-					
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSInteger, B4SMovement ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, B4SSessionEndCause ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SMovement_STATIC</a>,<br>
+                            &nbsp;&nbsp; <a href="">kB4SSESSION_END_RANGEOUT</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SMovement_MOVING</a>,<br>
+                            &nbsp;&nbsp; <a href="">kB4SSESSION_END_SWAP</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">kB4SSESSION_END_NOBEACONS</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">kB4SSESSION_END_FORCED</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">kB4SSESSION_END_MAXCOUNT</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">kB4SSESSION_END</a>,<br>
                             
                             };</code>
                     
@@ -101,15 +103,8 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="B4SMovement_STATIC"></a><code>B4SMovement_STATIC</code></dt>
+                            <dt><a name="" title="kB4SSESSION_END_RANGEOUT"></a><code>kB4SSESSION_END_RANGEOUT</code></dt>
 <dd>
-
-
-<p>The devide is static</p>
-
-
-
-
 
     
 	<p>
@@ -118,15 +113,48 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SMovement_MOVING"></a><code>B4SMovement_MOVING</code></dt>
+                            <dt><a name="" title="kB4SSESSION_END_SWAP"></a><code>kB4SSESSION_END_SWAP</code></dt>
 <dd>
 
+    
+	<p>
+		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="kB4SSESSION_END_NOBEACONS"></a><code>kB4SSESSION_END_NOBEACONS</code></dt>
+<dd>
 
-<p>The device is moving</p>
+    
+	<p>
+		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="kB4SSESSION_END_FORCED"></a><code>kB4SSESSION_END_FORCED</code></dt>
+<dd>
 
+    
+	<p>
+		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="kB4SSESSION_END_MAXCOUNT"></a><code>kB4SSESSION_END_MAXCOUNT</code></dt>
+<dd>
 
-
-
+    
+	<p>
+		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="kB4SSESSION_END"></a><code>kB4SSESSION_END</code></dt>
+<dd>
 
     
 	<p>
@@ -139,17 +167,6 @@
                     </div>
                     
 
-                    
-                    
-
-                    
-
-                    
-                    <div class="method-subsection declared-in-section">
-                        <h4 class="method-subtitle">Declared In</h4>
-                        <p><code class="declared-in-ref">B4SEnums.h</code></p>
-                    </div>
-                    
                     
                     
                     

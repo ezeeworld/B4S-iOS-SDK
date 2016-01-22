@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>B4SMovement Constants Reference</title>
+	<title>B4SJourneyEventType Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,7 +59,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">B4SMovement Constants Reference</h1>
+					<h1 class="title">B4SJourneyEventType Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -75,11 +75,11 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">B4SMovement</h3>
+                    <h3 class="subsubtitle method-title">B4SJourneyEventType</h3>
                     
 					
 					<div class="section section-overview">
-                        <p>Is the device moving</p>
+                        <p>The type of an event generated within the customer journey</p>
 					</div>
 					
 					
@@ -87,11 +87,19 @@
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSInteger, B4SMovement ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, B4SJourneyEventType ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SMovement_STATIC</a>,<br>
+                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_NOTIFICATION</a> = 0,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SMovement_MOVING</a>,<br>
+                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_SHOPIN</a> = 1,<br>
+                            
+                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_SHOPOUT</a> = 2,<br>
+                            
+                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_BEACON</a> = 3,<br>
+                            
+                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_NOTIFICATIONREAD</a> = 4,<br>
+                            
+                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_MANUALTAG</a> = 5,<br>
                             
                             };</code>
                     
@@ -101,11 +109,11 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="B4SMovement_STATIC"></a><code>B4SMovement_STATIC</code></dt>
+                            <dt><a name="" title="B4SJourneyEventType_NOTIFICATION"></a><code>B4SJourneyEventType_NOTIFICATION</code></dt>
 <dd>
 
 
-<p>The devide is static</p>
+<p>Notification shown to the user</p>
 
 
 
@@ -118,11 +126,79 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SMovement_MOVING"></a><code>B4SMovement_MOVING</code></dt>
+                            <dt><a name="" title="B4SJourneyEventType_SHOPIN"></a><code>B4SJourneyEventType_SHOPIN</code></dt>
 <dd>
 
 
-<p>The device is moving</p>
+<p>Shop entry</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="B4SJourneyEventType_SHOPOUT"></a><code>B4SJourneyEventType_SHOPOUT</code></dt>
+<dd>
+
+
+<p>Shop exit</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="B4SJourneyEventType_BEACON"></a><code>B4SJourneyEventType_BEACON</code></dt>
+<dd>
+
+
+<p>Encounter a beacon (entered in the beacon radio range)</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="B4SJourneyEventType_NOTIFICATIONREAD"></a><code>B4SJourneyEventType_NOTIFICATIONREAD</code></dt>
+<dd>
+
+
+<p>The user has read a notification</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="B4SJourneyEventType_MANUALTAG"></a><code>B4SJourneyEventType_MANUALTAG</code></dt>
+<dd>
+
+
+<p>The user navigated to a manual tag within the app</p>
 
 
 
