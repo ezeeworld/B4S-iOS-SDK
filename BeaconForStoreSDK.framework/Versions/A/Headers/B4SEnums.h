@@ -25,7 +25,8 @@ typedef NS_ENUM(NSInteger, B4SConfigUpdateCause) {
     B4SConfigUpdateCause_REGIONIN,
     B4SConfigUpdateCause_REGIONOUT,
     B4SConfigUpdateCause_APPSTART,
-    B4SConfigUpdateCause_DEMO
+    B4SConfigUpdateCause_DEMO,
+    B4SConfigUpdateCause_NOTIFICATION
 };
 
 typedef NS_ENUM(NSInteger, B4SSessionEndCause) {

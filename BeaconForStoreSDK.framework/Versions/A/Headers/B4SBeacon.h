@@ -43,7 +43,6 @@
  Last temperature reported for the iBeacon.
  */
 @property (nonatomic) int temperature;
-@property (nonatomic) int color;
 @property (nonatomic) BOOL runStatus;
 @property (nonatomic, retain) NSString *hwVersion;
 @property (nonatomic, retain) NSString *fwVersion;
