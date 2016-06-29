@@ -38,14 +38,23 @@ The base integration requires the following steps.
 
 # Recording user data
 
-B4S can relate events tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call this every time) using the [B4SSingleton setUserName:firstName:gender:email:customerRef:] method:
+B4S can relate events tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call this every time). The key should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key.
 
 <pre><code>
 	[[B4SSingleton sharedInstance] setUserName:@"Bernard" firstName:@"VanCode" gender:B4SCustomerGender_MALE email:@"bernard@vancode.com" customerRef:@"90210"];
+    [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@"Bernard"];
+           [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@"VanCode"];
+           [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserGenderKey withGender:B4SCustomerGender_MALE];
+           [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUsereMailKey withString:@"bernard@vancode.com"];
+           [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserCustomerRefNameKey withString:@"90210"];
 </pre></code>
 
 <pre><code class="swift">
-	B4SSingleton.sharedInstance().setUserName("Bernard", firstName: "VanCode", gender: B4SCustomerGender.MALE, email: "bernard@vancode.com", customerRef: "90210")
+	B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserFirstNameKey, withString: "Bernard")
+	B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserLastNameKey, withString: "VanCode")
+	B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserGenderKey, withGender: B4SCustomerGender_MALE)
+	B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUsereMailKey, withString: "bernard@vancode.com")
+	B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNameKey, withString: "90210")
 </code></pre>
 
 # Beacon-based notifications
