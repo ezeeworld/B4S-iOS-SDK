@@ -101,7 +101,7 @@
 /**
  Shop the iBeacon belongs to.
  */
-@property (nonatomic, weak) B4SShop *beaconShop;
+@property (readonly) B4SShop *beaconShop;
 /**
  Category the iBeacon is attached to.
  */

@@ -54,11 +54,13 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/beaconBackgroundScanEnabled">beaconBackgroundScanEnabled</option>
+		
 		<option value="//api/name/delegate">delegate</option>
 		
-		<option value="//api/name/notificationSoundname">notificationSoundname</option>
+		<option value="//api/name/displayNotifications">displayNotifications</option>
 		
-		<option value="//api/name/vibrateOnNotification">vibrateOnNotification</option>
+		<option value="//api/name/notificationSoundname">notificationSoundname</option>
 		
 	</optgroup>
 	
@@ -76,6 +78,8 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/deleteUserProperty:">- deleteUserProperty:</option>
+		
 		<option value="//api/name/enablePushNotifications">- enablePushNotifications</option>
 		
 		<option value="//api/name/notificationFeedback:">- notificationFeedback:</option>
@@ -88,7 +92,21 @@
 		
 		<option value="//api/name/setUserName:firstName:gender:email:customerRef:">- setUserName:firstName:gender:email:customerRef:</option>
 		
+		<option value="//api/name/setUserProperty:withArray:">- setUserProperty:withArray:</option>
+		
+		<option value="//api/name/setUserProperty:withDate:">- setUserProperty:withDate:</option>
+		
+		<option value="//api/name/setUserProperty:withFloat:">- setUserProperty:withFloat:</option>
+		
+		<option value="//api/name/setUserProperty:withGender:">- setUserProperty:withGender:</option>
+		
+		<option value="//api/name/setUserProperty:withInteger:">- setUserProperty:withInteger:</option>
+		
+		<option value="//api/name/setUserProperty:withString:">- setUserProperty:withString:</option>
+		
 		<option value="//api/name/startStandAloneMode">- startStandAloneMode</option>
+		
+		<option value="//api/name/userPropertyCount">- userPropertyCount</option>
 		
 	</optgroup>
 	
@@ -173,8 +191,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/notificationSoundname" title="notificationSoundname"></a>
-	<h3 class="method-title"><code><a href="#//api/name/notificationSoundname">&nbsp;&nbsp;notificationSoundname</a></code>
+	<a name="//api/name/beaconBackgroundScanEnabled" title="beaconBackgroundScanEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/beaconBackgroundScanEnabled">&nbsp;&nbsp;beaconBackgroundScanEnabled</a></code>
 </h3>
 
 	<div class="method-info">
@@ -184,12 +202,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the filename played when a notification is shonw to the user. This must be the name a a file in CAF format (&ldquo;Core Audio File&rdquo;) present in the app bundle</p>
+				<p>When set to NO, the SDK will stop using CoreLocation regions to look for beacons when the application is in background. Default value is YES
+/!\ When the application is in foreground, the SDK keeps looking for beacons</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *notificationSoundname</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL beaconBackgroundScanEnabled</code></div>
 
 		    
 			
@@ -214,8 +233,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/vibrateOnNotification" title="vibrateOnNotification"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vibrateOnNotification">&nbsp;&nbsp;vibrateOnNotification</a></code>
+	<a name="//api/name/notificationSoundname" title="notificationSoundname"></a>
+	<h3 class="method-title"><code><a href="#//api/name/notificationSoundname">&nbsp;&nbsp;notificationSoundname</a></code>
 </h3>
 
 	<div class="method-info">
@@ -225,12 +244,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Set to YES if you want the phone to vibrate when a notification is fired.</p>
+				<p>The name of the filename played when a notification is shonw to the user. This must be the name a a file in CAF format (&ldquo;Core Audio File&rdquo;) present in the app bundle</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL vibrateOnNotification</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *notificationSoundname</code></div>
 
 		    
 			
@@ -328,6 +347,488 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/setUserProperty:withInteger:" title="setUserProperty:withInteger:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withInteger:">&ndash;&nbsp;setUserProperty:withInteger:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a integer property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withInteger:(NSInteger)<em>number</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withFloat:" title="setUserProperty:withFloat:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withFloat:">&ndash;&nbsp;setUserProperty:withFloat:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a float property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withFloat:(float)<em>number</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withString:" title="setUserProperty:withString:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withString:">&ndash;&nbsp;setUserProperty:withString:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a string property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withString:(NSString *)<em>string</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value. Pass [NSNull null] to delete a previously existing value</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withGender:" title="setUserProperty:withGender:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withGender:">&ndash;&nbsp;setUserProperty:withGender:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a gender property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withGender:(B4SCustomerGender)<em>gender</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value. Pass B4SCustomerGender_UNDEFINED to delete a previously existing value</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withArray:" title="setUserProperty:withArray:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withArray:">&ndash;&nbsp;setUserProperty:withArray:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a Array property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withArray:(NSArray *)<em>array</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value. Pass [NSNull null] to delete a previously existing value. The array cannot contain another array, nor contains types other that NSString, NSNumber, NSDate. All objects inside the array must have the same data type</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withDate:" title="setUserProperty:withDate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withDate:">&ndash;&nbsp;setUserProperty:withDate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a date property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withDate:(NSDate *)<em>date</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value. Pass [NSNull null] to delete a previously existing value</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteUserProperty:" title="deleteUserProperty:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteUserProperty:">&ndash;&nbsp;deleteUserProperty:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes an existing user property</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)deleteUserProperty:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE if the key didn&rsquo;t exist</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/userPropertyCount" title="userPropertyCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/userPropertyCount">&ndash;&nbsp;userPropertyCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the number of user properties</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSUInteger)userPropertyCount</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Get the number of used user properties of the 20 availables</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/enablePushNotifications" title="enablePushNotifications"></a>
 	<h3 class="method-title"><code><a href="#//api/name/enablePushNotifications">&ndash;&nbsp;enablePushNotifications</a></code>
 </h3>
@@ -400,6 +901,47 @@
 				
 				</table>
 			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/displayNotifications" title="displayNotifications"></a>
+	<h3 class="method-title"><code><a href="#//api/name/displayNotifications">&nbsp;&nbsp;displayNotifications</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets this to FALSE to display the notifications displayed by the SDK. Default value is TRUE</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL displayNotifications</code></div>
+
+		    
 			
 
 			
@@ -716,7 +1258,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Ezeeworld. All rights reserved. Updated: 2016-02-12</p>
+						<p class="copyright">Copyright &copy; 2016 Ezeeworld. All rights reserved. Updated: 2016-06-29</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

@@ -17,8 +17,7 @@ typedef NS_ENUM(NSInteger, B4SInteractionType)
     B4SInteractionTypeUnknown,
     B4SInteractionTypeBeacon,
     B4SInteractionTypeVirtualBeacon,
-    B4SInteractionTypePush,
-    B4SInteractionTypePassive
+    B4SInteractionTypePush
 };
 
 typedef NS_ENUM(NSInteger, B4SNotificationType)

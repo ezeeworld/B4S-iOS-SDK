@@ -21,6 +21,7 @@ extern NSString *const kB4SBeaconOutOfRangeNotificationName;
 extern NSString *const kB4SConfigurationUpdate;
 extern NSString *const kB4SUserMoved;
 extern NSString *const kB4SInteractionsUpdated;
+extern NSString *const kB4SInteractionsUpdateValidated;
 
 extern NSString *const kB4SNotifText;
 extern NSString *const kB4SNotificationsCount;
@@ -36,6 +37,7 @@ extern NSString *const kB4SNotifOutgoingNotification;
 extern NSString *const kB4SNotifBeaconId;
 extern NSString *const kB4SNotifBeaconName;
 extern NSString *const kB4SNotifNotificationId;
+extern NSString *const kB4SNotifLocationAccuracy;
 extern NSString *const kB4SNotifDistance;
 extern NSString *const kB4SNotifBeaconRef;
 extern NSString *const kB4SNotifStoreRef;
@@ -53,6 +55,35 @@ extern NSString *const kB4SBeaconUdid;
 extern  NSString    *const  kB4SNotifNotificationSource;
 
 B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
+
+
+#pragma mark -  UserProperties constants
+
+/**
+ *  User property first name
+ */
+extern NSString    *const      kB4SUserPropertyUserFirstNameKey;
+
+/**
+ *  User property last name
+ */
+extern NSString    *const      kB4SUserPropertyUserLastNameKey;
+
+/**
+ *  User property gender
+ */
+extern NSString    *const      kB4SUserPropertyUserGenderKey;
+
+/**
+ *  User property email
+ */
+extern NSString    *const      kB4SUserPropertyUsereMailKey;
+
+/**
+ *  User property customer ref
+ */
+extern NSString    *const      kB4SUserPropertyUserCustomerRefNameKey;
+
 
 @class B4SSingleton;
 
@@ -82,6 +113,14 @@ B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
  */
 @property (nonatomic, weak)   id<B4SDelegate> delegate;
 
+#pragma mark - Disable beacon scan in background
+
+/**
+ *  When set to NO, the SDK will stop using CoreLocation regions to look for beacons when the application is in background. Default value is YES
+ * /!\ When the application is in foreground, the SDK keeps looking for beacons
+ */
+@property (nonatomic) BOOL beaconBackgroundScanEnabled;
+
 
 #pragma mark - Customizing the notifications
 
@@ -90,12 +129,7 @@ B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
  */
 @property (nonatomic, retain) NSString *notificationSoundname;
 
-/**
- *  Set to YES if you want the phone to vibrate when a notification is fired.
- */
-@property (nonatomic) BOOL vibrateOnNotification;
-
-
+#pragma mark - User Properties
 /**
  *  Save the customer information to the BeaconForStore backend. This information is cached, it's not necessary to call this method on every app launch
  *
@@ -109,8 +143,84 @@ B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
           firstName:(NSString *)aFirstname
              gender:(B4SCustomerGender)aGender
               email:(NSString *)anEmail
-        customerRef:(NSString *)aRef;
+        customerRef:(NSString *)aRef DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton setUserProperty:] methods");
 
+
+/**
+ *  Store a integer property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value.
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withInteger:(NSInteger)number;
+
+/**
+ *  Store a float property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value.
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withFloat:(float)number;
+
+/**
+ *  Store a string property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value. Pass [NSNull null] to delete a previously existing value
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withString:(NSString *)string;
+
+/**
+ *  Store a gender property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value. Pass B4SCustomerGender_UNDEFINED to delete a previously existing value
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withGender:(B4SCustomerGender)gender;
+
+/**
+ *  Store a Array property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value. Pass [NSNull null] to delete a previously existing value. The array cannot contain another array, nor contains types other that NSString, NSNumber, NSDate. All objects inside the array must have the same data type
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withArray:(NSArray *)array;
+
+/**
+ *  Store a date property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value. Pass [NSNull null] to delete a previously existing value
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withDate:(NSDate *)date;
+
+/**
+ *  Deletes an existing user property
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE if the key didn't exist
+ */
+- (BOOL)deleteUserProperty:(NSString *)key;
+
+/**
+ *  Get the number of user properties
+ *
+ *  @return Get the number of used user properties of the 20 availables
+ */
+- (NSUInteger)userPropertyCount;
 
 #pragma mark - Push notifications
 
@@ -127,15 +237,21 @@ B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
 - (void)registerPushNotificationDeviceToken:(NSData *)deviceToken;
 
 #pragma mark - Temporarly disable notifications
+
+/**
+ *  Sets this to FALSE to display the notifications displayed by the SDK. Default value is TRUE
+ */
+@property(nonatomic)    BOOL displayNotifications;
+
 /**
  Set if you do not want more notifications to be sent to the customer.
  */
-- (void)setAppNotReadyToAcceptNextInteraction;
+- (void)setAppNotReadyToAcceptNextInteraction DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton sharedInstance].displayNotifications = FALSE; instead");
 
 /**
  Set if you want to notifications to be sent again to the customer after a previous call to setAppNotReadyToAcceptNextInteraction:
  */
-- (void)setAppReadyToAcceptNextInteraction;
+- (void)setAppReadyToAcceptNextInteraction DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton sharedInstance].displayNotifications = TRUE; instead");
 
 #pragma mark - Showing notifications
 /**
