@@ -55,7 +55,7 @@ In order to use the SDK you must know the application ID that is tied to your Be
 
  * Open Project Settings -> Build Settings
  * Scroll to the "Linking" section
- * In "Other Linker Flags" add "-ObjC" (this setting is case-sensitive)
+ * In "Other Linker Flags" add "-ObjC" (this setting is case-sensitive) and "-lsqlite3"
  
      <img src="images/linkerFlags.jpg"/>
 
