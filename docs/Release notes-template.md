@@ -1,4 +1,41 @@
-#1.5.9
+# 2.0.6
+
+ * Fix for possible crashes when running on iOS 7.1.2
+ * Warning: starting with this release you must add the SQLite library to your application target. Please refer to the "How to include the SDK in your Xcode project" document for more defails
+ 
+# 2.0.1
+ 
+ * Better battery usage
+ * Support for disabling Beacon scanning
+ * Support for large number of shops
+ 
+# 1.8.3
+
+  * Performance enhancements and bug fixes
+ 
+# 1.8.0
+
+  * Add support for Zone campaigns
+  
+# 1.7.5
+
+ * Support for the Customer Journey feature
+  
+#1.6.3
+
+ * Add new metrics for zone exit
+ 
+# 1.6.1
+
+ * Better documentation
+ * Simpler header files
+ 
+# SDK 1.5.11
+
+ * Updated documentation
+ * Support for apps built for the iOS 9 SDK
+
+# 1.5.9
 
  * Add support for IDFA
 
