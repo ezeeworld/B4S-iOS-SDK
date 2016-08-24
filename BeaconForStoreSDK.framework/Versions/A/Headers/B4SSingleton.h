@@ -240,6 +240,7 @@ extern NSString    *const      kB4SUserPropertyUserCustomerRefNameKey;
 
 /**
  *  Sets this to FALSE to display the notifications displayed by the SDK. Default value is TRUE
+ *  Do NOT set this before calling startStandAloneMode or your call will be ignored
  */
 @property(nonatomic)    BOOL displayNotifications;
 

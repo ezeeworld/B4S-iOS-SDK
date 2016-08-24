@@ -1,6 +1,18 @@
+# 2.0.9
+
+ * Fix potential issue when reporting Bluetooth status
+ * FIx potential issue when an error occurs while loading a web page
+
+# 2.0.7
+
+ * Fix issue when the host application uses the FMDB library
+
 # 2.0.6
 
  * Fix for possible crashes when running on iOS 7.1.2
+ *  Performance enhancements
+ * Reduced battery usage
+ * Updated documentation
  * Warning: starting with this release you must add the SQLite library to your application target. Please refer to the "How to include the SDK in your Xcode project" document for more defails
  
 # 2.0.1
