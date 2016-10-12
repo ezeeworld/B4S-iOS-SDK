@@ -85,7 +85,7 @@ To be able to track the beacons even when in background mode, you must enable ba
 
  So if your app calls a tagging / analytics tool (Flurry, Google Analytics...) from this method, your metrics will be eroneous. You should use the  'applicationWillEnterForeground' delegate method to track application launches instead.
  
-## Allow location usage
+## Add keys to Info.plist
 
 Starting with iOS8, you **must** add a key to your Info.plist to be able to get the user location.
 
@@ -94,3 +94,9 @@ Starting with iOS8, you **must** add a key to your Info.plist to be able to get 
  * Set its value to a string describing the reason for accessing the user’s location information
  
 Please see <a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html">this document</a> for more information
+
+Starting with iOS 10 (and app compiled with the Xcode 8 toolchain) you must explain why you app uses Bluetooth otherwise the binary is rejected on iTunes Connect
+
+ * Open your Info.plist file
+ * Add a NSBluetoothPeripheralUsageDescription key
+ * Set its value to a string describing the reason for accessing Bluetooth

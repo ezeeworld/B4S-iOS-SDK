@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>B4SJourneyEventType Constants Reference</title>
+	<title>B4SSpeedIndices Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,7 +59,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">B4SJourneyEventType Constants Reference</h1>
+					<h1 class="title">B4SSpeedIndices Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -75,31 +75,23 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">B4SJourneyEventType</h3>
+                    <h3 class="subsubtitle method-title">B4SSpeedIndices</h3>
                     
-					
-					<div class="section section-overview">
-                        <p>The type of an event generated within the customer journey</p>
-					</div>
-					
-					
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSInteger, B4SJourneyEventType ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, B4SSpeedIndices ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_NOTIFICATION</a> = 0,<br>
+                            &nbsp;&nbsp; <a href="">B4SSpeedIndices_UNKNOWN</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_SHOPIN</a> = 1,<br>
+                            &nbsp;&nbsp; <a href="">B4SSpeedIndices_STATIC</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_SHOPOUT</a> = 2,<br>
+                            &nbsp;&nbsp; <a href="">B4SSpeedIndices_WALK</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_BEACON</a> = 3,<br>
+                            &nbsp;&nbsp; <a href="">B4SSpeedIndices_CITY_DRIVE</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_NOTIFICATIONREAD</a> = 4,<br>
-                            
-                            &nbsp;&nbsp; <a href="">B4SJourneyEventType_MANUALTAG</a> = 5,<br>
+                            &nbsp;&nbsp; <a href="">B4SSpeedIndices_HIGHWAY_DRIVE</a>,<br>
                             
                             };</code>
                     
@@ -109,15 +101,8 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="B4SJourneyEventType_NOTIFICATION"></a><code>B4SJourneyEventType_NOTIFICATION</code></dt>
+                            <dt><a name="" title="B4SSpeedIndices_UNKNOWN"></a><code>B4SSpeedIndices_UNKNOWN</code></dt>
 <dd>
-
-
-<p>Notification shown to the user</p>
-
-
-
-
 
     
 	<p>
@@ -126,15 +111,8 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SJourneyEventType_SHOPIN"></a><code>B4SJourneyEventType_SHOPIN</code></dt>
+                            <dt><a name="" title="B4SSpeedIndices_STATIC"></a><code>B4SSpeedIndices_STATIC</code></dt>
 <dd>
-
-
-<p>Shop entry</p>
-
-
-
-
 
     
 	<p>
@@ -143,15 +121,8 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SJourneyEventType_SHOPOUT"></a><code>B4SJourneyEventType_SHOPOUT</code></dt>
+                            <dt><a name="" title="B4SSpeedIndices_WALK"></a><code>B4SSpeedIndices_WALK</code></dt>
 <dd>
-
-
-<p>Shop exit</p>
-
-
-
-
 
     
 	<p>
@@ -160,15 +131,8 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SJourneyEventType_BEACON"></a><code>B4SJourneyEventType_BEACON</code></dt>
+                            <dt><a name="" title="B4SSpeedIndices_CITY_DRIVE"></a><code>B4SSpeedIndices_CITY_DRIVE</code></dt>
 <dd>
-
-
-<p>Encounter a beacon (entered in the beacon radio range)</p>
-
-
-
-
 
     
 	<p>
@@ -177,32 +141,8 @@
 	
 </dd>
                             
-                            <dt><a name="" title="B4SJourneyEventType_NOTIFICATIONREAD"></a><code>B4SJourneyEventType_NOTIFICATIONREAD</code></dt>
+                            <dt><a name="" title="B4SSpeedIndices_HIGHWAY_DRIVE"></a><code>B4SSpeedIndices_HIGHWAY_DRIVE</code></dt>
 <dd>
-
-
-<p>The user has read a notification</p>
-
-
-
-
-
-    
-	<p>
-		Declared In <code class="declared-in-ref">B4SEnums.h</code>.
-	</p>
-	
-</dd>
-                            
-                            <dt><a name="" title="B4SJourneyEventType_MANUALTAG"></a><code>B4SJourneyEventType_MANUALTAG</code></dt>
-<dd>
-
-
-<p>The user navigated to a manual tag within the app</p>
-
-
-
-
 
     
 	<p>
@@ -215,17 +155,6 @@
                     </div>
                     
 
-                    
-                    
-
-                    
-
-                    
-                    <div class="method-subsection declared-in-section">
-                        <h4 class="method-subtitle">Declared In</h4>
-                        <p><code class="declared-in-ref">B4SEnums.h</code></p>
-                    </div>
-                    
                     
                     
                     
