@@ -19,12 +19,11 @@
 You must perform the following tasks to integrate the BeaconForStore SDK with your application:
 
  * Get your application ID
- * Import required frameworks
- * Import BeaconForStoreStorage.bundle
+ * Import required frameworks & BeaconForStoreStorage.bundle manually or using <a href="https://cocoapods.org">Cocoa Pods</a>
  * Configure application modes
  * Allow location usage
  * Code-level integration
-
+ 
 ## Get your application ID
 
 In order to use the SDK you must know the application ID that is tied to your BeaconForStore account. 
@@ -44,14 +43,20 @@ In order to use the SDK you must know the application ID that is tied to your Be
  * Tap on your application
  * Use the "Share" button on the "Application ID" section to send the application ID to yourself as an email.
 
-## Import frameworks
+## Adding the files manually
 
+Use the following instructions to manually add the SDK to your project
+
+### Import frameworks
+
+ * Download the lastest version from <a href="https://github.com/ezeeworld/B4S-iOS-SDK/releases">Git Hub</a>
+ * Extract the zip archive
  * Drag & drop the BeaconForStoreSDK.framework onto your project
  * Check the "Copy items if needed" box
  * Add the Framework to your application target
  * Click "Finish"
  
-## Add linker flags
+### Add linker flags
 
  * Open Project Settings -> Build Settings
  * Scroll to the "Linking" section
@@ -59,7 +64,7 @@ In order to use the SDK you must know the application ID that is tied to your Be
  
      <img src="images/linkerFlags.jpg"/>
 
-## Import BeaconForStoreStorage.bundle
+### Import BeaconForStoreStorage.bundle
 
  * Drag & drop the BeaconForStoreStorage.bundle onto your project
  * Check the "Copy items if needed" box
@@ -68,6 +73,11 @@ In order to use the SDK you must know the application ID that is tied to your Be
  * Check if the bundle appears in the "Copy File" step of your application target
  
 <img src="images/copyBundleResources.png"/>
+
+## Use Cocoa Pods
+
+ * Add   pod 'BeaconForStoreSDK' to the "target" section of your podfile
+ * Run the pod install command
 
 ## Configure application modes
 
