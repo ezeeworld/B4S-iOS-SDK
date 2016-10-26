@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, B4SSpeedIndices) {
     B4SSpeedIndices_STATIC,
     B4SSpeedIndices_WALK,
     B4SSpeedIndices_CITY_DRIVE,
+    B4SSpeedIndices_SPEED,
     B4SSpeedIndices_HIGHWAY_DRIVE
 };
 
