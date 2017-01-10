@@ -1,6 +1,6 @@
 # Sample code for the BeaconForStore SDK
 
-This directory contains samples on how to integrate the BeaconForStore SDK within you application
+This directory contains samples on how to integrate the Neerby SDK within you application
 
 ## Sample app
 

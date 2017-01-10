@@ -1,6 +1,6 @@
 #!/bin/sh
 ##
-## This script checks various requirements for the BeaconForStore SDK 
+## This script checks various requirements for the Neerby SDK 
 ## Usage: ./valideIPA.sh <path-to-your-ipa>
 ##################
 
