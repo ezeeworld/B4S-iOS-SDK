@@ -1,6 +1,6 @@
-## BeaconForStore iOS SDK
+## Neerby iOS SDK
 
-This repository contains the [BeaconForStore](http://www.beaconforstore.com) iOS SDK.
+This repository contains the [Neerby](http://www.neer.by) iOS SDK.
 
 The complete documentation is available [here](http://ezeeworld.github.io/B4S-iOS-SDK/) and within each release (starting with version 1.5.3)
 
