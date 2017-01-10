@@ -60,13 +60,9 @@
 		
 		<option value="//api/name/campaignId">campaignId</option>
 		
-		<option value="//api/name/categories">categories</option>
-		
 		<option value="//api/name/customPushEnabled">customPushEnabled</option>
 		
 		<option value="//api/name/fridayEnabled">fridayEnabled</option>
-		
-		<option value="//api/name/groups">groups</option>
 		
 		<option value="//api/name/interactionDescription">interactionDescription</option>
 		
@@ -83,6 +79,8 @@
 		<option value="//api/name/notificationType">notificationType</option>
 		
 		<option value="//api/name/notificationsMaxCount">notificationsMaxCount</option>
+		
+		<option value="//api/name/placeMuteDuration">placeMuteDuration</option>
 		
 		<option value="//api/name/pushData">pushData</option>
 		
@@ -118,11 +116,7 @@
 		
 		<option value="//api/name/getInteractionById:">+ getInteractionById:</option>
 		
-		<option value="//api/name/getInteractionName:">+ getInteractionName:</option>
-		
 		<option value="//api/name/interactions">+ interactions</option>
-		
-		<option value="//api/name/shopsList:">+ shopsList:</option>
 		
 	</optgroup>
 	
@@ -471,7 +465,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean isEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL isEnabled</code></div>
 
 		    
 			
@@ -594,7 +588,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) Boolean customPushEnabled</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL customPushEnabled</code></div>
 
 		    
 			
@@ -1152,88 +1146,6 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/categories" title="categories"></a>
-	<h3 class="method-title"><code><a href="#//api/name/categories">&nbsp;&nbsp;categories</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Shops Categories to the interaction</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSMutableDictionary&lt;NSString*NSString*&gt; *categories</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SInteraction.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/groups" title="groups"></a>
-	<h3 class="method-title"><code><a href="#//api/name/groups">&nbsp;&nbsp;groups</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Groups associated to the interaction</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSMutableDictionary&lt;NSString*NSString*&gt; *groups</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SInteraction.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/shops" title="shops"></a>
 	<h3 class="method-title"><code><a href="#//api/name/shops">&nbsp;&nbsp;shops</a></code>
 </h3>
@@ -1275,8 +1187,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getInteractionName:" title="getInteractionName:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getInteractionName:">+&nbsp;getInteractionName:</a></code>
+	<a name="//api/name/placeMuteDuration" title="placeMuteDuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/placeMuteDuration">&nbsp;&nbsp;placeMuteDuration</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1284,35 +1196,10 @@
 
 		<div class="method-info-container">
 			
-			
-			<div class="method-subsection brief-description">
-				<p>Returned the B4SInteraction name associated to the given interactionId</p>
-			</div>
-			
-		    
 
-			<div class="method-subsection method-declaration"><code>+ (NSString *)getInteractionName:(NSString *)<em>anInteractionId</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger placeMuteDuration</code></div>
 
 		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SInteraction.h</code></p>
-			</div>
-			
-			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -1398,47 +1285,6 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/shopsList:" title="shopsList:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/shopsList:">+&nbsp;shopsList:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns shops near the location set in parameter</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (NSArray&lt;B4SShop*&gt; *)shopsList:(CLLocation *)<em>loc</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SInteraction.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/count" title="count"></a>
 	<h3 class="method-title"><code><a href="#//api/name/count">+&nbsp;count</a></code>
 </h3>
@@ -1494,7 +1340,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Ezeeworld. All rights reserved. Updated: 2016-11-04</p>
+						<p class="copyright">Copyright &copy; 2017 Ezeeworld. All rights reserved. Updated: 2017-01-10</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

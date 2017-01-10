@@ -34,4 +34,8 @@
                      andText:(NSString *)aText;
 + (B4SBehaviours *) sharedInstance;
 
+/**
+ * Stop everything before SDK shutdown
+ */
++ (void)terminate;
 @end

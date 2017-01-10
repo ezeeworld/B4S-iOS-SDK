@@ -8,8 +8,6 @@
 
 @import Foundation;
 
-@class B4SGroup;
-@class B4SCategory;
 @class B4SShop;
 @class B4SInteraction;
 @class CLLocation;
@@ -94,18 +92,12 @@
  Interactions matching with the iBeacon.
  */
 @property (nonatomic, retain) NSMutableSet<B4SInteraction *> *interactions;
-/**
- Group the iBeacon belongs to.
- */
-@property (nonatomic, weak) B4SGroup *beaconGroup;
+
 /**
  Shop the iBeacon belongs to.
  */
 @property (readonly) B4SShop *beaconShop;
-/**
- Category the iBeacon is attached to.
- */
-@property (nonatomic, weak) B4SCategory *beaconCategory;
+
 
 /**
  Virtual beacon coordinates.

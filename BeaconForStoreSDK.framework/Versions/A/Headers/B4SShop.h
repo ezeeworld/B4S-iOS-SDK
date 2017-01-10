@@ -7,8 +7,6 @@
 
 @import Foundation;
 
-@class B4SGroup;
-
 @interface B4SShop : NSObject
 
 @property (nonatomic, retain) NSString *shopId;
@@ -20,21 +18,17 @@
 @property (nonatomic, retain) NSString *country;
 
 /**
- Notification text associated to the group
+ Notification text associated to the shop
  */
 @property (nonatomic, retain) NSString *pushText;
 /**
- Notification data associated to the group
+ Notification data associated to the shop
  */
 @property (nonatomic, retain) NSString *pushData;
 /**
- Customer reference associated to the group
+ Customer reference associated to the shop
  */
 @property (nonatomic, retain) NSString *clientRef;
-/**
- Group the shop belongs to.
- */
-@property (nonatomic, retain) B4SGroup *group;
 
 /**
  Return B4SShop object associated to the given shopId
@@ -45,10 +39,6 @@
  */
 
 + (NSArray<B4SShop *> *)shops;
-/**
- Returns the list of shop associated to the given groupId previously downloaded from the backend
- */
-+ (NSArray<B4SShop *> *)shopsWithGroupId:(NSString *)groupId;
 
 /**
  Return the number of shops.

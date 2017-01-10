@@ -41,9 +41,6 @@ extern NSString *const kB4SNotifLocationAccuracy;
 extern NSString *const kB4SNotifDistance;
 extern NSString *const kB4SNotifBeaconRef;
 extern NSString *const kB4SNotifStoreRef;
-extern NSString *const kB4SNotifGroupRef;
-extern NSString *const kB4SNotifGroupName;
-extern NSString *const kB4SNotifGroupId;
 extern NSString *const kB4SNotifShopName;
 extern NSString *const kB4SNotifShopId;
 extern NSString *const kB4SNotifDate;
@@ -261,6 +258,13 @@ extern NSString    *const      kB4SUserPropertyUserCustomerRefNameKey;
  *  @param userInfo The userInfo dictionary received by the application:didReceiveLocalNotification: method
  */
 - (void)notificationFeedback:(NSDictionary *)userInfo;
+
+#pragma - User knowledge
+
+/**
+ * YES if location tracking is enabled. Default value is YES. Use this to override the value set by the server. This value is ignored if the ATR mode is disabled for your application
+ */
+@property (nonatomic) BOOL enablePositionTracking;
 
 #pragma mark - Initialisation
 /**

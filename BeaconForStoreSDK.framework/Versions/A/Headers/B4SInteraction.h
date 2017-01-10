@@ -62,7 +62,7 @@ typedef NS_ENUM(NSInteger, B4SNotificationType)
 /**
  True if the interaction is Enabled
  */
-@property (nonatomic) Boolean isEnabled;
+@property (nonatomic) BOOL isEnabled;
 /**
  iBeacon notification data
  */
@@ -74,7 +74,7 @@ typedef NS_ENUM(NSInteger, B4SNotificationType)
 /**
  True if the iBeacon pushText and pushData values should be used for the notification
  */
-@property (nonatomic) Boolean customPushEnabled;
+@property (nonatomic) BOOL customPushEnabled;
 /**
  Max distance of the notification range
  */
@@ -127,23 +127,17 @@ typedef NS_ENUM(NSInteger, B4SNotificationType)
  True if interaction is enabled on sundays
  */
 @property (nonatomic) BOOL sundayEnabled;
-/**
- Shops Categories to the interaction
- */
-@property (readonly) NSMutableDictionary<NSString *, NSString *> *categories;
-/**
- Groups associated to the interaction
- */
-@property (readonly) NSMutableDictionary<NSString *, NSString *> *groups;
+
 /**
  Shops associated to the interaction
  */
 @property (readonly) NSMutableDictionary<NSString *, NSString *> *shops;
 
-/**
- Returned the B4SInteraction name associated to the given interactionId
+/*
+ * Duration (in seconds) before the interaction can be replayed by the same shop. If duration is 0, the shop can replay the interaction immediately
  */
-+ (NSString *)getInteractionName:(NSString *)anInteractionId;
+@property   (nonatomic) NSInteger    placeMuteDuration;
+
 /**
  Returned the B4SInteraction object associated to the given interactionId
  */
@@ -152,10 +146,6 @@ typedef NS_ENUM(NSInteger, B4SNotificationType)
  Returns interactions availables
  */
 + (NSArray<B4SInteraction *> *)interactions;
-/**
- Returns shops near the location set in parameter
- */
-+ (NSArray<B4SShop *> *)shopsList:(CLLocation *)loc;
 
 /**
  Returns the number of interactions availables

@@ -16,13 +16,13 @@ typedef NS_ENUM(NSInteger, B4SNetworkStatus) {
     B4SNetworkStatus_WWAN
 };
 
-typedef NS_ENUM(NSInteger, B4SSpeedIndices) {
-    B4SSpeedIndices_UNKNOWN,
-    B4SSpeedIndices_STATIC,
-    B4SSpeedIndices_WALK,
-    B4SSpeedIndices_CITY_DRIVE,
-    B4SSpeedIndices_SPEED,
-    B4SSpeedIndices_HIGHWAY_DRIVE
+typedef NS_ENUM(NSInteger, B4SSpeedIndex) {
+    B4SSpeedIndex_UNKNOWN,
+    B4SSpeedIndex_STATIC,
+    B4SSpeedIndex_WALK,
+    B4SSpeedIndex_CITY_DRIVE,
+    B4SSpeedIndex_SPEED,
+    B4SSpeedIndex_HIGHWAY_DRIVE
 };
 
 typedef NS_ENUM(NSInteger, B4SConfigUpdateCause) {
