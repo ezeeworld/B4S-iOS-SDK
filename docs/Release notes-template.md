@@ -1,3 +1,17 @@
+# 2.1.0
+
+ * ATR mode
+ * Stability and speed improvements
+ * Reduced battery usage
+
+# 2.0.14
+
+ * Fix crash with some WiFi configurations
+
+# 2.0.10
+
+ * Improve stability when running on iOS 7
+
 # 2.0.9
 
  * Fix potential issue when reporting Bluetooth status

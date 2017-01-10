@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Integrating the SDK with your Xcode project Document</title>
+
+	<link rel="stylesheet" href="../css/styles.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BeaconForStore SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Ezeeworld</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Home</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">Integrating the SDK with your Xcode project Document</h1>
+
+					<h1>Hardware &amp; software requirements</h1>
+
+<p> The Neerby SDK uses Bluetooth 4.0 BLE (Bluetooth Low Energy) and thus is only available on the following devices:</p>
+
+<ul>
+<li>iPhone 4S and up</li>
+<li>iPod Touch 5th generation and up</li>
+<li>iPad 3rd generation and up</li>
+<li>iPad mini (all versions)</li>
+</ul>
+
+
+<p>  Minimum iOS target : iOS 7</p>
+
+<p>  Xcode 6 or higher is required for development</p>
+
+<p>  The Neerby SDK supports App Transport Security, no exception is required</p>
+
+<h1>Installation</h1>
+
+<p>You must perform the following tasks to integrate the Neerby SDK with your application:</p>
+
+<ul>
+<li>Get your application ID</li>
+<li>Import required frameworks &amp; BeaconForStoreStorage.bundle manually or using <a href="https://cocoapods.org">Cocoa Pods</a></li>
+<li>Configure application modes</li>
+<li>Allow location usage</li>
+<li>Code-level integration</li>
+</ul>
+
+
+<h2>Get your application ID</h2>
+
+<p>In order to use the SDK you must know the application ID that is tied to your Neerby account.</p>
+
+<h3>Using the web interface</h3>
+
+<ul>
+<li>Go to <a href="https://manager.neer.by">https://manager.neer.by</A></li>
+<li>Log-in with your Neerby account</li>
+<li>Go to the &ldquo;Applications&rdquo; section</li>
+<li>Select your application ID</li>
+</ul>
+
+
+<h3>Using Neerby Manager</h3>
+
+<ul>
+<li>Install the <a href="https://itunes.apple.com/fr/app/b4s-manager/id903400204?mt=8">Neerby Manager</a> app from the App Store</li>
+<li>Log-in with your Neerby account</li>
+<li>Go to the &ldquo;Applications&rdquo; section</li>
+<li>Tap on your application</li>
+<li>Use the &ldquo;Share&rdquo; button on the &ldquo;Application ID&rdquo; section to send the application ID to yourself as an email.</li>
+</ul>
+
+
+<h2>Adding the files manually</h2>
+
+<p>Use the following instructions to manually add the SDK to your project</p>
+
+<h3>Import frameworks</h3>
+
+<ul>
+<li>Download the lastest version from <a href="https://github.com/ezeeworld/B4S-iOS-SDK/releases">Git Hub</a></li>
+<li>Extract the zip archive</li>
+<li>Drag &amp; drop the BeaconForStoreSDK.framework onto your project</li>
+<li>Check the &ldquo;Copy items if needed&rdquo; box</li>
+<li>Add the Framework to your application target</li>
+<li>Click &ldquo;Finish&rdquo;</li>
+</ul>
+
+
+<h3>Add linker flags</h3>
+
+<ul>
+<li>Open Project Settings -> Build Settings</li>
+<li>Scroll to the &ldquo;Linking&rdquo; section</li>
+<li><p>In &ldquo;Other Linker Flags&rdquo; add &ldquo;-ObjC&rdquo; (this setting is case-sensitive) and &ldquo;-lsqlite3&rdquo;</p>
+
+<p>  <img src="images/linkerFlags.jpg"/></p></li>
+</ul>
+
+
+<h3>Import BeaconForStoreStorage.bundle</h3>
+
+<ul>
+<li>Drag &amp; drop the BeaconForStoreStorage.bundle onto your project</li>
+<li>Check the &ldquo;Copy items if needed&rdquo; box</li>
+<li>Add the bundle to your application target</li>
+<li>Click &ldquo;Finish&rdquo;</li>
+<li>Check if the bundle appears in the &ldquo;Copy File&rdquo; step of your application target</li>
+</ul>
+
+
+<p><img src="images/copyBundleResources.png"/></p>
+
+<h2>Use Cocoa Pods</h2>
+
+<ul>
+<li>Add   pod &lsquo;BeaconForStoreSDK&rsquo; to the &ldquo;target&rdquo; section of your podfile</li>
+<li>Run the pod install command</li>
+</ul>
+
+
+<h2>Configure application modes</h2>
+
+<p>To be able to track the beacons even when in background mode, you must enable background modes in your application.</p>
+
+<ul>
+<li>Select your project in the Project navigator</li>
+<li>Select your application target</li>
+<li>Select the &ldquo;Capabilities&rdquo; tab</li>
+<li>Turn on &ldquo;Background Modes&rdquo;</li>
+<li>Check the &ldquo;Background fetch&rdquo; mode</li>
+</ul>
+
+
+<p> <img src="images/backgroundmodes.png"/></p>
+
+<p> The application will be started by iOS when entering a geofence region or detecting an iBeacon, thus the didFinishLaunchingWithOptions: method from your app delegate will be called.</p>
+
+<p> So if your app calls a tagging / analytics tool (Flurry, Google Analytics&hellip;) from this method, your metrics will be eroneous. You should use the  &lsquo;applicationWillEnterForeground&rsquo; delegate method to track application launches instead.</p>
+
+<h2>Add keys to Info.plist</h2>
+
+<p>Starting with iOS8, you <strong>must</strong> add a key to your Info.plist to be able to get the user location.</p>
+
+<ul>
+<li>Open your Info.plist file</li>
+<li>Add a NSLocationAlwaysUsageDescription key</li>
+<li>Set its value to a string describing the reason for accessing the user’s location information</li>
+</ul>
+
+
+<p>Please see <a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html">this document</a> for more information</p>
+
+<p>Starting with iOS 10 (and app compiled with the Xcode 8 toolchain) you must explain why you app uses Bluetooth otherwise the binary is rejected on iTunes Connect</p>
+
+<ul>
+<li>Open your Info.plist file</li>
+<li>Add a NSBluetoothPeripheralUsageDescription key</li>
+<li>Set its value to a string describing the reason for accessing Bluetooth</li>
+</ul>
+
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Copyright &copy; 2017 Ezeeworld. All rights reserved. Updated: 2017-01-10</p>
+							
+							
+							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src=""></script>
+</body>
+</html>

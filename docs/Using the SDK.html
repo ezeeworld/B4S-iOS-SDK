@@ -298,7 +298,7 @@
 
 <ul>
 <li><p>Implement application:didRegisterForRemoteNotificationsWithDeviceToken: in your app delegate:
-<pre><code>     - (void)application:(UIApplication<em>)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData</em>)deviceToken
+<pre><code>     - (void)application:(UIApplication <em>)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData </em>)deviceToken
   {
      [[B4SSingleton sharedInstance] registerPushNotificationDeviceToken:deviceToken];
   }
@@ -309,22 +309,16 @@
   }
 </code></pre></p></li>
 <li><p>Implement application:didReceiveRemoteNotification: in your app delegate:
-<pre><code></p>
-
-<ul>
-<li> (void)application:(UIApplication ​<em>)application didReceiveRemoteNotification:(NSDictionary </em>​)userInfo
-{
-   [B4SSingleton sharedInstance] notificationFeedback:userInfo];
-}
+<pre><code>     - (void)application:(UIApplication ​<em>)application didReceiveRemoteNotification:(NSDictionary </em>​)userInfo
+   {
+       [B4SSingleton sharedInstance] notificationFeedback:userInfo];
+   }
 </code></pre>
-<pre><code class="swift">
-func application( application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
-{
-   B4SSingleton.sharedInstance().notificationFeedback(userInfo)
-}
-</code></pre></li>
-</ul>
-</li>
+<pre><code class="swift">   func application( application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+   {
+       B4SSingleton.sharedInstance().notificationFeedback(userInfo)
+   }
+</code></pre></p></li>
 </ul>
 
 

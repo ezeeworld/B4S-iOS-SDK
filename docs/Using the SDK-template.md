@@ -177,11 +177,12 @@ You can customize the notification messages and data sent to your application
  * After initializing the SDK with the setupSharedInstanceWithAppId: call enablePushNotifications:
  <pre><code>[[B4SSingleton sharedInstance] enablePushNotifications];
 </code></pre>
+
 <pre><code class="swift">B4SSingleton.sharedInstance().enablePushNotifications()
 </code></pre>	
 
  * Implement application:didRegisterForRemoteNotificationsWithDeviceToken: in your app delegate:
- <pre><code>	 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+ <pre><code>	 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 	 {
 		[[B4SSingleton sharedInstance] registerPushNotificationDeviceToken:deviceToken];
 	 }
@@ -193,14 +194,12 @@ You can customize the notification messages and data sent to your application
  </code></pre>	
  
  * Implement application:didReceiveRemoteNotification: in your app delegate:
-  <pre><code>
-	  - (void)application:(UIApplication ​*)application didReceiveRemoteNotification:(NSDictionary *​)userInfo
+  <pre><code>	  - (void)application:(UIApplication ​*)application didReceiveRemoteNotification:(NSDictionary *​)userInfo
 	  {
 		  [B4SSingleton sharedInstance] notificationFeedback:userInfo];
 	  }
   </code></pre>
-  <pre><code class="swift">
-	  func application( application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+  <pre><code class="swift">	  func application( application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
 	  {
 		  B4SSingleton.sharedInstance().notificationFeedback(userInfo)
 	  }
