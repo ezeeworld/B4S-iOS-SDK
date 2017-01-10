@@ -1,4 +1,4 @@
-When integrating the BeaconForStore SDK with your application, you must pay attention to the following instructions or the integration will fail or the user experience won't be up-to-par.
+When integrating the Neerby SDK with your application, you must pay attention to the following instructions or the integration will fail or the user experience won't be up-to-par.
 
 ## Analytics tools (Flurry, Google Analytics...)
 
@@ -8,7 +8,7 @@ So if your app calls a tagging / analytics tool (Flurry, Google Analytics...) fr
 
 ## Error messages on app launch
 
-When a application including the BeaconForStore SDK is started, the SDK performs a self-test to give you warnings about various possible integration issues. The messages are in the following format:
+When a application including the Neerby SDK is started, the SDK performs a self-test to give you warnings about various possible integration issues. The messages are in the following format:
 
 	*** BeaconForStore integration error ***
 

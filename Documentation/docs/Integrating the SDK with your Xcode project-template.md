@@ -1,7 +1,7 @@
 
 # Hardware & software requirements
 
- The B4S SDK uses Bluetooth 4.0 BLE (Bluetooth Low Energy) and thus is only available on the following devices:
+ The Neerby SDK uses Bluetooth 4.0 BLE (Bluetooth Low Energy) and thus is only available on the following devices:
  
   * iPhone 4S and up
   * iPod Touch 5th generation and up
@@ -12,11 +12,11 @@
   
   Xcode 6 or higher is required for development
   
-  The B4S SDK supports App Transport Security, no exception is required
+  The Neerby SDK supports App Transport Security, no exception is required
 
 # Installation
 
-You must perform the following tasks to integrate the BeaconForStore SDK with your application:
+You must perform the following tasks to integrate the Neerby SDK with your application:
 
  * Get your application ID
  * Import required frameworks & BeaconForStoreStorage.bundle manually or using <a href="https://cocoapods.org">Cocoa Pods</a>
@@ -26,19 +26,19 @@ You must perform the following tasks to integrate the BeaconForStore SDK with yo
  
 ## Get your application ID
 
-In order to use the SDK you must know the application ID that is tied to your BeaconForStore account. 
+In order to use the SDK you must know the application ID that is tied to your Neerby account. 
 
 ### Using the web interface
 
- * Go to <a href="https://b4s.ezeeworld.com">https://b4s.ezeeworld.com</A>
- * Log-in with your B4S account
+ * Go to <a href="https://manager.neer.by">https://manager.neer.by</A>
+ * Log-in with your Neerby account
  * Go to the "Applications" section
  * Select your application ID
 
-### Using B4S Manager
+### Using Neerby Manager
 
- * Install the <a href="https://itunes.apple.com/fr/app/b4s-manager/id903400204?mt=8">B4SManager</a> app from the App Store
- * Log-in with your B4S account
+ * Install the <a href="https://itunes.apple.com/fr/app/b4s-manager/id903400204?mt=8">Neerby Manager</a> app from the App Store
+ * Log-in with your Neerby account
  * Go to the "Applications" section
  * Tap on your application
  * Use the "Share" button on the "Application ID" section to send the application ID to yourself as an email.
