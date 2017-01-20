@@ -70,15 +70,6 @@
  */
 @property (nonatomic) int zPos;
 
-
-/**
- iBeacon notification text
- */
-@property (nonatomic, retain) NSString *pushText;
-/**
- iBeacon notification data
- */
-@property (nonatomic, retain) NSString *pushData;
 /**
  iBeacon customer reference
  */

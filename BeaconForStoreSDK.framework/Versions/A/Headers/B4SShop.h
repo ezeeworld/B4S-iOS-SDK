@@ -18,14 +18,6 @@
 @property (nonatomic, retain) NSString *country;
 
 /**
- Notification text associated to the shop
- */
-@property (nonatomic, retain) NSString *pushText;
-/**
- Notification data associated to the shop
- */
-@property (nonatomic, retain) NSString *pushData;
-/**
  Customer reference associated to the shop
  */
 @property (nonatomic, retain) NSString *clientRef;

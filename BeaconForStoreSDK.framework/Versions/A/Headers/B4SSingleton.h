@@ -77,9 +77,14 @@ extern NSString    *const      kB4SUserPropertyUserGenderKey;
 extern NSString    *const      kB4SUserPropertyUsereMailKey;
 
 /**
+ *  User property language
+ */
+extern NSString    *const      kB4SUserPropertyUserLanguageKey;
+
+/**
  *  User property customer ref
  */
-extern NSString    *const      kB4SUserPropertyUserCustomerRefNameKey;
+extern NSString    *const      kB4SUserPropertyUserClientRefKey;
 
 
 @class B4SSingleton;

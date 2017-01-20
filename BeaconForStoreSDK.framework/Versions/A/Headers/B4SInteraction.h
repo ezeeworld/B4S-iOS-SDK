@@ -71,10 +71,7 @@ typedef NS_ENUM(NSInteger, B4SNotificationType)
  iBeacon notification texg
  */
 @property (nonatomic, retain) NSString *pushText;
-/**
- True if the iBeacon pushText and pushData values should be used for the notification
- */
-@property (nonatomic) BOOL customPushEnabled;
+
 /**
  Max distance of the notification range
  */
