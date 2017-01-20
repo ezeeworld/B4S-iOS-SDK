@@ -1,4 +1,4 @@
-Depending on how you use the B4S SDK, some steps are mandatory, some are optional.
+Depending on how you use the Neerby SDK, some steps are mandatory, some are optional.
 
  * Base integration for counting visits
  * Recording user data
@@ -24,13 +24,13 @@ The base integration requires the following steps.
  *  Initialize and start the SDK in the application:didFinishLaunchingWithOptions: method: 
 
 <pre><code>
-	//Replace MY-APP-ID with the ID associated with your BeaconForStore account
+	//Replace MY-APP-ID with the ID associated with your Neerby account
 	[B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"];
 	[[B4SSingleton sharedInstance] startStandAloneMode];
 </pre></code>
 
 <pre><code class="swift">
-	//Replace MY-APP-ID with the ID associated with your BeaconForStore account
+	//Replace MY-APP-ID with the ID associated with your Neerby account
 	B4SSingleton.setupSharedInstanceWithAppId("MY-APP-ID")
 	B4SSingleton.sharedInstance().startStandAloneMode()
 </code></pre>
