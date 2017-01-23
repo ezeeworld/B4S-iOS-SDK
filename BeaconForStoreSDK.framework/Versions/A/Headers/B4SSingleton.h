@@ -38,10 +38,17 @@ extern NSString *const kB4SNotifBeaconId;
 extern NSString *const kB4SNotifBeaconName;
 extern NSString *const kB4SNotifNotificationId;
 extern NSString *const kB4SNotifLocationAccuracy;
+extern NSString *const kB4SNotifShopLatitude;
+extern NSString *const kB4SNotifShopLongitude;
+extern NSString *const kB4SNotifInteractionMaxDistance;
+
 extern NSString *const kB4SNotifDistance;
 extern NSString *const kB4SNotifBeaconRef;
 extern NSString *const kB4SNotifStoreRef;
 extern NSString *const kB4SNotifShopName;
+extern NSString *const kB4SNotifShopCity;
+extern NSString *const kB4SNotifShopZipCode;
+
 extern NSString *const kB4SNotifShopId;
 extern NSString *const kB4SNotifDate;
 extern NSString *const kB4SNotifActionId;
