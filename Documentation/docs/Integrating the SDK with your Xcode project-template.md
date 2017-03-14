@@ -103,7 +103,7 @@ Starting with iOS8, you **must** add a key to your Info.plist to be able to get 
  * Add a NSLocationAlwaysUsageDescription key
  * Set its value to a string describing the reason for accessing the user’s location information
 
-The Backgound Location is need by the SDK to allow a caching mechanism of the contextual contents associated to the iBeacon around the user. By using this cache, the SDK deals with the scalability of the contextual contents produced in the Neerby plateform (not all the contents available are downloaded into all active user smartphone) , and allow the user to receive the content when he comes in range of the known iBeacon, even if he has no network at this stage (ie. inside a store)
+The Backgound Location is needed by the SDK to allow a caching mechanism of the contextual contents associated to the iBeacon around the user. By using this cache, the SDK deals with the scalability of the contextual contents produced in the Neerby plateform (not all the contents available are downloaded into all active user smartphone) , and allow the user to receive the content when he comes in range of the known iBeacon, even if he has no network at this stage (ie. inside a store)
  
 Please see <a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html">this document</a> for more information
 
