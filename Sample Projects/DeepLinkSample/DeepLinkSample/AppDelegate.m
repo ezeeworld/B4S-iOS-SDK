@@ -20,9 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Mandatory configuration: set your App ID and start the SDK
-#warning Enter your Ezeeworld app ID here
-    [B4SSingleton setupSharedInstanceWithAppId:@"<MY-APP-ID>"];
-    [[B4SSingleton sharedInstance] startStandAloneMode];
+#warning Enter your Ezeeworld app ID in the Info.plist
+    [[B4SSingleton sharedInstance] start];
     
     // Optional setup: receive a notification when the SDK handles a notification
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -38,7 +37,7 @@
     NSLog(@"[didReceiveLocalNotification] %@ / %@",[notification.userInfo objectForKey:kB4SNotifBeaconId],[notification.userInfo objectForKey:kB4SNotifContentName]);
     NSLog(@"notification : %@",notification.description);
     
-    // If you want to use B4S SDK internal notification processing (UIAlertView, UIWebView, open Url in Safari, ...), you have to call
+    // If you want to use Neerby SDK internal notification processing (UIAlertView, UIWebView, open Url in Safari, ...), you have to call
     // the B4SSingleton::notificationFeedback: method.
     [[B4SSingleton sharedInstance] notificationFeedback:notification.userInfo];
 }

@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		677BE6501E8D3F29002BCE12 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 677BE64E1E8D3F29002BCE12 /* Launch Screen.storyboard */; };
+		677BE6521E8D3F38002BCE12 /* diamant.png in Resources */ = {isa = PBXBuildFile; fileRef = 677BE6511E8D3F38002BCE12 /* diamant.png */; };
 		67C94C981D215F5800E5774C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C94C971D215F5800E5774C /* main.m */; };
 		67C94C9B1D215F5800E5774C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C94C9A1D215F5800E5774C /* AppDelegate.m */; };
 		67C94C9E1D215F5800E5774C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C94C9D1D215F5800E5774C /* ViewController.m */; };
 		67C94CA11D215F5800E5774C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67C94C9F1D215F5800E5774C /* Main.storyboard */; };
 		67C94CA31D215F5800E5774C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67C94CA21D215F5800E5774C /* Assets.xcassets */; };
-		67C94CA61D215F5800E5774C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67C94CA41D215F5800E5774C /* LaunchScreen.storyboard */; };
 		67C94CB11D215FCA00E5774C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 67C94CAE1D215FCA00E5774C /* .gitignore */; };
 		67C94CB21D215FCA00E5774C /* BeaconForStoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C94CAF1D215FCA00E5774C /* BeaconForStoreSDK.framework */; };
 		67C94CB31D215FCA00E5774C /* BeaconForStoreStorage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 67C94CB01D215FCA00E5774C /* BeaconForStoreStorage.bundle */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		677BE64F1E8D3F29002BCE12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "DeepLinkSample/Base.lproj/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
+		677BE6511E8D3F38002BCE12 /* diamant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamant.png; sourceTree = "<group>"; };
 		67C94C931D215F5800E5774C /* DeepLinkSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepLinkSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67C94C971D215F5800E5774C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		67C94C991D215F5800E5774C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,7 +31,6 @@
 		67C94C9D1D215F5800E5774C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		67C94CA01D215F5800E5774C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		67C94CA21D215F5800E5774C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		67C94CA51D215F5800E5774C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67C94CA71D215F5800E5774C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67C94CAE1D215FCA00E5774C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		67C94CAF1D215FCA00E5774C /* BeaconForStoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BeaconForStoreSDK.framework; sourceTree = "<group>"; };
@@ -69,6 +71,8 @@
 		67C94C951D215F5800E5774C /* DeepLinkSample */ = {
 			isa = PBXGroup;
 			children = (
+				677BE6511E8D3F38002BCE12 /* diamant.png */,
+				677BE64E1E8D3F29002BCE12 /* Launch Screen.storyboard */,
 				67C94CAD1D215FCA00E5774C /* SDK */,
 				67C94C991D215F5800E5774C /* AppDelegate.h */,
 				67C94C9A1D215F5800E5774C /* AppDelegate.m */,
@@ -76,7 +80,6 @@
 				67C94C9D1D215F5800E5774C /* ViewController.m */,
 				67C94C9F1D215F5800E5774C /* Main.storyboard */,
 				67C94CA21D215F5800E5774C /* Assets.xcassets */,
-				67C94CA41D215F5800E5774C /* LaunchScreen.storyboard */,
 				67C94CA71D215F5800E5774C /* Info.plist */,
 				67C94C961D215F5800E5774C /* Supporting Files */,
 			);
@@ -132,6 +135,11 @@
 				TargetAttributes = {
 					67C94C921D215F5800E5774C = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -160,8 +168,9 @@
 			files = (
 				67C94CB11D215FCA00E5774C /* .gitignore in Resources */,
 				67C94CB31D215FCA00E5774C /* BeaconForStoreStorage.bundle in Resources */,
-				67C94CA61D215F5800E5774C /* LaunchScreen.storyboard in Resources */,
 				67C94CA31D215F5800E5774C /* Assets.xcassets in Resources */,
+				677BE6501E8D3F29002BCE12 /* Launch Screen.storyboard in Resources */,
+				677BE6521E8D3F38002BCE12 /* diamant.png in Resources */,
 				67C94CA11D215F5800E5774C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,20 +191,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		677BE64E1E8D3F29002BCE12 /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				677BE64F1E8D3F29002BCE12 /* Base */,
+			);
+			name = "Launch Screen.storyboard";
+			path = ../SDK;
+			sourceTree = "<group>";
+		};
 		67C94C9F1D215F5800E5774C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				67C94CA01D215F5800E5774C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		67C94CA41D215F5800E5774C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				67C94CA51D215F5800E5774C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -287,12 +297,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDK",
 				);
 				INFOPLIST_FILE = DeepLinkSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ezeeworld.DeepLinkSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -302,12 +315,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDK",
 				);
 				INFOPLIST_FILE = DeepLinkSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ezeeworld.DeepLinkSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

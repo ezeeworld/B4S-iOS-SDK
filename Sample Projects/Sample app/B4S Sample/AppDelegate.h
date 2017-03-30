@@ -11,7 +11,7 @@
 
 @import BeaconForStoreSDK;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, B4SDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, B4SDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

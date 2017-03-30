@@ -1,3 +1,9 @@
+# 2.2.0
+
+ * Add support for Stop Locations
+ * Stability and speed improvements
+ * Remote push support
+ 
 # 2.1.0
 
  * ATR mode

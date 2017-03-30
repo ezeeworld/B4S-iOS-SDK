@@ -7,12 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <MobileCoreServices/UTCoreTypes.h>
-#import <AVFoundation/AVFoundation.h>
-
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
 
@@ -21,9 +15,8 @@
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         
         // Mandatory configuration: set your App ID and start the SDK
-#warning Enter your Ezeeworld app ID here
-        [B4SSingleton setupSharedInstanceWithAppId:@"<MY-APP-ID>"];
-        [[B4SSingleton sharedInstance] startStandAloneMode];
+#warning Enter your Ezeeworld app ID in the Info.plist
+        [[B4SSingleton sharedInstance] start];
         
         // Optional setup: warn the user if Bluetooth or notifications are enabled
         [B4SBehaviours warnForBluetooth:true after:2 count:2 andEvery:2 withTitle:@"Bluetooth" andText:@"Bluetooth is disabled. Do you want to enable it ?"];
@@ -34,7 +27,7 @@
         [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@"client lastname"];
         [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserGenderKey withGender:B4SCustomerGender_FEMALE];
         [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUsereMailKey withString:@"clientEmail@domain.com"];
-        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserCustomerRefNameKey withString:@"yourOwnClientRef"];
+        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserClientRefKey withString:@"yourOwnClientRef"];
         
         [B4SSingleton sharedInstance].delegate = self;
         
