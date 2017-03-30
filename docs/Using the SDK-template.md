@@ -10,8 +10,9 @@ Depending on how you use the Neerby SDK, some steps are mandatory, some are opti
 
 The base integration requires the following steps.
 
- * Import the Framework In your AppDelegate.m
+ * In your Info.plist file add a 'Neer.By AppID' key containg the Application ID provied by Ezeeworld
 
+ * Import the Framework In your AppDelegate.m
 
 <pre><code>
 	@import BeaconForStoreSDK;
@@ -21,24 +22,20 @@ The base integration requires the following steps.
 	@import BeaconForStoreSDK
 </code></pre>
 
- *  Initialize and start the SDK in the application:didFinishLaunchingWithOptions: method: 
+ *  Start the SDK in the application:didFinishLaunchingWithOptions: method: 
 
 <pre><code>
-	//Replace MY-APP-ID with the ID associated with your Neerby account
-	[B4SSingleton setupSharedInstanceWithAppId:@"MY-APP-ID"];
-	[[B4SSingleton sharedInstance] startStandAloneMode];
+	[[B4SSingleton sharedInstance] start];
 </pre></code>
 
 <pre><code class="swift">
-	//Replace MY-APP-ID with the ID associated with your Neerby account
-	B4SSingleton.setupSharedInstanceWithAppId("MY-APP-ID")
-	B4SSingleton.sharedInstance().startStandAloneMode()
+	B4SSingleton.sharedInstance().start()
 </code></pre>
 
 
 # Recording user data
 
-B4S can relate events tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call this every time). The key should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key.
+Neerby can relate events tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call this every time). The key should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key.
 
 <pre><code>
 	[[B4SSingleton sharedInstance] setUserName:@"Bernard" firstName:@"VanCode" gender:B4SCustomerGender_MALE email:@"bernard@vancode.com" customerRef:@"90210"];
@@ -59,7 +56,7 @@ B4S can relate events tot individual customers. Supplying the customer details i
 
 # Beacon-based notifications
 
-The B4S SDK uses local notifications to establish communication between beacons and the app.
+The Neerby SDK uses local notifications to establish communication between beacons and the app.
 
 Implement the application:didReceiveLocalNotification: method in your appDelegate. A notification will be sent by the SDK when a notification is fired. You can use the UILocalNotification.userInfo to process the notification yourself. But if you set up some automatic action in the B4S Manager application or using the web app, you must call the [B4SSingleton notificationFeedback:] method. So, the SDK will display a confirmation panel (if any) and process one of the requested predefined actions.
 
