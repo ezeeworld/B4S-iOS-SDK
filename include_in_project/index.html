@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Include the SDK in your project - Neerby SDK iOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Include the SDK in your project";
+    var mkdocs_page_input_path = "include_in_project.md";
+    var mkdocs_page_url = "/include_in_project/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Neerby SDK iOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Include the SDK in your project</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#hardware-software-requirements">Hardware &amp; software requirements</a></li>
+    
+
+    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get-your-application-id">Get your application ID</a></li>
+        
+            <li><a class="toctree-l3" href="#adding-the-files-manually">Adding the files manually</a></li>
+        
+            <li><a class="toctree-l3" href="#use-cocoa-pods">Use Cocoa Pods</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-application-modes">Configure application modes</a></li>
+        
+            <li><a class="toctree-l3" href="#add-keys-to-infoplist">Add keys to Info.plist</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../using_the_sdk/">Using the SDK</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../application_size/">Application size</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Neerby SDK iOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Include the SDK in your project</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hardware-software-requirements">Hardware &amp; software requirements</h1>
+<p>The Neerby SDK uses Bluetooth 4.0 BLE (Bluetooth Low Energy) and thus is only available on the following devices:</p>
+<ul>
+<li>iPhone 4S and up</li>
+<li>iPod Touch 5th generation and up</li>
+<li>iPad 3rd generation and up</li>
+<li>iPad mini (all versions)</li>
+</ul>
+<p>Minimum iOS target : iOS 7</p>
+<p>Xcode 6 or higher is required for development</p>
+<p>The Neerby SDK supports App Transport Security, no exception is required</p>
+<h1 id="installation">Installation</h1>
+<p>You must perform the following tasks to integrate the Neerby SDK with your application:</p>
+<ul>
+<li>Get your application ID</li>
+<li>Import required frameworks &amp; BeaconForStoreStorage.bundle manually or using <a href="https://cocoapods.org">Cocoa Pods</a></li>
+<li>Configure application modes</li>
+<li>Allow location usage</li>
+<li>Code-level integration</li>
+</ul>
+<h2 id="get-your-application-id">Get your application ID</h2>
+<p>In order to use the SDK you must know the application ID that is tied to your Neerby account. </p>
+<h3 id="using-the-web-interface">Using the web interface</h3>
+<ul>
+<li>Go to <a href="https://manager.neer.by">https://manager.neer.by</A></li>
+<li>Log-in with your Neerby account</li>
+<li>Go to the "Applications" section</li>
+<li>Select your application ID</li>
+</ul>
+<h3 id="using-neerby-manager">Using Neerby Manager</h3>
+<ul>
+<li>Install the <a href="https://itunes.apple.com/fr/app/b4s-manager/id903400204?mt=8">Neerby Manager</a> app from the App Store</li>
+<li>Log-in with your Neerby account</li>
+<li>Go to the "Applications" section</li>
+<li>Tap on your application</li>
+<li>Use the "Share" button on the "Application ID" section to send the application ID to yourself as an email.</li>
+</ul>
+<h2 id="adding-the-files-manually">Adding the files manually</h2>
+<p>Use the following instructions to manually add the SDK to your project</p>
+<h3 id="import-frameworks">Import frameworks</h3>
+<ul>
+<li>Download the latest version from <a href="https://github.com/ezeeworld/B4S-iOS-SDK/releases">Git Hub</a></li>
+<li>Extract the zip archive</li>
+<li>Drag &amp; drop the BeaconForStoreSDK.framework onto your project</li>
+<li>Check the "Copy items if needed" box</li>
+<li>Add the Framework to your application target</li>
+<li>Click "Finish"</li>
+</ul>
+<h3 id="add-linker-flags">Add linker flags</h3>
+<ul>
+<li>Open Project Settings -&gt; Build Settings</li>
+<li>Scroll to the "Linking" section</li>
+<li>
+<p>In "Other Linker Flags" add "-ObjC" (this setting is case-sensitive) and "-lsqlite3"</p>
+<p><img alt="Linker flags" src="../images/linkerFlags.jpg" /></p>
+</li>
+</ul>
+<h3 id="import-beaconforstorestoragebundle">Import BeaconForStoreStorage.bundle</h3>
+<ul>
+<li>Drag &amp; drop the BeaconForStoreStorage.bundle onto your project</li>
+<li>Check the "Copy items if needed" box</li>
+<li>Add the bundle to your application target</li>
+<li>Click "Finish"</li>
+<li>
+<p>Check if the bundle appears in the "Copy File" step of your application target</p>
+<p><img alt="copy bundle resources" src="../images/copyBundleResources.png" /></p>
+<h2 id="use-cocoa-pods">Use Cocoa Pods</h2>
+</li>
+<li>
+<p>Add   pod 'BeaconForStoreSDK' to the "target" section of your podfile</p>
+</li>
+<li>Run the pod install command</li>
+</ul>
+<h2 id="configure-application-modes">Configure application modes</h2>
+<p>To be able to track the beacons even when in background mode, you must enable background modes in your application.</p>
+<ul>
+<li>Select your project in the Project navigator</li>
+<li>Select your application target</li>
+<li>Select the "Capabilities" tab</li>
+<li>Turn on "Background Modes"</li>
+<li>
+<p>Check the "Background fetch" mode</p>
+<p><img alt="background modes" src="../images/backgroundmodes.png" /></p>
+</li>
+</ul>
+<p>The application will be started by iOS when entering a geofence region or detecting an iBeacon, thus the didFinishLaunchingWithOptions: method from your app delegate will be called.</p>
+<p>So if your app calls a tagging / analytics tool (Flurry, Google Analytics...) from this method, your metrics will be eroneous. You should use the  'applicationWillEnterForeground' delegate method to track application launches instead.</p>
+<h2 id="add-keys-to-infoplist">Add keys to Info.plist</h2>
+<p>Starting with iOS8, you <strong>must</strong> add a key to your Info.plist to be able to get the user location.</p>
+<ul>
+<li>Open your Info.plist file</li>
+<li>Add a NSLocationAlwaysUsageDescription key</li>
+<li>Set its value to a string describing the reason for accessing the user’s location information</li>
+</ul>
+<p>The Backgound Location is needed by the SDK to allow a caching mechanism of the contextual contents associated to the iBeacon around the user. By using this cache, the SDK deals with the scalability of the contextual contents produced in the Neerby plateform (not all the contents available are downloaded into all active user smartphone) , and allow the user to receive the content when he comes in range of the known iBeacon, even if he has no network at this stage (ie. inside a store)</p>
+<p>Please see <a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html">this document</a> for more information</p>
+<p>Starting with iOS 10 (and app compiled with the Xcode 8 toolchain) you must explain why you app uses Bluetooth otherwise the binary is rejected on iTunes Connect</p>
+<ul>
+<li>Open your Info.plist file</li>
+<li>Add a NSBluetoothPeripheralUsageDescription key</li>
+<li>Set its value to a string describing the reason for accessing Bluetooth</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../using_the_sdk/" class="btn btn-neutral float-right" title="Using the SDK">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../using_the_sdk/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+      <script src="../js/syntax_language_name.js"></script>
+
+</body>
+</html>
