@@ -238,6 +238,13 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
  */
 - (void)enablePushNotifications;
 
+
+/*
+ * Enable stop location detection. This is FALSE by default.
+ */
+
+@property (nonatomic) BOOL       enableStopLocationDetection;
+
 /**
  *  Complete the registration for Push notifications. This method MUST be called from application:didRegisterForRemoteNotificationsWithDeviceToken: otherwise the device won't receive Push notifications.
  *
