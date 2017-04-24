@@ -13,7 +13,8 @@ addEventListener('load', function() {
   {
 	  var values = {"objc": {"name": "Objective-C", "color": "#3366ff"},
 	  "objectivec": {"name": "Objective-C", "color": "#3366ff"},
-	  "swift": {"name": "Swift", "color": "#ff9900"}};
+	  "swift": {"name": "Swift", "color": "#ff9900"},
+  	  "xml": {"name": "XML", "color": "#cc00cc"}};
 	  
 	  if (values[identifier])
 	  {

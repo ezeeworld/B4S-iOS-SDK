@@ -96,6 +96,9 @@
         </ul>
     
 
+    <li class="toctree-l2"><a href="#using-a-transient-device-uuid">Using a transient device UUID</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -323,6 +326,13 @@ B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNam
 {
     B4SSingleton.sharedInstance().notificationFeedback(userInfo)
     }
+</code></pre>
+
+<h1 id="using-a-transient-device-uuid">Using a transient device UUID</h1>
+<p><strong>Warning</strong>: using this feature is <em>not</em> recommended</p>
+<p>Upon the app installation, an anymous device UUID is generated and stored in the Keychain to be read back if the app is un-installed then re-installed. To make this ID transient add a <code>Neer.By Use transient DeviceID</code> key to your Info.plist, with a <code>String</code> type and a value of <code>YES</code></p>
+<pre><code class="xml">&lt;key&gt;Neer.By Use transient DeviceID&lt;/key&gt;
+&lt;string&gt;YES&lt;/string&gt;
 </code></pre>
               
             </div>
