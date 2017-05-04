@@ -99,6 +99,9 @@
     <li class="toctree-l2"><a href="#using-a-transient-device-uuid">Using a transient device UUID</a></li>
     
 
+    <li class="toctree-l2"><a href="#getting-the-users-worlplace-and-home-coordinates">Getting the user's worlplace and home coordinates</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -333,6 +336,25 @@ B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNam
 <p>Upon the app installation, an anymous device UUID is generated and stored in the Keychain to be read back if the app is un-installed then re-installed. To make this ID transient add a <code>Neer.By Use transient DeviceID</code> key to your Info.plist, with a <code>String</code> type and a value of <code>YES</code></p>
 <pre><code class="xml">&lt;key&gt;Neer.By Use transient DeviceID&lt;/key&gt;
 &lt;string&gt;YES&lt;/string&gt;
+</code></pre>
+
+<h1 id="getting-the-users-worlplace-and-home-coordinates">Getting the user's worlplace and home coordinates</h1>
+<p>The SDK tries to determinate the user's home &amp; workplace coordinate. When accessing those, you must check if the coordinates are valid using the CLLocationCoordinate2DIsValid() ( https://developer.apple.com/reference/corelocation/1423806-cllocationcoordinate2disvalid?language=objc )method</p>
+<pre><code class="objc">
+CLLocationCoordinate2D home = [[B4SSingleton sharedInstance] userWorkplaceCoordinates];
+if (CLLocationCoordinate2DIsValid(home))
+{
+    // Use the coordinates
+}
+
+</code></pre>
+
+<pre><code class="swift">let home = B4SSingleton.sharedInstance().userWorkplaceCoordinates
+
+if (CLLocationCoordinate2DIsValid(home))
+{
+    // Use the coordinates
+}
 </code></pre>
               
             </div>
