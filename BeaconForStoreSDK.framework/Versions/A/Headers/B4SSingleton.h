@@ -7,6 +7,8 @@
 // 
 
 @import Foundation;
+@import CoreLocation;
+
 #include    "B4SCustomerGender.h"
 #include    "B4SEnums.h"
 
@@ -284,6 +286,19 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
  * YES if location tracking is enabled. Default value is YES. Use this to override the value set by the server. This value is ignored if the ATR mode is disabled for your application
  */
 @property (nonatomic) BOOL enablePositionTracking;
+
+#pragma - User home & workplace
+
+/**
+ The coordinates of the user's home. If the coordinates cannot be determined, return an invalid value. Use CLLocationCoordinate2DIsValid() ( https://developer.apple.com/reference/corelocation/1423806-cllocationcoordinate2disvalid?language=objc ) to check if coordinate is valid
+ */
+@property   (readonly)  CLLocationCoordinate2D  userHomeCoordinates;
+
+
+/**
+ The coordinates of the user's workplace. If the coordinates cannot be determined, return an invalid value. Use CLLocationCoordinate2DIsValid() ( https://developer.apple.com/reference/corelocation/1423806-cllocationcoordinate2disvalid?language=objc ) to check if coordinate is valid
+ */
+@property   (readonly)  CLLocationCoordinate2D  userWorkplaceCoordinates;
 
 #pragma mark - Initialisation
 /**
