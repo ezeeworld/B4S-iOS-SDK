@@ -311,7 +311,7 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
 /**
  *  Initialize the SDK
  *
- *  @param anAppId Your BeaconForStore app ID. Use the B4SCustomer iOS app to get this identifier
+ *  @param anAppId Your BeaconForStore app ID. Use the Neer.By web manager to get this identifier: https://manager.neer.by
  *
  *  @return The B4S Singleton
  */
