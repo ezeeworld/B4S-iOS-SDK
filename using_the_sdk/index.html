@@ -154,6 +154,13 @@
 <p>The base integration requires the following steps.</p>
 <ul>
 <li>In your Info.plist file add a <code>Neer.By AppID</code> key containg the Application ID provied by Ezeeworld</li>
+</ul>
+<p><strong>Warning</strong>: if this key is present with a valid application identifier, the SDK will init automatically upon app launch. It will register the device with the Neer.by server (but won't search for beacons, or display notifications, or send geolocalized information to our server). If you want to fully control when the device will be registered to our back-end, add a <code>Neer.By Disable automatic init</code> key to your Info.plist, with a <code>Boolean</code> type and a <code>YES</code> value. </p>
+<pre><code class="xml">    &lt;key&gt;Neer.By Disable automatic init&lt;/key&gt;
+    &lt;true/&gt;
+</code></pre>
+
+<ul>
 <li>Import the Framework In your AppDelegate.m</li>
 </ul>
 <pre><code class="objc">@import BeaconForStoreSDK;
@@ -339,7 +346,7 @@ B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNam
 </code></pre>
 
 <h1 id="getting-the-users-worlplace-and-home-coordinates">Getting the user's worlplace and home coordinates</h1>
-<p>The SDK tries to determinate the user's home &amp; workplace coordinate. When accessing those, you must check if the coordinates are valid using the CLLocationCoordinate2DIsValid() ( https://developer.apple.com/reference/corelocation/1423806-cllocationcoordinate2disvalid?language=objc )method</p>
+<p>The SDK tries to determinate the user's home &amp; workplace coordinate. When accessing those, you must check if the coordinates are valid using the <a href="https://developer.apple.com/reference/corelocation/1423806-cllocationcoordinate2disvalid?language=objc">CLLocationCoordinate2DIsValid()</a> method</p>
 <pre><code class="objc">
 CLLocationCoordinate2D home = [[B4SSingleton sharedInstance] userWorkplaceCoordinates];
 if (CLLocationCoordinate2DIsValid(home))
