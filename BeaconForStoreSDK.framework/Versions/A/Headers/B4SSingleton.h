@@ -318,6 +318,14 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
 + (B4SSingleton *)setupSharedInstanceWithAppId:(NSString *)anAppId DEPRECATED_MSG_ATTRIBUTE("Set the 'Neer.By AppID' key to the Info.plist file instead. Refer to the documentation");
 
 /**
+ *  Initialize the SDK using the App ID found in the 'Neer.By AppID' key from the Info.plist. If the key is missing, the SDK will log an error
+ *
+ *  @return The B4S Singleton
+ */
++ (B4SSingleton *)setupSharedInstance;
+
+
+/**
  *  Start to listen to beacons. This method must be called AFTER [B4SSingleton setupSharedInstanceWithAppId:]
  */
 - (void)startStandAloneMode DEPRECATED_MSG_ATTRIBUTE("Use [[B4SSingleton sharedInstance] start] instead");
@@ -327,5 +335,12 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
  */
 
 - (void)start;
+
+
+/**
+ *  Calling this method completely stop the SDK. Nothing will be called / logged / stored, no position is collected, no beacon is listened to.
+ To restart the SDK restart use setupSharedInstance / setupSharedInstanceWithAppId: then start
+ */
+- (void)terminate;
 
 @end
