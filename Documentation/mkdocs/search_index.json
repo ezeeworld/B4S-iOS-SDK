@@ -169,6 +169,26 @@
             "location": "/application_size/#measured-application-size", 
             "text": "To simulate those various sizes we created a minimalistic Xcode project with only the default files   Minimal iOS app, without Neerby SDK: 238 KB  This app + Neerby SDK, with all Xcode settings to default:  6.948 MB  This app + Neerby SDK + \"Enabled bitcode\" set to No: 1.912 MB (this simulate the size of the app download by a iOS 8 user)  This app + Neerby SDK + \"Enabled bitcode\" set to No + \"ARCHS\" set to \"arm64\": 1.176 MB (this simulate the size of the app download by a iOS 9 user running an iPhone 5s or more recent )", 
             "title": "Measured application size"
+        }, 
+        {
+            "location": "/unity_integration/", 
+            "text": "Summary\n\n\nThe Neer.By SDK can be integrated with a Unity project, with the following limitations:\n\n\n\n\nHardware and Virtual Beacon-based interactions are not available\n\n\nUser properties cannot be set from Unity code\n\n\n\n\nHow-to\n\n\n\n\nCreate your Unity project as usual\n\n\nFrom the \nFile\n menu select \nBuild Settings...\n\n\n\n\n\n\n\n\nFrom the list select \niOS\n\n\nClick \nBuild\n\n\nSelect a directory to save your built project\n\n\nClick \nSave\n\n\n\n\nThis step will create a complete Xcode project where the SDK can be included following the instructions from the \nInclude the SDK in your project\n and \nUsing the SDK\n. Using Cocoa pods is the recommended integration method.\nDo not forget to include the proper key in the Info.plist path.\n\n\nNotes\n\n\n\n\nThe app delegate class file for your newly created project is \nClasses/UnityAppController.mm\n\n\nWhen using Cocoa Pods integration, use the \n.xcworkspace\n file instead of the \n.xcodeproj\n file to build the iOS target\n\n\nIf you need to rebuild your project, select the \nAppend\n mode. If you select \nReplace\n you have to restart the integration from scratch", 
+            "title": "Unity integration"
+        }, 
+        {
+            "location": "/unity_integration/#summary", 
+            "text": "The Neer.By SDK can be integrated with a Unity project, with the following limitations:   Hardware and Virtual Beacon-based interactions are not available  User properties cannot be set from Unity code", 
+            "title": "Summary"
+        }, 
+        {
+            "location": "/unity_integration/#how-to", 
+            "text": "Create your Unity project as usual  From the  File  menu select  Build Settings...     From the list select  iOS  Click  Build  Select a directory to save your built project  Click  Save   This step will create a complete Xcode project where the SDK can be included following the instructions from the  Include the SDK in your project  and  Using the SDK . Using Cocoa pods is the recommended integration method.\nDo not forget to include the proper key in the Info.plist path.", 
+            "title": "How-to"
+        }, 
+        {
+            "location": "/unity_integration/#notes", 
+            "text": "The app delegate class file for your newly created project is  Classes/UnityAppController.mm  When using Cocoa Pods integration, use the  .xcworkspace  file instead of the  .xcodeproj  file to build the iOS target  If you need to rebuild your project, select the  Append  mode. If you select  Replace  you have to restart the integration from scratch", 
+            "title": "Notes"
         }
     ]
 }
