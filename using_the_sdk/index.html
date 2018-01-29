@@ -322,7 +322,16 @@ B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNam
 }
 </code></pre>
 
-<pre><code class="swift"> func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) 
+<pre><code class="swift">
+// Swift 4
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+{
+    B4SSingleton.sharedInstance().registerPushNotificationDeviceToken(deviceToken)
+}
+
+
+// Swift 3
+ func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) 
 {
     B4SSingleton.sharedInstance().registerPushNotificationDeviceToken(deviceToken)
 }
