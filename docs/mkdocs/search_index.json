@@ -171,6 +171,16 @@
             "title": "Measured application size"
         }, 
         {
+            "location": "/app_store/", 
+            "text": "App Store\n\n\nThe Neer.by SDK uses the Advertising Identifier (IDFA). When submiting your app to Apple for the AppStore review, you must enable the settings circled in the screenshot below in additions to the uses your app already requires.", 
+            "title": "App Store validation"
+        }, 
+        {
+            "location": "/app_store/#app-store", 
+            "text": "The Neer.by SDK uses the Advertising Identifier (IDFA). When submiting your app to Apple for the AppStore review, you must enable the settings circled in the screenshot below in additions to the uses your app already requires.", 
+            "title": "App Store"
+        }, 
+        {
             "location": "/unity_integration/", 
             "text": "Summary\n\n\nThe Neer.By SDK can be integrated with a Unity project, with the following limitations:\n\n\n\n\nHardware and Virtual Beacon-based interactions are not available\n\n\nUser properties cannot be set from Unity code\n\n\n\n\nHow-to\n\n\n\n\nCreate your Unity project as usual\n\n\nFrom the \nFile\n menu select \nBuild Settings...\n\n\n\n\n\n\n\n\nFrom the list select \niOS\n\n\nClick \nBuild\n\n\nSelect a directory to save your built project\n\n\nClick \nSave\n\n\n\n\nThis step will create a complete Xcode project where the SDK can be included following the instructions from the \nInclude the SDK in your project\n and \nUsing the SDK\n. Using Cocoa pods is the recommended integration method.\nDo not forget to include the proper key in the Info.plist path.\n\n\nNotes\n\n\n\n\nThe app delegate class file for your newly created project is \nClasses/UnityAppController.mm\n\n\nWhen using Cocoa Pods integration, use the \n.xcworkspace\n file instead of the \n.xcodeproj\n file to build the iOS target\n\n\nIf you need to rebuild your project, select the \nAppend\n mode. If you select \nReplace\n you have to restart the integration from scratch", 
             "title": "Unity integration"
