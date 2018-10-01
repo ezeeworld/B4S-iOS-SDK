@@ -77,10 +77,10 @@
     <li class="toctree-l2"><a href="#application-tagging">Application tagging</a></li>
     
 
-    <li class="toctree-l2"><a href="#b4s-behaviours">B4S Behaviours</a></li>
+    <li class="toctree-l2"><a href="#custom-notifications">Custom notifications</a></li>
     
 
-    <li class="toctree-l2"><a href="#custom-notifications">Custom notifications</a></li>
+    <li class="toctree-l2"><a href="#custom-notifications-using-placeholders">Custom notifications using placeholders</a></li>
     
 
     <li class="toctree-l2"><a href="#custom-alert-sound">Custom alert sound</a></li>
@@ -102,7 +102,7 @@
     <li class="toctree-l2"><a href="#using-a-transient-device-uuid">Using a transient device UUID</a></li>
     
 
-    <li class="toctree-l2"><a href="#getting-the-users-worlplace-and-home-coordinates">Getting the user's worlplace and home coordinates</a></li>
+    <li class="toctree-l2"><a href="#getting-the-users-workplace-and-home-coordinates">Getting the user's workplace and home coordinates</a></li>
     
 
     </ul>
@@ -199,7 +199,7 @@ To do so, add  a <code>Neer.By Do no ask for geolocation permission</code> to yo
 <h1 id="recording-user-data">Recording user data</h1>
 <p>Neerby can relate events tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call this every time). The key should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key.</p>
 <pre><code class="objc">[[B4SSingleton sharedInstance] setUserName:@&quot;Bernard&quot; firstName:@&quot;VanCode&quot; gender:B4SCustomerGender_MALE email:@&quot;bernard@vancode.com&quot; customerRef:@&quot;90210&quot;];
-[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@&quot;Bernard&quot;];
+[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@&quot;Bernard&quot;];
 [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@&quot;VanCode&quot;];
 [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserGenderKey withGender:B4SCustomerGender_MALE];
 [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUsereMailKey withString:@&quot;bernard@vancode.com&quot;];
@@ -236,18 +236,6 @@ B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNam
 
 <pre><code class="swift">    B4STag.event(&quot;menuClose&quot;, userData: &quot;menu_id_42&quot;)
     B4STag.event(&quot;menuOpen&quot;, userData: [&quot;menu_id&quot; : 42, &quot;item_id&quot;: 12])
-</code></pre>
-
-<h1 id="b4s-behaviours">B4S Behaviours</h1>
-<p>This feature allows you to automatically warn the user if Bluetooth, notifications or geolocation are disabled. This setup <strong>must</strong> be done before initializing the B4S Singleton. See the B4SBehaviours class for more details.</p>
-<pre><code class="objc">    [B4SBehaviours warnForBluetooth:true after:0 count:2 andEvery:2 withTitle:@&quot;Bluetooth&quot; andText:@&quot;Bluetooth is disabled. Do you want to enable it ?&quot;];
-    [B4SBehaviours warnForGeolocation:true after:3 count:2 andEvery:2 withTitle:@&quot;Geoloc&quot; andText:@&quot;Geolocation is disabled. Do you want to enable it ?&quot;];
-    [B4SBehaviours warnForNotifications:true after:1 count:2 andEvery:2 withTitle:@&quot;Notifications&quot; andText:@&quot;Notifications are disabled. You need to activate them in order to use this application.&quot;];
-</code></pre>
-
-<pre><code class="swift">    B4SBehaviours.warnForBluetooth(true, after: 0, count: 2, andEvery: 2, withTitle: &quot;Bluetooth&quot;, andText: &quot;Bluetooth is disabled. Do you want to enable it ?&quot;)
-    B4SBehaviours.warnForGeolocation(true, after: 3, count: 2, andEvery: 2, withTitle: &quot;Geoloc&quot;, andText: &quot;Geolocation is disabled. Do you want to enable it ?&quot;)
-    B4SBehaviours.warnForNotifications(true, after: 1, count: 2, andEvery: 2, withTitle: &quot;Notifications&quot;, andText: &quot;Notifications are disabled. You need to activate them in order to use this application&quot;)
 </code></pre>
 
 <h1 id="custom-notifications">Custom notifications</h1>
@@ -291,6 +279,72 @@ B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNam
         }
 </code></pre>
 
+<h1 id="custom-notifications-using-placeholders">Custom notifications using placeholders</h1>
+<p>You can automatically customise some items displayed within notifications :
+ * Notification title
+ * Notification text
+ * URLs used for deeplink or rich pushes.</p>
+<p>This can be achieved by inserting predefined placeholders in the corresponding items. Theses placeholders are :</p>
+<ul>
+<li>
+<p><BEACON.NAME>
+   This placeholder will be replaced with the name of the beacon which triggered the notification.</p>
+</li>
+<li>
+<p><BEACON.CLIENTREF>
+   This placeholder will be replaced with the reference code you eventually assigned to the beacon which triggered the notification.</p>
+</li>
+<li>
+<p><SHOP.NAME>
+   This placeholder will be replaced with the name of the shop associated to the notification (shop the beacon belongs to or location name of the virtual beacon)</p>
+</li>
+<li>
+<p><SHOP.CLIENTREF>
+   This placeholder will be replaced with the reference code of the shop associated to the notification (shop the beacon belongs to or location name of the virtual beacon)</p>
+</li>
+<li>
+<p><SHOP.CITY>
+   This placeholder will be replaced with the city name of the shop associated to the notification (shop the beacon belongs to or location name of the virtual beacon)</p>
+</li>
+<li>
+<p><SHOP.ZIPCODE>
+   This placeholder will be replaced with the zip code of the shop associated to the notification (shop the beacon belongs to or location name of the virtual beacon)</p>
+</li>
+<li>
+<p><USER.NAME>
+   This placeholder will be replaced with the value of the kB4SUserPropertyUserLastNameKey UserProperty you should have previously set with the following code.</p>
+</li>
+</ul>
+<pre><code class="objc">[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@&quot;VanCode&quot;];
+</code></pre>
+
+<pre><code class="swift">B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserLastNameKey, withString: &quot;VanCode&quot;)
+</code></pre>
+
+<ul>
+<li><USER.FIRSTNAME>
+   This placeholder will be replaced with the value of the kB4SUserPropertyUserFirstNameKey UserProperty you should have previously set with the following code.</li>
+</ul>
+<pre><code class="objc">[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@&quot;Bernard&quot;];
+</code></pre>
+
+<pre><code class="swift">B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserFirstNameKey, withString: &quot;Bernard&quot;)
+</code></pre>
+
+<ul>
+<li><USER.CLIENTREF>
+   This placeholder will be replaced with the value of the USER_CLIENT_REF UserProperty you should have previously set with the following code.</li>
+</ul>
+<pre><code class="objc">[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserCustomerRefNameKey withString:@&quot;90210&quot;];
+</code></pre>
+
+<pre><code class="swift">B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNameKey, withString: &quot;90210&quot;)
+</code></pre>
+
+<ul>
+<li><NOTIFICATION.TIMESTAMP>
+   This placeholder will be replaced with the timestamp (in seconds ) of the notification generation.</li>
+</ul>
 <h1 id="custom-alert-sound">Custom alert sound</h1>
 <ul>
 <li>Change the sound played when you app shows a notification to the user. The sound file must be in .caf (Core Audio File) format and imported into your project</li>
@@ -372,7 +426,7 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
 &lt;string&gt;YES&lt;/string&gt;
 </code></pre>
 
-<h1 id="getting-the-users-worlplace-and-home-coordinates">Getting the user's worlplace and home coordinates</h1>
+<h1 id="getting-the-users-workplace-and-home-coordinates">Getting the user's workplace and home coordinates</h1>
 <p>The SDK tries to determinate the user's home &amp; workplace coordinate. When accessing those, you must check if the coordinates are valid using the <a href="https://developer.apple.com/reference/corelocation/1423806-cllocationcoordinate2disvalid?language=objc">CLLocationCoordinate2DIsValid()</a> method</p>
 <pre><code class="objc">
 CLLocationCoordinate2D home = [[B4SSingleton sharedInstance] userWorkplaceCoordinates];

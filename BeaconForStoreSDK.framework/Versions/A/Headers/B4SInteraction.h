@@ -135,6 +135,13 @@ typedef NS_ENUM(NSInteger, B4SNotificationType)
  */
 @property   (nonatomic) NSInteger    placeMuteDuration;
 
+
+
+/**
+ The optional image identifier (as a UUID)
+ */
+@property (nonatomic, retain)   NSString    *imageUUID;
+
 /**
  Returned the B4SInteraction object associated to the given interactionId
  */

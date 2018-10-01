@@ -43,6 +43,7 @@ extern NSString *const kB4SNotifLocationAccuracy;
 extern NSString *const kB4SNotifShopLatitude;
 extern NSString *const kB4SNotifShopLongitude;
 extern NSString *const kB4SNotifInteractionMaxDistance;
+extern NSString *const kB4SNotifTimestamp;
 
 extern NSString *const kB4SNotifDistance;
 extern NSString *const kB4SNotifBeaconRef;
