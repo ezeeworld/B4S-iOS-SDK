@@ -337,11 +337,14 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
 
 - (void)start;
 
-
+#pragma  mark - GPDR Purposes
 /**
- *  Calling this method completely stop the SDK. Nothing will be called / logged / stored, no position is collected, no beacon is listened to.
- To restart the SDK restart use setupSharedInstance / setupSharedInstanceWithAppId: then start
+
+ @param purposeName Purpose fully qualified name
+ @return Purpose value, casted as a BOOL. Might return funky results if user property type is not an integer
  */
-- (void)terminate;
+- (BOOL)statusForPurpose:(NSString *)purposeName;
+
+- (void)setStatus:(BOOL)status forPurpose:(NSString *)purposeName;
 
 @end
