@@ -179,6 +179,13 @@
     &lt;true/&gt;
 </code></pre>
 
+<p><strong>Warning</strong>: if you are setting <code>Neer.By Disable automatic init</code> to <code>YES</code> you must manually initialise the singleton:</p>
+<pre><code class="objc">[B4SSingleton setupSharedInstance];
+</code></pre>
+
+<pre><code class="swift">B4SSingleton.setupSharedInstance())
+</code></pre>
+
 <ul>
 <li>Import the Framework In your AppDelegate.m</li>
 </ul>
@@ -203,19 +210,19 @@ To do so, add  a <code>Neer.By Do no ask for geolocation permission</code> to yo
 <p><strong>Warning</strong>: if this key is set to <code>YES</code>, the SDK won't have access to the user location until the user agrees the share his location. Thus the SDK won't track the user position and won't be able to listen to Beacons.</p>
 <h1 id="recording-user-data">Recording user data</h1>
 <p>Neerby can relate events tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call this every time). The key should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key.</p>
-<pre><code class="objc">[[B4SSingleton sharedInstance] setUserName:@&quot;Bernard&quot; firstName:@&quot;VanCode&quot; gender:B4SCustomerGender_MALE email:@&quot;bernard@vancode.com&quot; customerRef:@&quot;90210&quot;];
-[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@&quot;Bernard&quot;];
-[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@&quot;VanCode&quot;];
-[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserGenderKey withGender:B4SCustomerGender_MALE];
-[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUsereMailKey withString:@&quot;bernard@vancode.com&quot;];
-[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserCustomerRefNameKey withString:@&quot;90210&quot;];
+<p>Starting with version <code>2.4.0</code> an option is available to restrict the user property to the device. If the key is set to <code>FALSE</code> the value will be sent to the server and available to create customer targets. If set to <code>TRUE</code> the value is kept on the device and can only be user to replace placeholder in notification messages.</p>
+<pre><code class="objc">[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@&quot;Bernard&quot; andLocalOnly:FALSE];
+[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@&quot;VanCode&quot; andLocalOnly:FALSE];
+[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserGenderKey withGender:B4SCustomerGender_MALE andLocalOnly:FALSE];
+[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUsereMailKey withString:@&quot;bernard@vancode.com&quot; andLocalOnly:FALSE];
+[[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserCustomerRefNameKey withString:@&quot;90210&quot; andLocalOnly:FALSE];
 </code></pre>
 
-<pre><code class="swift">B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserFirstNameKey, withString: &quot;Bernard&quot;)
-B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserLastNameKey, withString: &quot;VanCode&quot;)
-B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserGenderKey, withGender: B4SCustomerGender_MALE)
-B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUsereMailKey, withString: &quot;bernard@vancode.com&quot;)
-B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNameKey, withString: &quot;90210&quot;)
+<pre><code class="swift">B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserFirstNameKey, withString: &quot;Bernard&quot;, andLocalOnly:false)
+B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserLastNameKey, withString: &quot;VanCode&quot;, andLocalOnly:false)
+B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserGenderKey, withGender: B4SCustomerGender_MALE, andLocalOnly:false)
+B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUsereMailKey, withString: &quot;bernard@vancode.com&quot;, andLocalOnly:false)
+B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNameKey, withString: &quot;90210&quot;, andLocalOnly:false)
 </code></pre>
 
 <h1 id="beacon-based-notifications">Beacon-based notifications</h1>

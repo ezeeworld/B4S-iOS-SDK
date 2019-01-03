@@ -159,64 +159,130 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
 
 
 /**
- *  Store a integer property about the user
+ *  Store a integer property about the user. This value will be sent to the server
  *
  *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
  *  @param number The value.
  *
  *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
  */
-- (BOOL)setUserProperty:(NSString *)key withInteger:(NSInteger)number;
+- (BOOL)setUserProperty:(NSString *)key withInteger:(NSInteger)number DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton setUserProperty: ... andLocalOnly:] methods");
 
 /**
- *  Store a float property about the user
+ *  Store a float property about the user. This value will be sent to the server
  *
  *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
  *  @param number The value.
  *
  *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
  */
-- (BOOL)setUserProperty:(NSString *)key withFloat:(float)number;
+- (BOOL)setUserProperty:(NSString *)key withFloat:(float)number DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton setUserProperty: ... andLocalOnly:] methods");
 
 /**
- *  Store a string property about the user
+ *  Store a string property about the user. This value will be sent to the server
  *
  *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
  *  @param number The value. Pass [NSNull null] to delete a previously existing value
  *
  *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
  */
-- (BOOL)setUserProperty:(NSString *)key withString:(NSString *)string;
+- (BOOL)setUserProperty:(NSString *)key withString:(NSString *)string DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton setUserProperty: ... andLocalOnly:] methods");
 
 /**
- *  Store a gender property about the user
+ *  Store a gender property about the user. This value will be sent to the server
  *
  *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
  *  @param number The value. Pass B4SCustomerGender_UNDEFINED to delete a previously existing value
  *
  *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
  */
-- (BOOL)setUserProperty:(NSString *)key withGender:(B4SCustomerGender)gender;
+- (BOOL)setUserProperty:(NSString *)key withGender:(B4SCustomerGender)gender DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton setUserProperty: ... andLocalOnly:] methods");
 
 /**
- *  Store a Array property about the user
+ *  Store a Array property about the user. This value will be sent to the server
  *
  *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
  *  @param number The value. Pass [NSNull null] to delete a previously existing value. The array cannot contain another array, nor contains types other that NSString, NSNumber, NSDate. All objects inside the array must have the same data type
  *
  *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
  */
-- (BOOL)setUserProperty:(NSString *)key withArray:(NSArray *)array;
+- (BOOL)setUserProperty:(NSString *)key withArray:(NSArray *)array DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton setUserProperty: ... andLocalOnly:] methods");
 
 /**
- *  Store a date property about the user
+ *  Store a date property about the user. This value will be sent to the server
  *
  *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
  *  @param number The value. Pass [NSNull null] to delete a previously existing value
  *
  *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
  */
-- (BOOL)setUserProperty:(NSString *)key withDate:(NSDate *)date;
+- (BOOL)setUserProperty:(NSString *)key withDate:(NSDate *)date DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton setUserProperty: ... andLocalOnly:] methods");
+
+/**
+ *  Store a integer property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value.
+ *  @param localOnly If TRUE the user property won't be sent to the server and thus can only be user for local substitution
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withInteger:(NSInteger)number andLocalOnly:(BOOL)localOnly;
+
+/**
+ *  Store a float property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value.
+ *  @param localOnly If TRUE the user property won't be sent to the server and thus can only be user for local substitution
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withFloat:(float)number andLocalOnly:(BOOL)localOnly;
+
+/**
+ *  Store a string property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value. Pass [NSNull null] to delete a previously existing value
+ *  @param localOnly If TRUE the user property won't be sent to the server and thus can only be user for local substitution
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withString:(NSString *)string andLocalOnly:(BOOL)localOnly;
+
+/**
+ *  Store a gender property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value. Pass B4SCustomerGender_UNDEFINED to delete a previously existing value
+ *  @param localOnly If TRUE the user property won't be sent to the server and thus can only be user for local substitution
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withGender:(B4SCustomerGender)gender andLocalOnly:(BOOL)localOnly;
+
+/**
+ *  Store a Array property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value. Pass [NSNull null] to delete a previously existing value. The array cannot contain another array, nor contains types other that NSString, NSNumber, NSDate. All objects inside the array must have the same data type
+ *  @param localOnly If TRUE the user property won't be sent to the server and thus can only be user for local substitution
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withArray:(NSArray *)array andLocalOnly:(BOOL)localOnly;
+
+/**
+ *  Store a date property about the user
+ *
+ *  @param key    The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key
+ *  @param number The value. Pass [NSNull null] to delete a previously existing value
+ *  @param localOnly If TRUE the user property won't be sent to the server and thus can only be user for local substitution
+ *
+ *  @return Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.
+ */
+- (BOOL)setUserProperty:(NSString *)key withDate:(NSDate *)date andLocalOnly:(BOOL)localOnly;
 
 /**
  *  Deletes an existing user property

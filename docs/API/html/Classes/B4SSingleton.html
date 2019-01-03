@@ -106,15 +106,27 @@
 		
 		<option value="//api/name/setUserProperty:withArray:">- setUserProperty:withArray:</option>
 		
+		<option value="//api/name/setUserProperty:withArray:andLocalOnly:">- setUserProperty:withArray:andLocalOnly:</option>
+		
 		<option value="//api/name/setUserProperty:withDate:">- setUserProperty:withDate:</option>
+		
+		<option value="//api/name/setUserProperty:withDate:andLocalOnly:">- setUserProperty:withDate:andLocalOnly:</option>
 		
 		<option value="//api/name/setUserProperty:withFloat:">- setUserProperty:withFloat:</option>
 		
+		<option value="//api/name/setUserProperty:withFloat:andLocalOnly:">- setUserProperty:withFloat:andLocalOnly:</option>
+		
 		<option value="//api/name/setUserProperty:withGender:">- setUserProperty:withGender:</option>
+		
+		<option value="//api/name/setUserProperty:withGender:andLocalOnly:">- setUserProperty:withGender:andLocalOnly:</option>
 		
 		<option value="//api/name/setUserProperty:withInteger:">- setUserProperty:withInteger:</option>
 		
+		<option value="//api/name/setUserProperty:withInteger:andLocalOnly:">- setUserProperty:withInteger:andLocalOnly:</option>
+		
 		<option value="//api/name/setUserProperty:withString:">- setUserProperty:withString:</option>
+		
+		<option value="//api/name/setUserProperty:withString:andLocalOnly:">- setUserProperty:withString:andLocalOnly:</option>
 		
 		<option value="//api/name/start">- start</option>
 		
@@ -374,7 +386,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Store a integer property about the user</p>
+				<p>Store a integer property about the user. This value will be sent to the server</p>
 			</div>
 			
 		    
@@ -437,7 +449,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Store a float property about the user</p>
+				<p>Store a float property about the user. This value will be sent to the server</p>
 			</div>
 			
 		    
@@ -500,7 +512,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Store a string property about the user</p>
+				<p>Store a string property about the user. This value will be sent to the server</p>
 			</div>
 			
 		    
@@ -563,7 +575,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Store a gender property about the user</p>
+				<p>Store a gender property about the user. This value will be sent to the server</p>
 			</div>
 			
 		    
@@ -626,7 +638,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Store a Array property about the user</p>
+				<p>Store a Array property about the user. This value will be sent to the server</p>
 			</div>
 			
 		    
@@ -689,7 +701,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Store a date property about the user</p>
+				<p>Store a date property about the user. This value will be sent to the server</p>
 			</div>
 			
 		    
@@ -705,6 +717,414 @@
 					<tr>
 						<th scope="row" class="argument-name"><code>key</code></th>
 						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value. Pass [NSNull null] to delete a previously existing value</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withInteger:andLocalOnly:" title="setUserProperty:withInteger:andLocalOnly:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withInteger:andLocalOnly:">&ndash;&nbsp;setUserProperty:withInteger:andLocalOnly:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a integer property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withInteger:(NSInteger)<em>number</em> andLocalOnly:(BOOL)<em>localOnly</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>localOnly</code></th>
+						<td><p>If TRUE the user property won&rsquo;t be sent to the server and thus can only be user for local substitution</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withFloat:andLocalOnly:" title="setUserProperty:withFloat:andLocalOnly:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withFloat:andLocalOnly:">&ndash;&nbsp;setUserProperty:withFloat:andLocalOnly:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a float property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withFloat:(float)<em>number</em> andLocalOnly:(BOOL)<em>localOnly</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>localOnly</code></th>
+						<td><p>If TRUE the user property won&rsquo;t be sent to the server and thus can only be user for local substitution</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withString:andLocalOnly:" title="setUserProperty:withString:andLocalOnly:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withString:andLocalOnly:">&ndash;&nbsp;setUserProperty:withString:andLocalOnly:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a string property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withString:(NSString *)<em>string</em> andLocalOnly:(BOOL)<em>localOnly</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>localOnly</code></th>
+						<td><p>If TRUE the user property won&rsquo;t be sent to the server and thus can only be user for local substitution</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value. Pass [NSNull null] to delete a previously existing value</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withGender:andLocalOnly:" title="setUserProperty:withGender:andLocalOnly:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withGender:andLocalOnly:">&ndash;&nbsp;setUserProperty:withGender:andLocalOnly:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a gender property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withGender:(B4SCustomerGender)<em>gender</em> andLocalOnly:(BOOL)<em>localOnly</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>localOnly</code></th>
+						<td><p>If TRUE the user property won&rsquo;t be sent to the server and thus can only be user for local substitution</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value. Pass B4SCustomerGender_UNDEFINED to delete a previously existing value</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withArray:andLocalOnly:" title="setUserProperty:withArray:andLocalOnly:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withArray:andLocalOnly:">&ndash;&nbsp;setUserProperty:withArray:andLocalOnly:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a Array property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withArray:(NSArray *)<em>array</em> andLocalOnly:(BOOL)<em>localOnly</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>localOnly</code></th>
+						<td><p>If TRUE the user property won&rsquo;t be sent to the server and thus can only be user for local substitution</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>number</code></th>
+						<td><p>The value. Pass [NSNull null] to delete a previously existing value. The array cannot contain another array, nor contains types other that NSString, NSNumber, NSDate. All objects inside the array must have the same data type</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns TRUE, if the value is valid, FALSE otherwise or if more than 20 properties have been set.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserProperty:withDate:andLocalOnly:" title="setUserProperty:withDate:andLocalOnly:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserProperty:withDate:andLocalOnly:">&ndash;&nbsp;setUserProperty:withDate:andLocalOnly:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Store a date property about the user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)setUserProperty:(NSString *)<em>key</em> withDate:(NSDate *)<em>date</em> andLocalOnly:(BOOL)<em>localOnly</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The key is a string. It should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a &ldquo;user.hometown&rdquo; key</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>localOnly</code></th>
+						<td><p>If TRUE the user property won&rsquo;t be sent to the server and thus can only be user for local substitution</p></td>
 					</tr>
 				
 					<tr>
@@ -1575,7 +1995,7 @@ Do NOT set this before calling startStandAloneMode or your call will be ignored<
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Ezeeworld. All rights reserved. Updated: 2018-11-08</p>
+						<p class="copyright">Copyright &copy; 2019 Ezeeworld. All rights reserved. Updated: 2019-01-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

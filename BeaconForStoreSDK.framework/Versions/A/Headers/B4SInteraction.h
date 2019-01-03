@@ -126,6 +126,18 @@ typedef NS_ENUM(NSInteger, B4SNotificationType)
 @property (nonatomic) BOOL sundayEnabled;
 
 /**
+ True if multiple customer journey can be run in parralel.
+ For instance: there is a campaign with 2 interactions:
+ 1/ Beacon zone entry, associated with a shop
+ 2/ Virtual beacon zone entry, associated with the same shop
+ 
+ If this flag is set to *yes*, the interaction #1 can be triggered in multiple shops before the campaign reset time is reached.
+ */
+@property (nonatomic) BOOL allowConcurrentCustomerJourneys;
+
+
+
+/**
  Shops associated to the interaction
  */
 @property (readonly) NSMutableDictionary<NSString *, NSString *> *shops;
