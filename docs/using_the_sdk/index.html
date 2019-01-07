@@ -65,6 +65,9 @@
     <li class="toctree-l2"><a href="#base-integration">Base integration</a></li>
     
 
+    <li class="toctree-l2"><a href="#do-not-ask-for-notifications-permissions">Do not ask for Notifications permissions</a></li>
+    
+
     <li class="toctree-l2"><a href="#do-not-ask-for-corelocation-permissions">Do not ask for CoreLocation permissions</a></li>
     
 
@@ -204,9 +207,13 @@
 <pre><code class="swift">B4SSingleton.sharedInstance().start()
 </code></pre>
 
+<h1 id="do-not-ask-for-notifications-permissions">Do not ask for Notifications permissions</h1>
+<p>By default, on startup,  the SDK will ask the user for his permission to display notifications if it hasn't been done already. You can disable this behavior if you want to ask the user his permission to display notifications within your own onboarding process.
+To do so, add  a <code>Neer.By Do not ask for notification permission</code> to your Info.plist with a <code>YES</code> value.</p>
+<p><strong>Warning</strong>: if this key is set to <code>YES</code>, the SDK won't be able to display notifications until the applications asks the user to do so.</p>
 <h1 id="do-not-ask-for-corelocation-permissions">Do not ask for CoreLocation permissions</h1>
 <p>By default, on startup,  the SDK will ask the user for his permission to access his geolocation if it hasn't been done already. You can disable this behavior if you want to ask the user his location within your own onboarding process.
-To do so, add  a <code>Neer.By Do no ask for geolocation permission</code> to your Info.plist with a <code>YES</code> value.</p>
+To do so, add  a <code>Neer.By Do not ask for geolocation permission</code> to your Info.plist with a <code>YES</code> value.</p>
 <p><strong>Warning</strong>: if this key is set to <code>YES</code>, the SDK won't have access to the user location until the user agrees the share his location. Thus the SDK won't track the user position and won't be able to listen to Beacons.</p>
 <h1 id="recording-user-data">Recording user data</h1>
 <p>Neerby can relate events tot individual customers. Supplying the customer details is typically done on startup and/or after a user signed in to his/her account. In these cases you can update te SDK with this customer data (which is persisted; no need to call this every time). The key should use reverse-dns-like notation to be used as a domain. For instance, the user hometown should use a "user.hometown" key.</p>
