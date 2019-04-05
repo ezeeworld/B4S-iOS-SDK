@@ -60,6 +60,7 @@ extern NSString *const kB4SBeaconMajor;
 extern NSString *const kB4SBeaconMinor;
 extern NSString *const kB4SBeaconUdid;
 extern  NSString    *const  kB4SNotifNotificationSource;
+extern  NSString    *const  kB4SDisablePiningPlistKey;
 
 B4SActionType B4SActionTypeForInteger ( NSInteger anIntValue );
 
