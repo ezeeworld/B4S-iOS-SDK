@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>App Store validation - Neerby SDK iOS</title>
+  <title>Shop Mode - Neerby SDK iOS</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "App Store validation";
-    var mkdocs_page_input_path = "app_store.md";
-    var mkdocs_page_url = "/app_store/";
+    var mkdocs_page_name = "Shop Mode";
+    var mkdocs_page_input_path = "shop_mode.md";
+    var mkdocs_page_url = "/shop_mode/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -67,9 +67,15 @@
     <a class="" href="../rgpd_compliance/">GDPR Compliance</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../shop_mode/">Shop Mode</a>
+    <a class="current" href="./">Shop Mode</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#shop-mode">Shop mode</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -77,15 +83,9 @@
     <a class="" href="../application_size/">Application size</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">App Store validation</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#app-store">App Store</a></li>
-    
-
-    </ul>
+    <a class="" href="../app_store/">App Store validation</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -115,7 +115,7 @@
     
       
     
-    <li>App Store validation</li>
+    <li>Shop Mode</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -125,9 +125,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="app-store">App Store</h1>
-<p>The Neer.by SDK uses the Advertising Identifier (IDFA). When submiting your app to Apple for the AppStore review, you must enable the settings circled in the screenshot below in additions to the uses your app already requires.</p>
-<p><img alt="App Store IDFA" src="../images/appStore-IDFA.png" /></p>
+                <h1 id="shop-mode">Shop mode</h1>
+<p>The shop mode is a feature introduced in Neerby SDK 2.5 that allows the host app to know is currently in a known shop, using both Beacon and Virtual beacons to enhance detection.</p>
+<pre><code class="objc">B4SShop *currentShop = [[B4SSingleton sharedInstance] currentShop];
+</code></pre>
+
+<pre><code class="swift">let currentShop = B4SSingleton.sharedInstance().currentShop
+</code></pre>
+
+<p>The method will either return nil, or a B4SShop instance. The <code>name</code> and <code>clientRef</code> properties are available.</p>
+<p>The cost of calling this method is really low, so you can call it repeatedly when the application is in foreground. </p>
               
             </div>
           </div>
@@ -135,10 +142,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../unity_integration/" class="btn btn-neutral float-right" title="Unity integration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../application_size/" class="btn btn-neutral float-right" title="Application size">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../application_size/" class="btn btn-neutral" title="Application size"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../rgpd_compliance/" class="btn btn-neutral" title="GDPR Compliance"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -164,10 +171,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../application_size/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../rgpd_compliance/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../unity_integration/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../application_size/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

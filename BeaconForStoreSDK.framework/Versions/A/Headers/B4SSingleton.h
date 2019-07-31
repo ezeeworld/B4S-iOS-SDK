@@ -15,7 +15,8 @@
 @class B4SBeacon;
 @class B4SRemoteNotification;
 @class B4SInteraction;
-
+@class B4SShop;
+@class B4SLiveBeacon;
 extern NSString *const kB4SNotificationProcessedNotification;
 
 extern NSString *const kB4SBeaconNotificationName;
@@ -143,21 +144,6 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
 @property (nonatomic, retain) NSString *notificationSoundname;
 
 #pragma mark - User Properties
-/**
- *  Save the customer information to the BeaconForStore backend. This information is cached, it's not necessary to call this method on every app launch
- *
- *  @param aName      Customer name
- *  @param aFirstname Customer firstname
- *  @param aGender    Customer gender
- *  @param anEmail    Customer e-mail address
- *  @param aRef       Customer reference. This can be a customer ID, or stringified JSON data if you need extra fields
- */
-- (void)setUserName:(NSString *)aName
-          firstName:(NSString *)aFirstname
-             gender:(B4SCustomerGender)aGender
-              email:(NSString *)anEmail
-        customerRef:(NSString *)aRef DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton setUserProperty:] methods");
-
 
 /**
  *  Store a integer property about the user. This value will be sent to the server
@@ -330,16 +316,6 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
  */
 @property(nonatomic)    BOOL displayNotifications;
 
-/**
- Set if you do not want more notifications to be sent to the customer.
- */
-- (void)setAppNotReadyToAcceptNextInteraction DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton sharedInstance].displayNotifications = FALSE; instead");
-
-/**
- Set if you want to notifications to be sent again to the customer after a previous call to setAppNotReadyToAcceptNextInteraction:
- */
-- (void)setAppReadyToAcceptNextInteraction DEPRECATED_MSG_ATTRIBUTE("Use [B4SSingleton sharedInstance].displayNotifications = TRUE; instead");
-
 #pragma mark - Showing notifications
 /**
  *  This methods must be called from your app delegate application:didReceiveLocalNotification:
@@ -396,11 +372,6 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
 /**
  *  Start to listen to beacons. This method must be called AFTER [B4SSingleton setupSharedInstanceWithAppId:]
  */
-- (void)startStandAloneMode DEPRECATED_MSG_ATTRIBUTE("Use [[B4SSingleton sharedInstance] start] instead");
-
-/**
- *  Start to listen to beacons. This method must be called AFTER [B4SSingleton setupSharedInstanceWithAppId:]
- */
 
 - (void)start;
 
@@ -413,5 +384,15 @@ extern NSString    *const      kB4SUserPropertyUserClientRefKey;
 - (BOOL)statusForPurpose:(NSString *)purposeName;
 
 - (void)setStatus:(BOOL)status forPurpose:(NSString *)purposeName;
+
+
+#pragma mark - Shop mode
+/**
+ Check if the user is currently in a shop
+ 
+ @return Nil if the user is not in a shop, a valid B4SShop instance otherwise
+ */
+- (B4SShop *)currentShop;
+
 
 @end

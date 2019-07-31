@@ -88,6 +88,8 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/currentShop">- currentShop</option>
+		
 		<option value="//api/name/deleteUserProperty:">- deleteUserProperty:</option>
 		
 		<option value="//api/name/enablePushNotifications">- enablePushNotifications</option>
@@ -96,13 +98,7 @@
 		
 		<option value="//api/name/registerPushNotificationDeviceToken:">- registerPushNotificationDeviceToken:</option>
 		
-		<option value="//api/name/setAppNotReadyToAcceptNextInteraction">- setAppNotReadyToAcceptNextInteraction</option>
-		
-		<option value="//api/name/setAppReadyToAcceptNextInteraction">- setAppReadyToAcceptNextInteraction</option>
-		
 		<option value="//api/name/setStatus:forPurpose:">- setStatus:forPurpose:</option>
-		
-		<option value="//api/name/setUserName:firstName:gender:email:customerRef:">- setUserName:firstName:gender:email:customerRef:</option>
 		
 		<option value="//api/name/setUserProperty:withArray:">- setUserProperty:withArray:</option>
 		
@@ -129,8 +125,6 @@
 		<option value="//api/name/setUserProperty:withString:andLocalOnly:">- setUserProperty:withString:andLocalOnly:</option>
 		
 		<option value="//api/name/start">- start</option>
-		
-		<option value="//api/name/startStandAloneMode">- startStandAloneMode</option>
 		
 		<option value="//api/name/statusForPurpose:">- statusForPurpose:</option>
 		
@@ -280,79 +274,6 @@
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *notificationSoundname</code></div>
 
 		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setUserName:firstName:gender:email:customerRef:" title="setUserName:firstName:gender:email:customerRef:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setUserName:firstName:gender:email:customerRef:">&ndash;&nbsp;setUserName:firstName:gender:email:customerRef:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Save the customer information to the BeaconForStore backend. This information is cached, it&rsquo;s not necessary to call this method on every app launch</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setUserName:(NSString *)<em>aName</em> firstName:(NSString *)<em>aFirstname</em> gender:(B4SCustomerGender)<em>aGender</em> email:(NSString *)<em>anEmail</em> customerRef:(NSString *)<em>aRef</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>aName</code></th>
-						<td><p>Customer name</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>aFirstname</code></th>
-						<td><p>Customer firstname</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>aGender</code></th>
-						<td><p>Customer gender</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>anEmail</code></th>
-						<td><p>Customer e-mail address</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>aRef</code></th>
-						<td><p>Customer reference. This can be a customer ID, or stringified JSON data if you need extra fields</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -1417,88 +1338,6 @@ Do NOT set this before calling startStandAloneMode or your call will be ignored<
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/setAppNotReadyToAcceptNextInteraction" title="setAppNotReadyToAcceptNextInteraction"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setAppNotReadyToAcceptNextInteraction">&ndash;&nbsp;setAppNotReadyToAcceptNextInteraction</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Set if you do not want more notifications to be sent to the customer.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setAppNotReadyToAcceptNextInteraction</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setAppReadyToAcceptNextInteraction" title="setAppReadyToAcceptNextInteraction"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setAppReadyToAcceptNextInteraction">&ndash;&nbsp;setAppReadyToAcceptNextInteraction</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Set if you want to notifications to be sent again to the customer after a previous call to setAppNotReadyToAcceptNextInteraction:</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setAppReadyToAcceptNextInteraction</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/notificationFeedback:" title="notificationFeedback:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/notificationFeedback:">&ndash;&nbsp;notificationFeedback:</a></code>
 </h3>
@@ -1825,47 +1664,6 @@ Do NOT set this before calling startStandAloneMode or your call will be ignored<
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/startStandAloneMode" title="startStandAloneMode"></a>
-	<h3 class="method-title"><code><a href="#//api/name/startStandAloneMode">&ndash;&nbsp;startStandAloneMode</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Start to listen to beacons. This method must be called AFTER [B4SSingleton setupSharedInstanceWithAppId:]</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)startStandAloneMode</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/start" title="start"></a>
 	<h3 class="method-title"><code><a href="#//api/name/start">&ndash;&nbsp;start</a></code>
 </h3>
@@ -1980,6 +1778,52 @@ Do NOT set this before calling startStandAloneMode or your call will be ignored<
 		    
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/currentShop" title="currentShop"></a>
+	<h3 class="method-title"><code><a href="#//api/name/currentShop">&ndash;&nbsp;currentShop</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Check if the user is currently in a shop</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (B4SShop *)currentShop</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Nil if the user is not in a shop, a valid B4SShop instance otherwise</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">B4SSingleton.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1995,7 +1839,7 @@ Do NOT set this before calling startStandAloneMode or your call will be ignored<
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Ezeeworld. All rights reserved. Updated: 2019-04-05</p>
+						<p class="copyright">Copyright &copy; 2019 Ezeeworld. All rights reserved. Updated: 2019-07-30</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

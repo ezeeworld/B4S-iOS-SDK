@@ -25,21 +25,22 @@
 /**
  Return B4SShop object associated to the given shopId
  */
-+ (B4SShop *)getShopWithId:(NSString *)aShopId;
++ (B4SShop *)getShopWithId:(NSString *)aShopId;  // TODO: move to private
 /**
  Returns the list of shop previously downloaded from the backend
  */
 
-+ (NSArray<B4SShop *> *)shops;
++ (NSArray<B4SShop *> *)shops;  // TODO: move to private
 
 /**
  Return the number of shops.
  */
-+ (NSUInteger)count;
++ (NSUInteger)count;  // TODO: move to private
 
 /**
  Return the nearest shop.
  */
-+ (B4SShop *)nearest;
++ (B4SShop *)nearest;    //TODO : REMOVE
+
 
 @end
