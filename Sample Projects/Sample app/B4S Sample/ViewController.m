@@ -19,6 +19,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    NSLog(@">> UUID=%@",[B4SGlobalConfig sharedInstance].udid);
+    /*
+    NSDictionary    *tags = @{
+        @"test": @"TEST",
+    };
+    [NeerByTag newEvent:@"sdk.testTag" data:tags];*/
 }
 
 - (void)didReceiveMemoryWarning

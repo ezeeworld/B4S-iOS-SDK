@@ -9,3 +9,4 @@
 #import "B4SBeacon.h"
 #import "B4SInteraction.h"
 #import "B4SSingleton.h"
+#import "NeerByTag.h"

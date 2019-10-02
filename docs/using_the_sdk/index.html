@@ -253,13 +253,20 @@ B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNam
 
 <p>After processing a notification, a kB4SNotificationProcessedNotification event is fired by the SDK. The notification type is a B4SActionType that you can get using <code>[[notificationData.userInfo objectForKey:kB4SNotifActionId] intValue]</code></p>
 <h1 id="application-tagging">Application tagging</h1>
-<p>You can tag your application with the B4S SDK. You can set two values : The first parameter is the event descriptor and the second the userData asociated to the event. Use the [B4STag event:userData:] and  [B4STag event:userData:]  methods</p>
-<pre><code class="objc">    [B4STag event:@&quot;menuClose&quot; userData:@&quot;menu_id_42&quot;];
-    [B4STag event:@&quot;menuOpen&quot; userDict:@{@&quot;menu_id&quot;: @(42), @&quot;item_id&quot;: @(12)}];
-</code></pre>
-
-<pre><code class="swift">    B4STag.event(&quot;menuClose&quot;, userData: &quot;menu_id_42&quot;)
-    B4STag.event(&quot;menuOpen&quot;, userData: [&quot;menu_id&quot; : 42, &quot;item_id&quot;: 12])
+<p><del>You can tag your application with the B4S SDK. You can set two values : The first parameter is the event descriptor and the second the userData asociated to the event. Use the [B4STag event:userData:] and  [B4STag event:userData:]  methods</del></p>
+<p>Starting with 2.5.2, the old B4STag API is now deprecated. It is replaced with NeerbyTag which is GDPR compliant.</p>
+<p>You can tag your application with the B4S SDK. You have to specify 2 informations :
+• A tag type
+• A data dictionnary with the datas associated to your tag.
+This new API will automaticaly add the following informations to each of your tags :
+• Device location
+• SDK version number
+• Application version number
+• Tag timestamp</p>
+<pre><code class="objc">NSDictionary    *tags = @{
+    @&quot;tagName&quot;: @&quot;tagValue&quot;,
+};
+[NeerByTag newEvent:@&quot;sdk.sampleTag&quot; data:tags];
 </code></pre>
 
 <h1 id="custom-notifications">Custom notifications</h1>

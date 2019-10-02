@@ -18,10 +18,6 @@
 #warning Enter your Ezeeworld app ID in the Info.plist
         [[B4SSingleton sharedInstance] start];
         
-        // Optional setup: warn the user if Bluetooth or notifications are enabled
-        [B4SBehaviours warnForBluetooth:true after:2 count:2 andEvery:2 withTitle:@"Bluetooth" andText:@"Bluetooth is disabled. Do you want to enable it ?"];
-        [B4SBehaviours warnForNotifications:true after:3 count:2 andEvery:2 withTitle:@"Notifications " andText:@"Notifications are disabled. Do you want to enable them ?"];
-        
         // Optional configuration: set user information, configure a delegate, change the default sound
         [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@"client firstname"];
         [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@"client lastname"];
