@@ -253,12 +253,10 @@ B4SSingleton.sharedInstance().setUserProperty(kB4SUserPropertyUserCustomerRefNam
 
 <p>After processing a notification, a kB4SNotificationProcessedNotification event is fired by the SDK. The notification type is a B4SActionType that you can get using <code>[[notificationData.userInfo objectForKey:kB4SNotifActionId] intValue]</code></p>
 <h1 id="application-tagging">Application tagging</h1>
-<p><del>You can tag your application with the B4S SDK. You can set two values : The first parameter is the event descriptor and the second the userData asociated to the event. Use the [B4STag event:userData:] and  [B4STag event:userData:]  methods</del></p>
-<p>Starting with 2.5.2, the old B4STag API is now deprecated. It is replaced with NeerbyTag which is GDPR compliant.</p>
-<p>You can tag your application with the B4S SDK. You have to specify 2 informations :
-• A tag type
-• A data dictionnary with the datas associated to your tag.
-This new API will automaticaly add the following informations to each of your tags :
+<p>You can tag your application events with the Neerby SDK. You can set two values : The first parameter is the event descriptor and the second the userData asociated to the event. </p>
+<p>Starting with 2.5.2, the old B4STag API is now deprecated. It is replaced with NeerbyTag which is compliant with GDPR retention rules.</p>
+<p>To create a tag you must provide at least a tag type. You can also provide a data dictionary. </p>
+<p>This new API will automaticaly add the following informations to each of your tags :
 • Device location
 • SDK version number
 • Application version number

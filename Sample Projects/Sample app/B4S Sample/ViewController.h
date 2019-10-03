@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@import BeaconForStoreSDK;
-
 @interface ViewController : UIViewController
 
 @end

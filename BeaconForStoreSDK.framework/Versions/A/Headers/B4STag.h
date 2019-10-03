@@ -20,7 +20,7 @@
  *  @param userData attached user data as a string
  */
 + (void)event:(NSString *)anEvent
-     userData:(NSString *)userData;
+     userData:(NSString *)userData DEPRECATED_MSG_ATTRIBUTE("Use NeerByTag instead.");
 
 /**
  *  Tag an event
@@ -29,6 +29,6 @@
  *  @param userDict Attached used datas a a dictionary
  */
 + (void)event:(NSString *)anEvent
-     userDict:(NSDictionary *)userDict;
+     userDict:(NSDictionary *)userDict DEPRECATED_MSG_ATTRIBUTE("Use NeerByTag instead.");
 
 @end

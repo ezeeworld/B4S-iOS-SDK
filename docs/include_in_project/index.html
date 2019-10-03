@@ -236,7 +236,7 @@
 <li>Add a NSBluetoothPeripheralUsageDescription key</li>
 <li>Set its value to a string describing the reason for accessing Bluetooth</li>
 </ul>
-<p>Starting with iOS 11 (and app compiled with the Xcode 9 toolchain) you must explain why you app uses user location for both background &amp; foreground:</p>
+<p>Starting with iOS 11 (and app compiled with the Xcode 9 toolchain) you must explain why your app uses user location for both background &amp; foreground:</p>
 <ul>
 <li>Open your Info.plist file</li>
 <li>Add a NSLocationAlwaysAndWhenInUseUsageDescription key</li>
@@ -244,6 +244,10 @@
 <li>Add a NSLocationWhenInUseUsageDescription key</li>
 <li>Set its value to a string describing the reason for accessing user location when app is in foreground</li>
 </ul>
+<p>Starting with IOS 13 you must explaint why your app relies on Bluetooth when the application is in background
+  * Open your Info.plist file
+  * Add a NSBluetoothAlwaysUsageDescription key
+  * Set its value to a string describing the reason for accessing Bluetooth devices when app is in background</p>
               
             </div>
           </div>
