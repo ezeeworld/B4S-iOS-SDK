@@ -11,7 +11,9 @@
 
 @import BeaconForStoreSDK;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, B4SDelegate>
+#import <UserNotifications/UserNotifications.h>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate, B4SDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

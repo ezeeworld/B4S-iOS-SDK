@@ -30,13 +30,28 @@
         [[B4SSingleton sharedInstance] setNotificationSoundname:@"sound.caf"];
     }
     
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO( @"10.0" ) )
+    {
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    }
+    
     return YES;
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter* )center willPresentNotification:(UNNotification* )notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+    NSLog( @"Here handle push notification in foreground" );
+    //For notification Banner - when app in foreground
+
+    completionHandler(UNNotificationPresentationOptionAlert);
+
+    // Print Notification info
+    NSLog(@"Userinfo %@",notification.request.content.userInfo);
 }
 
 #pragma mark B4SDelegate
 
 // Optiional: change the notification message on the fly
-- (void)customizeNotificationText:(NSString *)aText
+/*- (void)customizeNotificationText:(NSString *)aText
                           andData:(NSString *)aData
                       andUserInfo:(NSMutableDictionary *)userInfos
                        completion:(void (^)(NSString *pushText, NSString *pushData, NSMutableDictionary *userInfos))completion {
@@ -59,7 +74,7 @@
         // the B4SSingleton::notificationFeedback: method.
         [[B4SSingleton sharedInstance] notificationFeedback:notification.userInfo];
     }
-}
+}*/
 
 
 @end

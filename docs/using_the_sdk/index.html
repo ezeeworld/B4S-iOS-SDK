@@ -212,6 +212,29 @@
 <pre><code class="swift">B4SSingleton.sharedInstance().start()
 </code></pre>
 
+<p>Starting with iOS10, in order to receive foreground notifications, add the following code in your application:didFinishLaunchingWithOptions: method:</p>
+<pre><code class="objc">if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO( @&quot;10.0&quot; ) ) {
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+}
+</code></pre>
+
+<pre><code class="swift">if #available(iOS 10.0, *) {
+    UNUserNotificationCenter.currentNotificationCenter().delegate = self
+}
+</code></pre>
+
+<p>and add the following delegate method :</p>
+<pre><code class="objc">- (void)userNotificationCenter:(UNUserNotificationCenter* )center willPresentNotification:(UNNotification* )notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+    completionHandler(UNNotificationPresentationOptionAlert);
+}
+</code></pre>
+
+<pre><code class="swift">@available(iOS 10.0, *)
+func userNotificationCenter(center: UNUserNotificationCenter, willPresentNotification notification: UNNotification,         withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -&gt; Void) {
+    completionHandler(UNNotificationPresentationOptionAlert)
+}
+</code></pre>
+
 <h1 id="do-not-ask-for-notifications-permissions">Do not ask for Notifications permissions</h1>
 <p>By default, on startup,  the SDK will ask the user for his permission to display notifications if it hasn't been done already. You can disable this behavior if you want to ask the user his permission to display notifications within your own onboarding process.
 To do so, add  a <code>Neer.By Do not ask for notification permission</code> to your Info.plist with a <code>YES</code> value.</p>
