@@ -37,10 +37,4 @@
  */
 + (NSUInteger)count;  // TODO: move to private
 
-/**
- Return the nearest shop.
- */
-+ (B4SShop *)nearest;    //TODO : REMOVE
-
-
 @end
