@@ -19,11 +19,11 @@
         [[B4SSingleton sharedInstance] start];
         
         // Optional configuration: set user information, configure a delegate, change the default sound
-        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@"client firstname"];
-        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@"client lastname"];
-        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserGenderKey withGender:B4SCustomerGender_FEMALE];
-        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUsereMailKey withString:@"clientEmail@domain.com"];
-        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserClientRefKey withString:@"yourOwnClientRef"];
+        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserFirstNameKey withString:@"client firstname" andLocalOnly:true];
+        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserLastNameKey withString:@"client lastname" andLocalOnly:true];
+        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserGenderKey withGender:B4SCustomerGender_FEMALE andLocalOnly:true];
+        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUsereMailKey withString:@"clientEmail@domain.com" andLocalOnly:true];
+        [[B4SSingleton sharedInstance] setUserProperty:kB4SUserPropertyUserClientRefKey withString:@"yourOwnClientRef" andLocalOnly:false];
         
         [B4SSingleton sharedInstance].delegate = self;
         
